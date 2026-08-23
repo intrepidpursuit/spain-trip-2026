@@ -1,12 +1,112 @@
 <!DOCTYPE html>
-<html>
-<head><meta charset="UTF-8"></head>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#14100e">
+<title>Travel profile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+  :root{
+    --bg:#14100e; --surface:#1c1714; --surface-2:#241d19; --raised:#2b221d;
+    --rule:#372c25; --rule-soft:#2a221c;
+    --text:#ece4dc; --mid:#b6a698; --light:#8a7a6c;
+    --terracotta:#e08a5f; --terracotta-light:#f0a884; --terracotta-dim:#7a4529;
+    --wedding:#c09ad6; --wedding-bg:#2e2338;
+    --beach:#6cc4d4; --beach-bg:#1b2f35;
+    --group:#8bc79a; --group-bg:#1e2f23;
+    --booked:#9ecb87; --booked-bg:#1f2b1b;
+    --warn:#e8836a; --warn-bg:#33201a;
+  }
+  html{ background:var(--bg); }
+  body{ background:var(--bg); color:var(--text); font-family:'Jost',sans-serif; font-weight:300;
+        line-height:1.7; -webkit-font-smoothing:antialiased; }
+  ::selection{ background:var(--terracotta-dim); color:#fff; }
+  .page{ max-width:880px; margin:0 auto; padding:48px 40px 96px; }
+
+  a{ color:var(--terracotta); }
+  h1{ font-family:'Cormorant Garamond',serif; font-weight:300; font-size:clamp(30px,5vw,50px); line-height:1.08; margin-bottom:12px; letter-spacing:-.01em; }
+  h2{ font-family:'Cormorant Garamond',serif; font-weight:400; font-size:clamp(22px,3vw,30px); margin-bottom:6px; line-height:1.2; }
+  h3{ font-family:'Cormorant Garamond',serif; font-weight:600; font-size:19px; margin-bottom:4px; line-height:1.25; }
+  .eyebrow{ font-weight:500; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--terracotta); margin-bottom:13px; }
+  .subtitle{ font-style:italic; font-family:'Cormorant Garamond',serif; font-size:17px; color:var(--light); }
+  .section-label{ font-weight:500; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--terracotta); margin-bottom:9px; }
+  .lede{ font-size:14.5px; color:var(--mid); margin-bottom:22px; max-width:66ch; }
+  .divider{ border:0; border-top:1px solid var(--rule); margin:44px 0 32px; }
+
+  nav.pages{ display:flex; gap:6px; flex-wrap:wrap; margin-bottom:34px; font-size:12px; }
+  nav.pages a{ color:var(--mid); text-decoration:none; padding:5px 12px; border:1px solid var(--rule);
+               border-radius:100px; transition:.15s; }
+  nav.pages a:hover{ color:var(--text); border-color:var(--terracotta-dim); background:var(--surface); }
+  nav.pages a.here{ color:var(--terracotta); border-color:var(--terracotta-dim); background:var(--surface); }
+
+  .note{ background:var(--surface); border-left:3px solid var(--terracotta); padding:14px 18px; margin:22px 0;
+         border-radius:0 4px 4px 0; font-size:13.5px; color:var(--mid); }
+  .note strong{ color:var(--text); font-weight:500; }
+  .note.warn{ border-left-color:var(--warn); background:var(--warn-bg); }
+  .note ul{ margin:8px 0 0 18px; } .note li{ margin-bottom:4px; }
+
+  .badge{ display:inline-block; font-size:10px; font-weight:500; letter-spacing:.1em; text-transform:uppercase;
+          padding:3px 9px; border-radius:3px; margin:0 4px 6px 0; }
+  .badge.wedding{ background:var(--wedding-bg); color:var(--wedding); }
+  .badge.beach{ background:var(--beach-bg); color:var(--beach); }
+  .badge.group{ background:var(--group-bg); color:var(--group); }
+  .badge.us{ background:var(--surface-2); color:var(--light); }
+  .badge.booked{ background:var(--booked-bg); color:var(--booked); }
+  .badge.warn{ background:var(--warn-bg); color:var(--warn); }
+
+  a.gm{ font-size:10px; font-weight:500; letter-spacing:.07em; text-transform:uppercase; color:var(--mid);
+        background:var(--surface-2); border:1px solid var(--rule-soft); border-radius:3px; padding:3px 8px;
+        text-decoration:none; white-space:nowrap; transition:.15s; }
+  a.gm:hover{ background:var(--terracotta); border-color:var(--terracotta); color:#1a1410; }
+  .tag{ background:var(--surface-2); color:var(--mid); font-size:10px; font-weight:500; letter-spacing:.08em;
+        text-transform:uppercase; padding:3px 8px; border-radius:3px; }
+  .tag.co{ background:var(--beach-bg); color:var(--beach); }
+  .tag.top{ background:#33291a; color:#d8b96a; }
+  .links{ margin-top:6px; display:flex; flex-wrap:wrap; gap:5px; align-items:center; }
+
+  table{ width:100%; border-collapse:collapse; font-size:13px; margin-top:8px; }
+  th{ text-align:left; font-weight:500; font-size:10px; letter-spacing:.12em; text-transform:uppercase;
+      color:var(--light); padding:0 10px 8px 0; border-bottom:1px solid var(--rule); }
+  td{ padding:9px 10px 9px 0; border-bottom:1px solid var(--rule-soft); color:var(--mid); vertical-align:top; }
+  td:first-child{ color:var(--text); }
+  td.nw{ white-space:nowrap; }
+
+  .footer{ margin-top:56px; padding-top:26px; border-top:1px solid var(--rule); font-style:italic;
+           font-family:'Cormorant Garamond',serif; font-size:15px; color:var(--light); }
+  .footer a{ color:var(--light); }
+
+  @media (max-width:620px){ .page{ padding:32px 18px 72px; } }
+
+  .doc{ max-width:70ch }
+  .doc h2{ margin:34px 0 8px; padding-bottom:7px; border-bottom:1px solid var(--rule); }
+  .doc h2:first-of-type{ margin-top:26px }
+  .doc h3{ margin:22px 0 4px; color:var(--terracotta); font-size:17px }
+  .doc p{ font-size:14.5px; color:var(--mid); margin-bottom:10px }
+  .doc ul,.doc ol{ margin:0 0 14px 20px }
+  .doc li{ font-size:14px; color:var(--mid); margin-bottom:5px }
+  .doc strong{ color:var(--text); font-weight:500 }
+  .doc em{ color:var(--light) }
+  .doc a{ color:var(--terracotta) }
+  .doc hr{ border:0; border-top:1px solid var(--rule); margin:30px 0 }
+</style>
+</head>
 <body>
-
-<h1>Joseph White — Travel Profile</h1>
-<p><em>Reference document for Claude and trip planning. Last updated: July 2026.</em></p>
-
-<h2>Travel Style</h2>
+<div class="page">
+  <div class="eyebrow">Reference · Joseph &amp; Melissa</div>
+  <h1>Travel profile</h1>
+  <div class="subtitle">Reference document for Claude and trip planning. Last updated: July 2026.</div>
+  <nav class="pages">
+  <a href="index.html">The trip</a>
+  <a href="day.html">Day by day</a>
+  <a href="routes.html">Routes</a>
+  <a href="map.html">Map</a>
+  <a href="spain-trip-reference.html">Group reference</a>
+  <a href="travel-profile.html" class="here">Profile</a>
+</nav>
+  <div class="doc"><h2>Travel Style</h2>
 <p>Slow pace — one or two activities per day, flexible time, no rushing. Will make exceptions for truly unmissable experiences but avoids typical tourist traps. Prefers off-the-beaten-path experiences, local food, and historic depth over surface-level sightseeing. Flexible on trip length — willing to extend for worthwhile experiences.</p>
 
 <h2>Interests</h2>
@@ -42,9 +142,21 @@
 
 <h2>Hotel Preferences</h2>
 <ul>
-  <li>Hilton Honors default (Diamond status)</li>
+  <li><strong>King bed, always, when travelling with Melissa.</strong> A queen is acceptable only if there is no alternative and counts as a real downside — worth paying to avoid or switching hotels over. Twin or double-double is not acceptable for the two of them. Travelling solo, no bed preference.</li>
+  <li>Hilton Honors default (Diamond status, member #539177017)</li>
+  <li>IHG, Hyatt and Marriott are acceptable alternatives when Hilton has no good option</li>
+  <li>Wants a comfortable, well-appointed <em>room</em>; on-property amenities are close to irrelevant. Reference points: Home2 Suites, Hampton Inn. Not looking for luxury properties.</li>
+  <li>Travelling with friends, the default is the same hotel as the group unless another option is materially better</li>
+  <li>Amex Platinum — Fine Hotels + Resorts is available, but FHR books as a third party and earns no Honors points or elite credit, so book direct whenever points matter</li>
   <li>Some frustration with Hilton upgrade practices vs. Hyatt Globalist</li>
   <li>LA trips may require negotiated-rate hotels</li>
+</ul>
+
+<h2>Driving and Car Rental</h2>
+<ul>
+  <li>An International Driving Permit is required in Spain and several other countries — one for each driver, and it takes a trip to AAA, so flag it early</li>
+  <li>Happy with an EV where the daily distances suit it; every EV is an automatic, which also solves the manual-transmission problem in Europe</li>
+  <li>European rentals bill in strict 24-hour periods with only ~30–59 minutes of grace, unlike the US. Booked pickup and return times matter — check both ends against the itinerary before booking, not after.</li>
 </ul>
 
 <h2>Work and Schedule</h2>
@@ -63,8 +175,14 @@
   <li>Check available tools before concluding something is impossible.</li>
   <li>Does not like to pad trips to meet up with friends immediately upon their arrival — prefers buffer time at the start of legs.</li>
   <li>Naturist-friendly details belong in descriptions only, not headlines, in any shared documents.</li>
-  <li>Living travel docs use GitHub to Netlify auto-deploy pipeline. Claude can push updates via git using stored token.</li>
-</ul>
+  <li><strong>Answer the literal question first, in bold</strong> — either before anything else or at the very bottom where it is easy to jump to. Never buried mid-message.</li>
+  <li>If a question has multiple parts, answer <em>every</em> part explicitly, including the boring one.</li>
+  <li>Never substitute a range for a total. If asked how many kilometres, give the number.</li>
+  <li>Repeat related information asked for earlier so an answer is all in one place — don't make him scroll back through a thread to reassemble it.</li>
+  <li>Living travel docs use a GitHub to Netlify auto-deploy pipeline. Claude cloud sessions <strong>cannot</strong> push — the repo is outside the authorized source set and api.netlify.com is off the sandbox allowlist. Workflow is: Claude builds the files, user uploads via the GitHub web UI (Add file → Upload files → Commit).</li>
+</ul></div>
+  <div class="footer">Spain 2026 · <a href="https://whiteraymondspain.netlify.app">whiteraymondspain.netlify.app</a></div>
+</div>
 
 </body>
 </html>

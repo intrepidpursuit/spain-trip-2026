@@ -1,12 +1,112 @@
 <!DOCTYPE html>
-<html>
-<head><meta charset="UTF-8"></head>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#14100e">
+<title>Group reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+  :root{
+    --bg:#14100e; --surface:#1c1714; --surface-2:#241d19; --raised:#2b221d;
+    --rule:#372c25; --rule-soft:#2a221c;
+    --text:#ece4dc; --mid:#b6a698; --light:#8a7a6c;
+    --terracotta:#e08a5f; --terracotta-light:#f0a884; --terracotta-dim:#7a4529;
+    --wedding:#c09ad6; --wedding-bg:#2e2338;
+    --beach:#6cc4d4; --beach-bg:#1b2f35;
+    --group:#8bc79a; --group-bg:#1e2f23;
+    --booked:#9ecb87; --booked-bg:#1f2b1b;
+    --warn:#e8836a; --warn-bg:#33201a;
+  }
+  html{ background:var(--bg); }
+  body{ background:var(--bg); color:var(--text); font-family:'Jost',sans-serif; font-weight:300;
+        line-height:1.7; -webkit-font-smoothing:antialiased; }
+  ::selection{ background:var(--terracotta-dim); color:#fff; }
+  .page{ max-width:880px; margin:0 auto; padding:48px 40px 96px; }
+
+  a{ color:var(--terracotta); }
+  h1{ font-family:'Cormorant Garamond',serif; font-weight:300; font-size:clamp(30px,5vw,50px); line-height:1.08; margin-bottom:12px; letter-spacing:-.01em; }
+  h2{ font-family:'Cormorant Garamond',serif; font-weight:400; font-size:clamp(22px,3vw,30px); margin-bottom:6px; line-height:1.2; }
+  h3{ font-family:'Cormorant Garamond',serif; font-weight:600; font-size:19px; margin-bottom:4px; line-height:1.25; }
+  .eyebrow{ font-weight:500; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--terracotta); margin-bottom:13px; }
+  .subtitle{ font-style:italic; font-family:'Cormorant Garamond',serif; font-size:17px; color:var(--light); }
+  .section-label{ font-weight:500; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--terracotta); margin-bottom:9px; }
+  .lede{ font-size:14.5px; color:var(--mid); margin-bottom:22px; max-width:66ch; }
+  .divider{ border:0; border-top:1px solid var(--rule); margin:44px 0 32px; }
+
+  nav.pages{ display:flex; gap:6px; flex-wrap:wrap; margin-bottom:34px; font-size:12px; }
+  nav.pages a{ color:var(--mid); text-decoration:none; padding:5px 12px; border:1px solid var(--rule);
+               border-radius:100px; transition:.15s; }
+  nav.pages a:hover{ color:var(--text); border-color:var(--terracotta-dim); background:var(--surface); }
+  nav.pages a.here{ color:var(--terracotta); border-color:var(--terracotta-dim); background:var(--surface); }
+
+  .note{ background:var(--surface); border-left:3px solid var(--terracotta); padding:14px 18px; margin:22px 0;
+         border-radius:0 4px 4px 0; font-size:13.5px; color:var(--mid); }
+  .note strong{ color:var(--text); font-weight:500; }
+  .note.warn{ border-left-color:var(--warn); background:var(--warn-bg); }
+  .note ul{ margin:8px 0 0 18px; } .note li{ margin-bottom:4px; }
+
+  .badge{ display:inline-block; font-size:10px; font-weight:500; letter-spacing:.1em; text-transform:uppercase;
+          padding:3px 9px; border-radius:3px; margin:0 4px 6px 0; }
+  .badge.wedding{ background:var(--wedding-bg); color:var(--wedding); }
+  .badge.beach{ background:var(--beach-bg); color:var(--beach); }
+  .badge.group{ background:var(--group-bg); color:var(--group); }
+  .badge.us{ background:var(--surface-2); color:var(--light); }
+  .badge.booked{ background:var(--booked-bg); color:var(--booked); }
+  .badge.warn{ background:var(--warn-bg); color:var(--warn); }
+
+  a.gm{ font-size:10px; font-weight:500; letter-spacing:.07em; text-transform:uppercase; color:var(--mid);
+        background:var(--surface-2); border:1px solid var(--rule-soft); border-radius:3px; padding:3px 8px;
+        text-decoration:none; white-space:nowrap; transition:.15s; }
+  a.gm:hover{ background:var(--terracotta); border-color:var(--terracotta); color:#1a1410; }
+  .tag{ background:var(--surface-2); color:var(--mid); font-size:10px; font-weight:500; letter-spacing:.08em;
+        text-transform:uppercase; padding:3px 8px; border-radius:3px; }
+  .tag.co{ background:var(--beach-bg); color:var(--beach); }
+  .tag.top{ background:#33291a; color:#d8b96a; }
+  .links{ margin-top:6px; display:flex; flex-wrap:wrap; gap:5px; align-items:center; }
+
+  table{ width:100%; border-collapse:collapse; font-size:13px; margin-top:8px; }
+  th{ text-align:left; font-weight:500; font-size:10px; letter-spacing:.12em; text-transform:uppercase;
+      color:var(--light); padding:0 10px 8px 0; border-bottom:1px solid var(--rule); }
+  td{ padding:9px 10px 9px 0; border-bottom:1px solid var(--rule-soft); color:var(--mid); vertical-align:top; }
+  td:first-child{ color:var(--text); }
+  td.nw{ white-space:nowrap; }
+
+  .footer{ margin-top:56px; padding-top:26px; border-top:1px solid var(--rule); font-style:italic;
+           font-family:'Cormorant Garamond',serif; font-size:15px; color:var(--light); }
+  .footer a{ color:var(--light); }
+
+  @media (max-width:620px){ .page{ padding:32px 18px 72px; } }
+
+  .doc{ max-width:70ch }
+  .doc h2{ margin:34px 0 8px; padding-bottom:7px; border-bottom:1px solid var(--rule); }
+  .doc h2:first-of-type{ margin-top:26px }
+  .doc h3{ margin:22px 0 4px; color:var(--terracotta); font-size:17px }
+  .doc p{ font-size:14.5px; color:var(--mid); margin-bottom:10px }
+  .doc ul,.doc ol{ margin:0 0 14px 20px }
+  .doc li{ font-size:14px; color:var(--mid); margin-bottom:5px }
+  .doc strong{ color:var(--text); font-weight:500 }
+  .doc em{ color:var(--light) }
+  .doc a{ color:var(--terracotta) }
+  .doc hr{ border:0; border-top:1px solid var(--rule); margin:30px 0 }
+</style>
+</head>
 <body>
-
-<h1>Spain and Morocco — September/October 2026</h1>
-<p><em>Reference document for Claude. Contains all confirmed bookings, logistics, and planning context.</em></p>
-
-<h2>Overview</h2>
+<div class="page">
+  <div class="eyebrow">Spain 2026 · the wider group</div>
+  <h1>Group reference</h1>
+  <div class="subtitle">Reference document for Claude. Contains all confirmed bookings, logistics, and planning context.</div>
+  <nav class="pages">
+  <a href="index.html">The trip</a>
+  <a href="day.html">Day by day</a>
+  <a href="routes.html">Routes</a>
+  <a href="map.html">Map</a>
+  <a href="spain-trip-reference.html" class="here">Group reference</a>
+  <a href="travel-profile.html">Profile</a>
+</nav>
+  <div class="doc"><h2>Overview</h2>
 <p>20-day trip anchored around Jessica and Daniel's wedding on September 26 at Mas Rosset, Girona, Catalonia. Traveling with wife Melissa. Flying into Malaga, out of Barcelona — a natural loop through Andalusia, Morocco, and Catalonia.</p>
 <p><strong>Living itinerary doc (shared with Melissa):</strong> whiteraymondspain.netlify.app</p>
 <p><strong>GitHub repo:</strong> github.com/intrepidpursuit/spain-trip-2026 (Claude pushes updates here; Netlify auto-deploys)</p>
@@ -139,7 +239,9 @@
   <li><strong>GitHub token:</strong> Needs rotation — was shared in original planning chat</li>
   <li><strong>Netlify site ID:</strong> 3a397b21-0415-4928-a68c-1d2c74e2038e</li>
   <li><strong>Netlify site name:</strong> spain-trip-september-2026</li>
-</ul>
+</ul></div>
+  <div class="footer">Spain 2026 · <a href="https://whiteraymondspain.netlify.app">whiteraymondspain.netlify.app</a></div>
+</div>
 
 </body>
 </html>

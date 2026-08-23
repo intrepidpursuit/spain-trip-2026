@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<style>html{background:#14100e}
+  nav.pages{ display:flex; gap:6px; flex-wrap:wrap; margin:0 0 30px; font-size:12px; }
+  nav.pages a{ color:#b6a698; text-decoration:none; padding:5px 12px; border:1px solid #372c25;
+               border-radius:100px; transition:.15s; }
+  nav.pages a:hover{ color:#ece4dc; border-color:#7a4529; background:#1c1714; }
+  nav.pages a.here{ color:#e08a5f; border-color:#7a4529; background:#1c1714; }
+</style>
 <meta charset="UTF-8">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#14100e">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Spain 2026 — Map &amp; Lloret Guide</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --cream:#f7f3ee; --warm-white:#faf8f5; --terracotta:#c2603a; --terracotta-light:#d4795a;
-    --deep:#2a1f1a; --mid:#5c4a3d; --light:#9c8878; --rule:#e0d5ca; --tag-bg:#efe8e0;
-    --sea:#dfe9ec; --sea-line:#b9ced4; --land:#f2ece3;
-    --car:#c2603a; --train:#2a7a8a; --metro:#4a7c59;
+    --cream:#1c1714; --warm-white:#14100e; --terracotta:#e08a5f; --terracotta-light:#f0a884;
+    --deep:#ece4dc; --mid:#b6a698; --light:#8a7a6c; --rule:#372c25; --tag-bg:#241d19;
+    --sea:#16232a; --sea-line:#2b4550; --land:#14100e;
+    --car:#e08a5f; --train:#6cc4d4; --metro:#8bc79a;
   }
   body { background:var(--warm-white); color:var(--deep); font-family:'Jost',sans-serif; font-weight:300; line-height:1.7; }
   .page { max-width:980px; margin:0 auto; padding:56px 40px 96px; }
@@ -63,17 +72,26 @@
   <h1>Where everything is</h1>
   <div class="subtitle">Catalonia, drawn to scale — with how you get between each pair</div>
 
+  <nav class="pages">
+  <a href="index.html">The trip</a>
+  <a href="day.html">Day by day</a>
+  <a href="routes.html">Routes</a>
+  <a href="map.html" class="here">Map</a>
+  <a href="spain-trip-reference.html">Group reference</a>
+  <a href="travel-profile.html">Profile</a>
+</nav>
+
   <div class="map-wrap">
   <svg class="map" viewBox="-48 14 806 590" role="img" aria-label="Map of Catalonia showing trip locations and the routes between them">
     <defs>
       <style>
-        .lbl { font-family:'Jost',sans-serif; font-size:12px; font-weight:500; fill:#2a1f1a;
-               paint-order:stroke; stroke:#f2ece3; stroke-width:3.5px; stroke-linejoin:round; }
-        .lbl.sm { font-size:10.5px; font-weight:400; fill:#5c4a3d; }
+        .lbl { font-family:'Jost',sans-serif; font-size:12px; font-weight:500; fill:#ece4dc;
+               paint-order:stroke; stroke:#14100e; stroke-width:3.5px; stroke-linejoin:round; }
+        .lbl.sm { font-size:10.5px; font-weight:400; fill:#b6a698; }
         .t { font-family:'Jost',sans-serif; font-size:10px; font-weight:500;
-             paint-order:stroke; stroke:#f2ece3; stroke-width:3.5px; stroke-linejoin:round; }
+             paint-order:stroke; stroke:#14100e; stroke-width:3.5px; stroke-linejoin:round; }
         .r { fill:none; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round; }
-        .car{stroke:#c2603a;} .train{stroke:#2a7a8a;} .metro{stroke:#4a7c59;}
+        .car{stroke:#e08a5f;} .train{stroke:#6cc4d4;} .metro{stroke:#8bc79a;}
         .alt{stroke-width:1.8; stroke-dasharray:5 5; opacity:.75;}
       </style>
     </defs>
@@ -82,14 +100,14 @@
     <path d="M630,-13 L680,34 L667,47 L637,59 L621,118 L646,189 L621,231 L590,260
              L559,286 L532,294 L515,305 L449,340 L438,344 L333,420 L320,426
              L208,489 L30,538 L0,570 L0,645 L800,645 L800,-50 Z"
-          fill="#dfe9ec" stroke="#b9ced4" stroke-width="1"/>
+          fill="#16232a" stroke="#2b4550" stroke-width="1"/>
 
     <!-- ===== ROUTES (main) ===== -->
     <path class="r car"   d="M293,463 L320,426"/>
     <path class="r car"   d="M320,426 L449,340"/>
     <path class="r car"   d="M449,340 L525,175"/>
     <path class="r car"   d="M525,175 L524,139"/>
-    <path class="r car"   d="M524,139 L580,103"/>
+    <path class="r car"   d="M525,175 L580,103"/>
     <path class="r car"   d="M580,103 L532,294"/>
     <path class="r car"   d="M532,294 L320,426"/>
     <path class="r train" d="M320,426 L525,175 L568,56"/>
@@ -106,64 +124,64 @@
     <path class="r train alt" d="M320,426 L199,409"/>
 
     <!-- ===== ROUTE TIMES (main routes only; alternates are listed in the table) ===== -->
-    <text class="t" x="326" y="457" text-anchor="start" fill="#c2603a">35m</text>
-    <text class="t" x="384" y="374" text-anchor="middle" fill="#c2603a">50m</text>
-    <text class="t" x="495" y="256" text-anchor="start" fill="#c2603a">50m</text>
-    <text class="t" x="534" y="160" text-anchor="start" fill="#c2603a">20m</text>
-    <text class="t" x="552" y="134" text-anchor="middle" fill="#c2603a">30m</text>
-    <text class="t" x="566" y="205" text-anchor="start" fill="#c2603a">1h15</text>
-    <text class="t" x="428" y="376" text-anchor="middle" fill="#c2603a">1h15</text>
-    <text class="t" x="410" y="290" text-anchor="middle" fill="#2a7a8a">38m</text>
-    <text class="t" x="562" y="86" text-anchor="start" fill="#2a7a8a">20m</text>
-    <text class="t" x="264" y="374" text-anchor="middle" fill="#2a7a8a">1h</text>
-    <text class="t" x="260" y="452" text-anchor="middle" fill="#2a7a8a">35m</text>
+    <text class="t" x="326" y="457" text-anchor="start" fill="#e08a5f">35m</text>
+    <text class="t" x="384" y="374" text-anchor="middle" fill="#e08a5f">46m</text>
+    <text class="t" x="495" y="256" text-anchor="start" fill="#e08a5f">~1h</text>
+    <text class="t" x="534" y="160" text-anchor="start" fill="#e08a5f">18m</text>
+    <text class="t" x="556" y="128" text-anchor="middle" fill="#e08a5f">40m</text>
+    <text class="t" x="566" y="205" text-anchor="start" fill="#e08a5f">55m</text>
+    <text class="t" x="428" y="376" text-anchor="middle" fill="#e08a5f">56m</text>
+    <text class="t" x="410" y="290" text-anchor="middle" fill="#6cc4d4">38m</text>
+    <text class="t" x="562" y="86" text-anchor="start" fill="#6cc4d4">20m</text>
+    <text class="t" x="264" y="374" text-anchor="middle" fill="#6cc4d4">1h</text>
+    <text class="t" x="260" y="452" text-anchor="middle" fill="#6cc4d4">35m</text>
 
     <!-- ===== NODES ===== -->
     <!-- major -->
-    <circle cx="320" cy="426" r="7" fill="#c2603a" stroke="#fff" stroke-width="2"/>
+    <circle cx="320" cy="426" r="7" fill="#e08a5f" stroke="#fff" stroke-width="2"/>
     <text class="lbl" x="309" y="440" text-anchor="end">BARCELONA</text>
-    <circle cx="525" cy="175" r="7" fill="#c2603a" stroke="#fff" stroke-width="2"/>
+    <circle cx="525" cy="175" r="7" fill="#e08a5f" stroke="#fff" stroke-width="2"/>
     <text class="lbl" x="516" y="180" text-anchor="end">GIRONA</text>
-    <circle cx="532" cy="294" r="7" fill="#c2603a" stroke="#fff" stroke-width="2"/>
+    <circle cx="532" cy="294" r="7" fill="#e08a5f" stroke="#fff" stroke-width="2"/>
     <text class="lbl" x="523" y="298" text-anchor="end">LLORET</text>
 
     <!-- itinerary stops -->
-    <circle cx="293" cy="463" r="4.5" fill="#5c4a3d" stroke="#fff" stroke-width="1.6"/>
+    <circle cx="293" cy="463" r="4.5" fill="#b6a698" stroke="#fff" stroke-width="1.6"/>
     <text class="lbl sm" x="288" y="480" text-anchor="end">BCN airport</text>
-    <circle cx="333" cy="420" r="4.5" fill="#4a7c59" stroke="#fff" stroke-width="1.6"/>
+    <circle cx="333" cy="420" r="4.5" fill="#8bc79a" stroke="#fff" stroke-width="1.6"/>
     <text class="lbl sm" x="341" y="416" text-anchor="start">Mar Bella</text>
-    <circle cx="449" cy="340" r="4.5" fill="#5c4a3d" stroke="#fff" stroke-width="1.6"/>
+    <circle cx="449" cy="340" r="4.5" fill="#b6a698" stroke="#fff" stroke-width="1.6"/>
     <text class="lbl sm" x="444" y="357" text-anchor="end">Sta. Florentina</text>
-    <circle cx="524" cy="139" r="4.5" fill="#5c4a3d" stroke="#fff" stroke-width="1.6"/>
+    <circle cx="524" cy="139" r="4.5" fill="#b6a698" stroke="#fff" stroke-width="1.6"/>
     <text class="lbl sm" x="516" y="136" text-anchor="end">Mas Rosset</text>
-    <circle cx="580" cy="103" r="4.5" fill="#5c4a3d" stroke="#fff" stroke-width="1.6"/>
+    <circle cx="580" cy="103" r="4.5" fill="#b6a698" stroke="#fff" stroke-width="1.6"/>
     <text class="lbl sm" x="588" y="99" text-anchor="start">Clos de Basella</text>
-    <circle cx="568" cy="56" r="4.5" fill="#5c4a3d" stroke="#fff" stroke-width="1.6"/>
+    <circle cx="568" cy="56" r="4.5" fill="#b6a698" stroke="#fff" stroke-width="1.6"/>
     <text class="lbl sm" x="561" y="52" text-anchor="end">Figueres · Dalí</text>
-    <circle cx="216" cy="339" r="4.5" fill="#5c4a3d" stroke="#fff" stroke-width="1.6"/>
+    <circle cx="216" cy="339" r="4.5" fill="#b6a698" stroke="#fff" stroke-width="1.6"/>
     <text class="lbl sm" x="208" y="336" text-anchor="end">Montserrat</text>
-    <circle cx="208" cy="489" r="4.5" fill="#5c4a3d" stroke="#fff" stroke-width="1.6"/>
+    <circle cx="208" cy="489" r="4.5" fill="#b6a698" stroke="#fff" stroke-width="1.6"/>
     <text class="lbl sm" x="200" y="493" text-anchor="end">Sitges</text>
 
     <!-- alternates -->
-    <circle cx="667" cy="47" r="3.6" fill="#9c8878" stroke="#fff" stroke-width="1.4"/>
-    <text class="lbl sm" x="662" y="36" text-anchor="end" fill="#9c8878">Cadaqués</text>
-    <circle cx="486" cy="84" r="3.6" fill="#9c8878" stroke="#fff" stroke-width="1.4"/>
-    <text class="lbl sm" x="479" y="80" text-anchor="end" fill="#9c8878">Besalú</text>
-    <circle cx="507" cy="118" r="3.6" fill="#9c8878" stroke="#fff" stroke-width="1.4"/>
-    <text class="lbl sm" x="499" y="112" text-anchor="end" fill="#9c8878">Banyoles</text>
-    <circle cx="559" cy="286" r="3.6" fill="#9c8878" stroke="#fff" stroke-width="1.4"/>
-    <text class="lbl sm" x="566" y="282" text-anchor="start" fill="#9c8878">Tossa</text>
-    <circle cx="515" cy="305" r="3.6" fill="#9c8878" stroke="#fff" stroke-width="1.4"/>
-    <text class="lbl sm" x="521" y="317" text-anchor="start" fill="#9c8878">Blanes</text>
-    <circle cx="438" cy="344" r="3.6" fill="#9c8878" stroke="#fff" stroke-width="1.4"/>
-    <text class="lbl sm" x="431" y="331" text-anchor="end" fill="#9c8878">Arenys</text>
-    <circle cx="199" cy="409" r="3.6" fill="#9c8878" stroke="#fff" stroke-width="1.4"/>
-    <text class="lbl sm" x="192" y="406" text-anchor="end" fill="#9c8878">Penedès</text>
-    <circle cx="30" cy="538" r="3.6" fill="#9c8878" stroke="#fff" stroke-width="1.4"/>
-    <text class="lbl sm" x="38" y="534" text-anchor="start" fill="#9c8878">Tarragona</text>
+    <circle cx="667" cy="47" r="3.6" fill="#8a7a6c" stroke="#fff" stroke-width="1.4"/>
+    <text class="lbl sm" x="662" y="36" text-anchor="end" fill="#8a7a6c">Cadaqués</text>
+    <circle cx="486" cy="84" r="3.6" fill="#8a7a6c" stroke="#fff" stroke-width="1.4"/>
+    <text class="lbl sm" x="479" y="80" text-anchor="end" fill="#8a7a6c">Besalú</text>
+    <circle cx="507" cy="118" r="3.6" fill="#8a7a6c" stroke="#fff" stroke-width="1.4"/>
+    <text class="lbl sm" x="499" y="112" text-anchor="end" fill="#8a7a6c">Banyoles</text>
+    <circle cx="559" cy="286" r="3.6" fill="#8a7a6c" stroke="#fff" stroke-width="1.4"/>
+    <text class="lbl sm" x="566" y="282" text-anchor="start" fill="#8a7a6c">Tossa</text>
+    <circle cx="515" cy="305" r="3.6" fill="#8a7a6c" stroke="#fff" stroke-width="1.4"/>
+    <text class="lbl sm" x="521" y="317" text-anchor="start" fill="#8a7a6c">Blanes</text>
+    <circle cx="438" cy="344" r="3.6" fill="#8a7a6c" stroke="#fff" stroke-width="1.4"/>
+    <text class="lbl sm" x="431" y="331" text-anchor="end" fill="#8a7a6c">Arenys</text>
+    <circle cx="199" cy="409" r="3.6" fill="#8a7a6c" stroke="#fff" stroke-width="1.4"/>
+    <text class="lbl sm" x="192" y="406" text-anchor="end" fill="#8a7a6c">Penedès</text>
+    <circle cx="30" cy="538" r="3.6" fill="#8a7a6c" stroke="#fff" stroke-width="1.4"/>
+    <text class="lbl sm" x="38" y="534" text-anchor="start" fill="#8a7a6c">Tarragona</text>
 
-    <text class="lbl sm" x="678" y="470" text-anchor="middle" fill="#8fa8b0"
+    <text class="lbl sm" x="678" y="470" text-anchor="middle" fill="#5d7f8a"
           font-style="italic" font-size="13" stroke="none">Mediterranean</text>
   </svg>
   </div>
@@ -175,21 +193,30 @@
     <span><i class="dash" style="border-color:var(--light)"></i>Alternate / optional</span>
   </div>
 
+  <div class="section-label">Sep 24 – Sep 29</div>
+  <h2>The car</h2>
+  <p class="lede">National, Citroën ë-C4 electric automatic, conf 2131029323. Barcelona Sants — Saba car park,
+  <b>level -1</b>. Out Thu Sep 24 at 10:30am, back Tue Sep 29 at 5:00pm. €235.85, unlimited mileage, Melissa
+  included as a driver. <b>361 km</b> over the five days, and one charge — free overnight at Hotel Santa Marta.
+  An International Driving Permit is required in Spain; get one each before flying.</p>
+
+  <hr class="divider">
+
   <div class="section-label">Every leg</div>
   <h2>Routes and times</h2>
-  <p class="lede">Times are typical door-to-door for the mode shown. Driving times assume the AP-7, which is tolled.</p>
+  <p class="lede">Times are typical door-to-door for the mode shown. Driving times use the AP-7 and C-32; most Catalan motorway tolls were lifted in 2021, though a few C-32 stretches still charge — carry a card. Distances marked in km were measured for the legs you actually drive.</p>
 
   <table>
     <tr><th>From → To</th><th>Mode</th><th>Time</th><th>Notes</th></tr>
     <tr><td>BCN airport → Barcelona</td><td class="mode m-car">Car</td><td class="time">35 min</td><td>Taxi or Uber ~€35–45; Aerobús €7.25 to Pl. Catalunya</td></tr>
-    <tr><td>Barcelona → Sta. Florentina</td><td class="mode m-car">Car</td><td class="time">50 min</td><td>Canet de Mar, on the coast road north</td></tr>
-    <tr><td>Sta. Florentina → Girona</td><td class="mode m-car">Car</td><td class="time">50 min</td><td>Sep 24, with the group</td></tr>
+    <tr><td>Sants → Sta. Florentina</td><td class="mode m-car">Car</td><td class="time">46 min</td><td>49 km · Canet de Mar. Sep 24, straight from the rental counter</td></tr>
+    <tr><td>Sta. Florentina → Girona</td><td class="mode m-car">Car</td><td class="time">~1h</td><td>Sep 24 · into the DoubleTree around 15:45</td></tr>
     <tr><td>Barcelona → Girona</td><td class="mode m-train">Train</td><td class="time">38 min</td><td>AVE from Sants — the fast way if you're not driving</td></tr>
-    <tr><td>Girona → Mas Rosset</td><td class="mode m-car">Car</td><td class="time">20 min</td><td>Rural — no Uber in Girona, pre-book a taxi for the wedding night</td></tr>
-    <tr><td>Mas Rosset → Clos de Basella</td><td class="mode m-car">Car</td><td class="time">30 min</td><td>Siurana d'Empordà</td></tr>
-    <tr><td>Clos de Basella → Lloret</td><td class="mode m-car">Car</td><td class="time">1h 15</td><td>The Lloret branch</td></tr>
+    <tr><td>Girona → Mas Rosset</td><td class="mode m-car">Car</td><td class="time">18 min</td><td>19.7 km each way · rural, and no Uber in Girona — but you have the car</td></tr>
+    <tr><td>Girona → Clos de Basella</td><td class="mode m-car">Car</td><td class="time">~40 min</td><td>Sep 28 from the hotel, not the wedding venue. Siurana d'Empordà is <em>north</em> of Girona</td></tr>
+    <tr><td>Clos de Basella → Lloret</td><td class="mode m-car">Car</td><td class="time">~55 min</td><td>124 km across the whole day — the longest drive of the trip</td></tr>
     <tr><td>Clos de Basella → Barcelona</td><td class="mode m-car">Car</td><td class="time">1h 45</td><td>The Raymonds' route — ~135 km via the AP-7</td></tr>
-    <tr><td>Lloret → Barcelona</td><td class="mode m-car">Car</td><td class="time">1h 15</td><td>Also by bus from the seafront</td></tr>
+    <tr><td>Lloret → Sants</td><td class="mode m-car">Car</td><td class="time">56 min</td><td>74 km · Sep 29, leave 15:15, car back 17:00. Lloret has no train station at all</td></tr>
     <tr><td>Barcelona → Figueres</td><td class="mode m-train">Train</td><td class="time">55–65 min</td><td>AVE to Figueres-Vilafant, then 20 min walk to the Dalí museum</td></tr>
     <tr><td>Barcelona → Montserrat</td><td class="mode m-train">Train</td><td class="time">1h</td><td>R5 from Pl. Espanya + rack railway or cable car</td></tr>
     <tr><td>Barcelona → Sitges</td><td class="mode m-train">Train</td><td class="time">35 min</td><td>R2 from Passeig de Gràcia</td></tr>

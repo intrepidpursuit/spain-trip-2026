@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#14100e">
+<title>Day by day — Spain 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+  :root{
+    --bg:#14100e; --surface:#1c1714; --surface-2:#241d19; --raised:#2b221d;
+    --rule:#372c25; --rule-soft:#2a221c;
+    --text:#ece4dc; --mid:#b6a698; --light:#8a7a6c;
+    --terracotta:#e08a5f; --terracotta-light:#f0a884; --terracotta-dim:#7a4529;
+    --wedding:#c09ad6; --wedding-bg:#2e2338;
+    --beach:#6cc4d4; --beach-bg:#1b2f35;
+    --group:#8bc79a; --group-bg:#1e2f23;
+    --booked:#9ecb87; --booked-bg:#1f2b1b;
+    --warn:#e8836a; --warn-bg:#33201a;
+  }
+  html{ background:var(--bg); }
+  body{ background:var(--bg); color:var(--text); font-family:'Jost',sans-serif; font-weight:300;
+        line-height:1.7; -webkit-font-smoothing:antialiased; }
+  ::selection{ background:var(--terracotta-dim); color:#fff; }
+  .page{ max-width:880px; margin:0 auto; padding:48px 40px 96px; }
+
+  a{ color:var(--terracotta); }
+  h1{ font-family:'Cormorant Garamond',serif; font-weight:300; font-size:clamp(30px,5vw,50px); line-height:1.08; margin-bottom:12px; letter-spacing:-.01em; }
+  h2{ font-family:'Cormorant Garamond',serif; font-weight:400; font-size:clamp(22px,3vw,30px); margin-bottom:6px; line-height:1.2; }
+  h3{ font-family:'Cormorant Garamond',serif; font-weight:600; font-size:19px; margin-bottom:4px; line-height:1.25; }
+  .eyebrow{ font-weight:500; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--terracotta); margin-bottom:13px; }
+  .subtitle{ font-style:italic; font-family:'Cormorant Garamond',serif; font-size:17px; color:var(--light); }
+  .section-label{ font-weight:500; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--terracotta); margin-bottom:9px; }
+  .lede{ font-size:14.5px; color:var(--mid); margin-bottom:22px; max-width:66ch; }
+  .divider{ border:0; border-top:1px solid var(--rule); margin:44px 0 32px; }
+
+  nav.pages{ display:flex; gap:6px; flex-wrap:wrap; margin-bottom:34px; font-size:12px; }
+  nav.pages a{ color:var(--mid); text-decoration:none; padding:5px 12px; border:1px solid var(--rule);
+               border-radius:100px; transition:.15s; }
+  nav.pages a:hover{ color:var(--text); border-color:var(--terracotta-dim); background:var(--surface); }
+  nav.pages a.here{ color:var(--terracotta); border-color:var(--terracotta-dim); background:var(--surface); }
+
+  .note{ background:var(--surface); border-left:3px solid var(--terracotta); padding:14px 18px; margin:22px 0;
+         border-radius:0 4px 4px 0; font-size:13.5px; color:var(--mid); }
+  .note strong{ color:var(--text); font-weight:500; }
+  .note.warn{ border-left-color:var(--warn); background:var(--warn-bg); }
+  .note ul{ margin:8px 0 0 18px; } .note li{ margin-bottom:4px; }
+
+  .badge{ display:inline-block; font-size:10px; font-weight:500; letter-spacing:.1em; text-transform:uppercase;
+          padding:3px 9px; border-radius:3px; margin:0 4px 6px 0; }
+  .badge.wedding{ background:var(--wedding-bg); color:var(--wedding); }
+  .badge.beach{ background:var(--beach-bg); color:var(--beach); }
+  .badge.group{ background:var(--group-bg); color:var(--group); }
+  .badge.us{ background:var(--surface-2); color:var(--light); }
+  .badge.booked{ background:var(--booked-bg); color:var(--booked); }
+  .badge.warn{ background:var(--warn-bg); color:var(--warn); }
+
+  a.gm{ font-size:10px; font-weight:500; letter-spacing:.07em; text-transform:uppercase; color:var(--mid);
+        background:var(--surface-2); border:1px solid var(--rule-soft); border-radius:3px; padding:3px 8px;
+        text-decoration:none; white-space:nowrap; transition:.15s; }
+  a.gm:hover{ background:var(--terracotta); border-color:var(--terracotta); color:#1a1410; }
+  .tag{ background:var(--surface-2); color:var(--mid); font-size:10px; font-weight:500; letter-spacing:.08em;
+        text-transform:uppercase; padding:3px 8px; border-radius:3px; }
+  .tag.co{ background:var(--beach-bg); color:var(--beach); }
+  .tag.top{ background:#33291a; color:#d8b96a; }
+  .links{ margin-top:6px; display:flex; flex-wrap:wrap; gap:5px; align-items:center; }
+
+  table{ width:100%; border-collapse:collapse; font-size:13px; margin-top:8px; }
+  th{ text-align:left; font-weight:500; font-size:10px; letter-spacing:.12em; text-transform:uppercase;
+      color:var(--light); padding:0 10px 8px 0; border-bottom:1px solid var(--rule); }
+  td{ padding:9px 10px 9px 0; border-bottom:1px solid var(--rule-soft); color:var(--mid); vertical-align:top; }
+  td:first-child{ color:var(--text); }
+  td.nw{ white-space:nowrap; }
+
+  .footer{ margin-top:56px; padding-top:26px; border-top:1px solid var(--rule); font-style:italic;
+           font-family:'Cormorant Garamond',serif; font-size:15px; color:var(--light); }
+  .footer a{ color:var(--light); }
+
+  @media (max-width:620px){ .page{ padding:32px 18px 72px; } }
+
+  .rail{ position:sticky; top:0; z-index:20; background:linear-gradient(180deg,var(--bg) 72%,rgba(20,16,14,0));
+         padding:10px 0 16px; margin:0 0 8px; }
+  .rail-inner{ display:flex; gap:5px; overflow-x:auto; scrollbar-width:thin; padding-bottom:4px; }
+  .rail-inner::-webkit-scrollbar{ height:4px } .rail-inner::-webkit-scrollbar-thumb{ background:var(--rule); border-radius:4px }
+  .rail a{ flex:0 0 auto; text-decoration:none; color:var(--light); font-size:11.5px; letter-spacing:.03em;
+           padding:7px 12px; border:1px solid var(--rule-soft); border-radius:100px; white-space:nowrap; transition:.15s; }
+  .rail a:hover{ color:var(--text); border-color:var(--rule); background:var(--surface); }
+  .rail a.on{ background:var(--terracotta); border-color:var(--terracotta); color:#181210; font-weight:500; }
+
+  .dayp{ display:none; animation:fade .25s ease; scroll-margin-top:78px; }
+  .dayp.on{ display:block; }
+  @keyframes fade{ from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:none} }
+
+  .dayp-head{ padding-bottom:20px; border-bottom:1px solid var(--rule); margin-bottom:24px; }
+  .dayp-eyebrow{ font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--terracotta); margin-bottom:10px; }
+  .dayp h1{ font-size:clamp(26px,4.4vw,42px); margin-bottom:12px; }
+  .dayp .transit{ font-size:11.5px; letter-spacing:.03em; color:var(--light); margin-top:10px; }
+  .dayp .transit span{ display:inline-block; margin-right:8px; }
+  .dayp .transit span:not(:last-child)::after{ content:'·'; margin-left:8px; color:var(--rule); }
+
+  .fixed{ display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--rule);
+          border-radius:6px; overflow:hidden; margin-bottom:26px; background:var(--surface); }
+  .fixed-col{ padding:18px 20px; }
+  .fixed-col + .fixed-col{ border-left:1px solid var(--rule); }
+  .fixed h4{ font-family:'Jost',sans-serif; font-size:10px; font-weight:500; letter-spacing:.16em;
+             text-transform:uppercase; color:var(--terracotta); margin-bottom:12px; }
+  .res{ list-style:none; }
+  .res li{ padding:9px 0; border-bottom:1px solid var(--rule-soft); font-size:13px; }
+  .res li:last-child{ border-bottom:0; padding-bottom:0; }
+  .res li:first-child{ padding-top:0; }
+  .res b{ color:var(--text); font-weight:500; display:block; }
+  .res .sub{ color:var(--mid); font-size:12px; }
+  .res .ref{ color:var(--light); font-size:11px; letter-spacing:.03em; margin-top:2px; display:block; }
+  .res .ref.ok{ color:var(--booked); }
+  .res .ref.warn{ color:var(--warn); }
+  .sched{ list-style:none; }
+  .sched li{ display:flex; gap:12px; font-size:13px; color:var(--mid); padding:5px 0; }
+  .sched time{ flex:0 0 74px; color:var(--terracotta); font-size:11.5px; letter-spacing:.02em;
+               font-weight:500; padding-top:2px; text-align:right; white-space:nowrap; }
+
+  .dayp-lede{ font-size:15px; color:var(--mid); max-width:68ch; margin-bottom:30px; }
+
+  .places{ display:grid; gap:22px; margin-bottom:8px; }
+  .place{ display:flex; gap:18px; }
+  .place-thumb{ width:190px; height:130px; object-fit:cover; border-radius:5px; flex-shrink:0;
+                background:var(--surface-2); border:1px solid var(--rule-soft); opacity:0; transition:opacity .4s; }
+  .place-thumb.loaded{ opacity:1 } .place-thumb.noimg{ display:none }
+  .place-body{ flex:1; min-width:0; }
+  .place p{ font-size:13.5px; color:var(--mid); line-height:1.65; margin-top:3px; }
+
+  .options{ margin-top:12px; }
+  .opt-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:14px; }
+  .opt-card{ background:var(--surface); border:1px solid var(--rule-soft); border-radius:5px; padding:14px 16px; }
+  .opt-card b{ display:block; color:var(--text); font-weight:500; font-size:14px; margin-bottom:3px;
+               font-family:'Cormorant Garamond',serif; font-size:16px; }
+  .opt-card p{ font-size:12.5px; color:var(--mid); line-height:1.6; }
+
+  .night{ margin-top:30px; padding-top:18px; border-top:1px solid var(--rule); font-size:12.5px; color:var(--light); }
+  .night b{ color:var(--mid); font-weight:400; }
+
+  .daynav{ display:flex; justify-content:space-between; gap:12px; margin-top:38px; padding-top:20px;
+           border-top:1px solid var(--rule); font-size:13px; }
+  .daynav a{ text-decoration:none; color:var(--mid); }
+  .daynav a:hover{ color:var(--terracotta); }
+  .daynav .nx{ text-align:right; }
+  .daynav small{ display:block; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--light); }
+
+  @media (max-width:720px){
+    .fixed{ grid-template-columns:1fr }
+    .fixed-col + .fixed-col{ border-left:0; border-top:1px solid var(--rule) }
+    .place{ flex-direction:column; gap:12px }
+    .place-thumb{ width:100%; height:190px }
+    .sched time{ flex-basis:66px }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="eyebrow">Spain · September 20 – October 3, 2026</div>
+  <h1 style="margin-bottom:8px">Day by day</h1>
+  <div class="subtitle">Everything fixed at the top, everything optional underneath</div>
+  <nav class="pages">
+  <a href="index.html">The trip</a>
+  <a href="day.html" class="here">Day by day</a>
+  <a href="routes.html">Routes</a>
+  <a href="map.html">Map</a>
+  <a href="spain-trip-reference.html">Group reference</a>
+  <a href="travel-profile.html">Profile</a>
+</nav>
+
+  <div class="rail"><div class="rail-inner" id="rail"><a href="#sep-20" data-id="sep-20">Sat 20</a><a href="#sep-21" data-id="sep-21">Mon 21</a><a href="#sep-22" data-id="sep-22">Tue 22</a><a href="#sep-23" data-id="sep-23">Wed 23</a><a href="#sep-24" data-id="sep-24">Thu 24</a><a href="#sep-25" data-id="sep-25">Fri 25</a><a href="#sep-26" data-id="sep-26">Sat 26</a><a href="#sep-27" data-id="sep-27">Sun 27</a><a href="#sep-28" data-id="sep-28">Mon 28</a><a href="#sep-29" data-id="sep-29">Tue 29</a><a href="#sep-30" data-id="sep-30">Wed 30</a><a href="#oct-01" data-id="oct-01">Thu 1</a><a href="#oct-02" data-id="oct-02">Fri 2</a><a href="#oct-03" data-id="oct-03">Sat 3</a></div></div>
+
+  
+    <section class="dayp" id="sep-20">
+      <div class="dayp-head">
+        <div class="dayp-eyebrow">Saturday · September 20, 2026 · Day 1 of 14</div>
+        <h1>Depart Atlanta</h1>
+        <div><span class="badge us">Just us</span></div>
+        <div class="transit"><span>Leave for ATL early evening</span><span>DL194 · 10:10pm → BCN 12:50pm +1</span></div>
+      </div>
+
+      <div class="fixed">
+        <div class="fixed-col">
+          <h4>Reservations &amp; fixed points</h4>
+          <ul class="res">
+        <li><b>DL194 ATL → BCN</b><span class="sub">Nonstop · Delta One Extra · seats 9C and 9G</span><span class="ref ok">conf HTIZJY</span></li>
+        <li><b>Two free checked bags each</b><span class="sub">To 70 lbs, Delta One</span></li>
+          </ul>
+        </div>
+        <div class="fixed-col">
+          <h4>The day</h4>
+          <ul class="sched">
+        <li><time>22:10</time><span>Wheels up from Atlanta.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="dayp-lede">An overnight in a lie-flat seat and you land in the middle of the following day. The trip really starts tomorrow.</p>
+
+      <div class="night">Tonight · <b>In the air</b></div>
+      <div class="daynav"><span></span><a class="nx" href="#sep-21"><small>Next</small>Mon 21 · Land Barcelona, settle in</a></div>
+    </section>
+    <section class="dayp" id="sep-21">
+      <div class="dayp-head">
+        <div class="dayp-eyebrow">Monday · September 21, 2026 · Day 2 of 14</div>
+        <h1>Land Barcelona, settle in</h1>
+        <div><span class="badge us">Just us</span></div>
+        <div class="transit"><span>BCN → city · 35 min</span><span>Taxi ~€35–45, or Aerobús €7.25</span></div>
+      </div>
+
+      <div class="fixed">
+        <div class="fixed-col">
+          <h4>Reservations &amp; fixed points</h4>
+          <ul class="res">
+        <li><b>Grand Hotel Central</b><span class="sub">Via Laietana 30 · Superior King</span><span class="ref ok">conf 1000596775</span></li>
+        <li><b>Check-in from 3:00pm</b><span class="sub">Checkout 12:00pm · no parking at the hotel</span></li>
+          </ul>
+        </div>
+        <div class="fixed-col">
+          <h4>The day</h4>
+          <ul class="sched">
+        <li><time>12:50</time><span>Land BCN. Immigration and bags, then a taxi in.</span></li>
+        <li><time>~14:30</time><span>Drop bags at the hotel — the room may not be ready before three.</span></li>
+        <li><time>Late afternoon</time><span>The Gothic Quarter on foot, once the heat drops.</span></li>
+        <li><time>Before 20:00</time><span>La Boqueria if there's appetite, though the good counters wind down.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="dayp-lede">DL194 lands at 12:50pm, so this is an afternoon and an evening rather than a full day. Check in, then walk the old city once the heat has gone. Early night — the group lands tomorrow and Park Güell is a real afternoon.</p>
+
+      <hr class="divider">
+      <div class="section-label">Where you'll be</div>
+      <div class="places">
+        <div class="place">
+          <img class="place-thumb" data-wiki="Gothic Quarter, Barcelona" data-alt="Barcelona" alt="Gothic Quarter">
+          <div class="place-body">
+            <h3>Gothic Quarter</h3>
+            <p>The Roman and medieval core — narrow stone lanes that open without warning onto small squares. Best walked with no destination at all. The cathedral cloister has a pond with resident geese.</p>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Gothic+Quarter+Barcelona" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Free</span> <span class="tag">Medieval</span></div>
+          </div>
+        </div><div class="place">
+          <img class="place-thumb" data-wiki="La Boqueria" data-alt="Barcelona" alt="Mercat de la Boqueria">
+          <div class="place-body">
+            <h3>Mercat de la Boqueria</h3>
+            <p>The market off La Rambla — jamón, seafood on ice, and tiny counter bars at the back where the cooking beats most restaurants in the city. Free to enter. Go before 2pm; the best stalls thin out after.</p>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Mercat+de+la+Boqueria+Barcelona" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Food</span> <span class="tag">Free</span></div>
+          </div>
+        </div>
+      </div>
+      <hr class="divider">
+      <div class="section-label">If the day has room</div>
+      <div class="options"><div class="opt-grid"><div class="opt-card"><b>Santa Maria del Mar</b><p>Ten minutes from the hotel and free most of the day — a good low-effort first stop if the room isn't ready.</p></div><div class="opt-card"><b>Bunkers del Carmel</b><p>Civil-war gun emplacements above the city with the best free view in Barcelona. Sunset is the point. A taxi up, walk down.</p></div></div></div>
+      <div class="night">Tonight · <b>Grand Hotel Central — Via Laietana 30 · Superior King</b></div>
+      <div class="daynav"><a href="#sep-20"><small>Previous</small>Sat 20 · Depart Atlanta</a><a class="nx" href="#sep-22"><small>Next</small>Tue 22 · Park Güell with everyone</a></div>
+    </section>
+    <section class="dayp" id="sep-22">
+      <div class="dayp-head">
+        <div class="dayp-eyebrow">Tuesday · September 22, 2026 · Day 3 of 14</div>
+        <h1>Park Güell with everyone</h1>
+        <div><span class="badge group">Everyone</span> <span class="badge booked">Booked</span></div>
+        <div class="transit"><span>Raymonds land 12:50pm</span><span>City → Park Güell · 25 min · metro L3 Lesseps</span></div>
+      </div>
+
+      <div class="fixed">
+        <div class="fixed-col">
+          <h4>Reservations &amp; fixed points</h4>
+          <ul class="res">
+        <li><b>Park Güell guided tour · 3:15pm</b><span class="sub">Meet Mirador de Joan Sales, tour at 3:30</span><span class="ref warn">Two refs exist — AJ's 1411519457 (4 adults) vs Jessi's 1409828785 (9). Confirm which before paying AJ.</span></li>
+        <li><b>Gallo Santo, Gràcia · 7:00pm</b><span class="sub">Group dinner · vegan Mexican</span></li>
+        <li><b>Grand Hotel Central</b><span class="sub">Via Laietana 30 · Superior King</span><span class="ref ok">conf 1000596775</span></li>
+          </ul>
+        </div>
+        <div class="fixed-col">
+          <h4>The day</h4>
+          <ul class="sched">
+        <li><time>Morning</time><span>Yours. The Raymonds are still in the air.</span></li>
+        <li><time>12:50</time><span>Devon, Tasia and Scott land on the same route you flew.</span></li>
+        <li><time>15:15</time><span>Meet at the Mirador de Joan Sales.</span></li>
+        <li><time>15:30</time><span>Tour starts. Allow three hours with the free park.</span></li>
+        <li><time>19:00</time><span>Gallo Santo, Gràcia.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="dayp-lede">The group's first day. Meet at the Mirador de Joan Sales at 3:15pm for the 3:30 tour — roughly three hours across the monumental zone and the free wooded park above it. Dinner at seven in Gràcia.</p>
+
+      <hr class="divider">
+      <div class="section-label">Where you'll be</div>
+      <div class="places">
+        <div class="place">
+          <img class="place-thumb" data-wiki="Park Güell" data-alt="Barcelona" alt="Park Güell">
+          <div class="place-body">
+            <h3>Park Güell</h3>
+            <p>Gaudí's failed luxury housing estate, now the most joyful thing in the city — a serpentine mosaic bench, a hall of tilted columns, and a terrace looking clean over Barcelona to the sea. The ticketed zone is small; the free park around it is large and worth the extra hour.</p>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Park+Güell+Barcelona" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Gaudí</span> <span class="tag">Views</span> <span class="tag">Unmissable</span></div>
+          </div>
+        </div><div class="place">
+          <img class="place-thumb" data-wiki="Gràcia" data-alt="Barcelona" alt="Gràcia">
+          <div class="place-body">
+            <h3>Gràcia</h3>
+            <p>A former village of small plazas swallowed by the city, and the best evening neighbourhood in Barcelona. Arrive early and wander before dinner — the squares fill up around eight and the whole district is walkable.</p>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Gràcia+Barcelona" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Dinner</span> <span class="tag">Neighbourhood</span></div>
+          </div>
+        </div>
+      </div>
+      <hr class="divider">
+      <div class="section-label">If the day has room</div>
+      <div class="options"><div class="opt-grid"><div class="opt-card"><b>Casa Vicens</b><p>Gaudí's first house, ten minutes from Gallo Santo and almost never crowded. A good hour before dinner.</p></div><div class="opt-card"><b>Bunkers del Carmel</b><p>Twenty minutes downhill from Park Güell if the tour ends with light left.</p></div></div></div>
+      <div class="night">Tonight · <b>Grand Hotel Central — Via Laietana 30 · Superior King</b></div>
+      <div class="daynav"><a href="#sep-21"><small>Previous</small>Mon 21 · Land Barcelona, settle in</a><a class="nx" href="#sep-23"><small>Next</small>Wed 23 · Sagrada Família and Sant Pau</a></div>
+    </section>
+    <section class="dayp" id="sep-23">
+      <div class="dayp-head">
+        <div class="dayp-eyebrow">Wednesday · September 23, 2026 · Day 4 of 14</div>
+        <h1>Sagrada Família and Sant Pau</h1>
+        <div><span class="badge group">Everyone</span> <span class="badge booked">Booked</span></div>
+        <div class="transit"><span>Sagrada → Sant Pau · 12 min on foot</span><span>Straight up Avinguda Gaudí</span></div>
+      </div>
+
+      <div class="fixed">
+        <div class="fixed-col">
+          <h4>Reservations &amp; fixed points</h4>
+          <ul class="res">
+        <li><b>Sagrada Família · 10:15am</b><span class="sub">2 × general admission, €52 — basilica only, no towers</span><span class="ref ok">Paid</span></li>
+        <li><b>Sant Pau, self-guided · 2:00pm</b><span class="sub">Jessi may hold 5 tickets at €17 (res #192834)</span><span class="ref warn">Ask before buying</span></li>
+        <li><b>Grand Hotel Central</b><span class="sub">Via Laietana 30 · Superior King</span><span class="ref ok">conf 1000596775</span></li>
+          </ul>
+        </div>
+        <div class="fixed-col">
+          <h4>The day</h4>
+          <ul class="sched">
+        <li><time>10:15</time><span>Your Sagrada entry. Ninety minutes minimum inside.</span></li>
+        <li><time>10:45</time><span>The Raymonds' slot.</span></li>
+        <li><time>~12:30</time><span>Lunch on Avinguda Gaudí, between the two.</span></li>
+        <li><time>14:00</time><span>Sant Pau, self-guided. Far quieter than the morning.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="dayp-lede">Two Modernista buildings twelve minutes apart, with lunch between them. Your Sagrada entry is 10:15 and the Raymonds are at 10:45, so you'll be inside together either way.</p>
+
+      <hr class="divider">
+      <div class="section-label">Where you'll be</div>
+      <div class="places">
+        <div class="place">
+          <img class="place-thumb" data-wiki="Sagrada Família" data-alt="Barcelona" alt="Basílica de la Sagrada Família">
+          <div class="place-body">
+            <h3>Basílica de la Sagrada Família</h3>
+            <p>Under construction since 1882. The exterior is the famous part; the interior is the reason to go — a stone forest where the columns branch overhead and the glass throws red light west and blue east. Ninety minutes minimum.</p>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Sagrada+Familia+Barcelona" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Gaudí</span> <span class="tag">Unmissable</span></div>
+          </div>
+        </div><div class="place">
+          <img class="place-thumb" data-wiki="Hospital de Sant Pau" data-alt="Barcelona" alt="Sant Pau Recinte Modernista">
+          <div class="place-body">
+            <h3>Sant Pau Recinte Modernista</h3>
+            <p>A working hospital until 2009, built as twenty-seven mosaic-and-brick pavilions in a garden — Domènech i Montaner's answer to Gaudí, and to many people the better building. Far quieter than the Sagrada, and you can take your time.</p>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Hospital+de+Sant+Pau+Barcelona" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Modernisme</span> <span class="tag">UNESCO</span></div>
+          </div>
+        </div>
+      </div>
+      <hr class="divider">
+      <div class="section-label">If the day has room</div>
+      <div class="options"><div class="opt-grid"><div class="opt-card"><b>Mar Bella</b><p>Metro L4 and fifteen minutes if the afternoon wants a beach instead. Naturist section signposted.</p></div><div class="opt-card"><b>Casa Batlló or La Pedrera</b><p>Both on Passeig de Gràcia, both bookable same-day out of season, both an hour.</p></div></div></div>
+      <div class="night">Tonight · <b>Grand Hotel Central — Via Laietana 30 · Superior King</b></div>
+      <div class="daynav"><a href="#sep-22"><small>Previous</small>Tue 22 · Park Güell with everyone</a><a class="nx" href="#sep-24"><small>Next</small>Thu 24 · North to Girona, castle on the way</a></div>
+    </section>
+    <section class="dayp" id="sep-24">
+      <div class="dayp-head">
+        <div class="dayp-eyebrow">Thursday · September 24, 2026 · Day 5 of 14</div>
+        <h1>North to Girona, castle on the way</h1>
+        <div><span class="badge group">Everyone</span> <span class="badge booked">Car day</span></div>
+        <div class="transit"><span>Sants → Canet de Mar · 49 km · 46 min</span><span>Canet → Girona · ~1h</span><span>108 km on the day</span></div>
+      </div>
+
+      <div class="fixed">
+        <div class="fixed-col">
+          <h4>Reservations &amp; fixed points</h4>
+          <ul class="res">
+        <li><b>Check out, Grand Hotel Central</b><span class="sub">Checkout is by 12:00 — go at 09:45, this day needs it</span></li>
+        <li><b>National · pick up 10:30am</b><span class="sub">Citroën ë-C4 electric · Barcelona Sants, Saba car park LEVEL -1, not the concourse</span><span class="ref ok">conf 2131029323</span></li>
+        <li><b>Castell de Santa Florentina · ~1:30pm</b><span class="sub">Canet de Mar</span><span class="ref warn">Tickets weren't on sale as of late August — monitor</span></li>
+        <li><b>DoubleTree by Hilton Girona</b><span class="sub">Mossèn Joan Pons 1 · King with balcony</span><span class="ref ok">conf 3526531356</span></li>
+          </ul>
+        </div>
+        <div class="fixed-col">
+          <h4>The day</h4>
+          <ul class="sched">
+        <li><time>09:45</time><span>Check out of the Grand Hotel Central.</span></li>
+        <li><time>10:15</time><span>Taxi to Sants. The counter is underground on level -1.</span></li>
+        <li><time>10:30</time><span>Pick up the car. Allow 30–40 min for paperwork, finding it, loading, and working out an unfamiliar EV.</span></li>
+        <li><time>~11:10</time><span>Away on the C-32. The Raymonds collect their Sixt at the same station at the same time.</span></li>
+        <li><time>12:15–13:15</time><span>Lunch in Canet de Mar.</span></li>
+        <li><time>13:30</time><span>Castell de Santa Florentina.</span></li>
+        <li><time>~14:30</time><span>On to Girona, about an hour.</span></li>
+        <li><time>~15:45</time><span>Into the DoubleTree. Covered parking €14/day.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="dayp-lede">The one genuinely tight morning of the trip. Checkout, rental counter, coast road, castle, then inland to Girona — and the castle slot is what everything else has to fit around.</p>
+
+      <hr class="divider">
+      <div class="section-label">Where you'll be</div>
+      <div class="places">
+        <div class="place">
+          <img class="place-thumb" data-wiki="Castell de Santa Florentina" data-alt="Canet de Mar" alt="Castell de Santa Florentina">
+          <div class="place-body">
+            <h3>Castell de Santa Florentina</h3>
+            <p>An 11th-century fortified manor at Canet de Mar, reworked by Domènech i Montaner into something between a castle and a Modernista fantasy. Still privately owned and lived in. Doubled as Horn Hill in Game of Thrones.</p>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Castell+de+Santa+Florentina+Canet+de+Mar" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Castle</span> <span class="tag">Game of Thrones</span></div>
+          </div>
+        </div><div class="place">
+          <img class="place-thumb" data-wiki="Canet de Mar" data-alt="Maresme" alt="Canet de Mar">
+          <div class="place-body">
+            <h3>Canet de Mar</h3>
+            <p>A small Maresme coast town and the lunch stop before the castle. Domènech i Montaner kept a house here, now a museum, and there's a beach if the schedule loosens.</p>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Canet+de+Mar" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Lunch</span> <span class="tag">Coast</span></div>
+          </div>
+        </div>
+      </div>
+      <hr class="divider">
+      <div class="section-label">If the day has room</div>
+      <div class="options"><div class="opt-grid"><div class="opt-card"><b>Skip the castle</b><p>If the tickets never go on sale, the coast road through the Maresme is pleasant on its own and you reach Girona in time for a long evening in the old town.</p></div><div class="opt-card"><b>Museu Domènech i Montaner</b><p>In Canet de Mar itself, five minutes from lunch — the architect's own house, and a small one-room answer to the castle if that falls through.</p></div></div></div>
+      <div class="night">Tonight · <b>DoubleTree by Hilton Girona — Mossèn Joan Pons 1 · King with balcony</b></div>
+      <div class="daynav"><a href="#sep-23"><small>Previous</small>Wed 23 · Sagrada Família and Sant Pau</a><a class="nx" href="#sep-25"><small>Next</small>Fri 25 · Girona, and the meet &amp; greet</a></div>
+    </section>
+    <section class="dayp" id="sep-25">
+      <div class="dayp-head">
+        <div class="dayp-eyebrow">Friday · September 25, 2026 · Day 6 of 14</div>
+        <h1>Girona, and the meet &amp; greet</h1>
+        <div><span class="badge group">Everyone</span> <span class="badge wedding">Wedding weekend</span></div>
+        <div class="transit"><span>Hotel → old town · ~2 km</span><span>No Uber in Girona — taxis or the G-Taxi app</span></div>
+      </div>
+
+      <div class="fixed">
+        <div class="fixed-col">
+          <h4>Reservations &amp; fixed points</h4>
+          <ul class="res">
+        <li><b>Meet &amp; greet at the DoubleTree</b><span class="sub">Evening · your hotel, so no transport to arrange</span></li>
+        <li><b>DoubleTree by Hilton Girona</b><span class="sub">Mossèn Joan Pons 1 · King with balcony</span><span class="ref ok">conf 3526531356</span></li>
+          </ul>
+        </div>
+        <div class="fixed-col">
+          <h4>The day</h4>
+          <ul class="sched">
+        <li><time>Morning</time><span>Slow. The hotel is 2 km out of the old town — walk in or drive.</span></li>
+        <li><time>Afternoon</time><span>Barri Vell: the Onyar houses, the Jewish quarter, the Arab baths, the walls.</span></li>
+        <li><time>Evening</time><span>Meet and greet downstairs.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="dayp-lede">Free until evening. Girona is compact enough to do properly in an afternoon, and the meet and greet is at your own hotel, so there's nothing to plan around but the walk back.</p>
+
+      <hr class="divider">
+      <div class="section-label">Where you'll be</div>
+      <div class="places">
+        <div class="place">
+          <img class="place-thumb" data-wiki="Girona" data-alt="Catalonia" alt="Girona Old Town">
+          <div class="place-body">
+            <h3>Girona Old Town</h3>
+            <p>Coloured houses stacked over the Onyar, one of Europe's best-preserved Jewish quarters, 12th-century Arab baths, and an iron footbridge Gustave Eiffel built before the tower. The medieval walls are free and you can walk them end to end.</p>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Girona+Old+Town" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Free walls</span> <span class="tag">Medieval</span></div>
+          </div>
+        </div><div class="place">
+          <img class="place-thumb" data-wiki="Girona Cathedral" data-alt="Girona" alt="Girona Cathedral">
+          <div class="place-body">
+            <h3>Girona Cathedral</h3>
+            <p>Ninety-one steps up from the square, and the widest Gothic nave in the world at 23 metres — built without side aisles because the architects argued and the ambitious side won. The staircase is the one from the Great Sept.</p>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Girona+Cathedral" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Gothic</span> <span class="tag">Views</span></div>
+          </div>
+        </div>
+      </div>
+      <hr class="divider">
+      <div class="section-label">If the day has room</div>
+      <div class="options"><div class="opt-grid"><div class="opt-card"><b>Besalú</b><p>Twenty minutes out — a medieval town entered across a fortified bridge, and the best short trip from Girona.</p></div><div class="opt-card"><b>Banyoles</b><p>The largest lake in Catalonia, with a flat hour's walk around it. Good if the day wants to be gentle.</p></div><div class="opt-card"><b>El Call</b><p>Girona's Jewish quarter deserves its own hour rather than being walked through on the way somewhere.</p></div></div></div>
+      <div class="night">Tonight · <b>DoubleTree by Hilton Girona — Mossèn Joan Pons 1 · King with balcony</b></div>
+      <div class="daynav"><a href="#sep-24"><small>Previous</small>Thu 24 · North to Girona, castle on the way</a><a class="nx" href="#sep-26"><small>Next</small>Sat 26 · Jessica and Daniel · Mas Rosset</a></div>
+    </section>
+    <section class="dayp" id="sep-26">
+      <div class="dayp-head">
+        <div class="dayp-eyebrow">Saturday · September 26, 2026 · Day 7 of 14</div>
+        <h1>Jessica and Daniel · Mas Rosset</h1>
+        <div><span class="badge wedding">Wedding day</span></div>
+        <div class="transit"><span>Girona → Mas Rosset · 19.7 km · 18 min</span><span>You have the car — no taxi to arrange</span></div>
+      </div>
+
+      <div class="fixed">
+        <div class="fixed-col">
+          <h4>Reservations &amp; fixed points</h4>
+          <ul class="res">
+        <li><b>Ceremony · 4:00pm</b><span class="sub">Mas Rosset, Cornellà del Terri</span></li>
+        <li><b>Photographer 12:30pm · portraits 2:00pm</b><span class="sub">Hair and makeup from 6:00am for the wedding party</span></li>
+        <li><b>DoubleTree by Hilton Girona</b><span class="sub">Mossèn Joan Pons 1 · King with balcony</span><span class="ref ok">conf 3526531356</span></li>
+          </ul>
+        </div>
+        <div class="fixed-col">
+          <h4>The day</h4>
+          <ul class="sched">
+        <li><time>06:00</time><span>Hair and makeup begins for the party.</span></li>
+        <li><time>12:00</time><span>Eat something. The couple's own document says so twice, which suggests experience.</span></li>
+        <li><time>12:30</time><span>Photographer.</span></li>
+        <li><time>14:00</time><span>Family and friend portraits.</span></li>
+        <li><time>16:00</time><span>Ceremony.</span></li>
+        <li><time>Evening</time><span>All of it, in one place.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="dayp-lede">The day the trip was built around. A restored Catalan farmhouse in the countryside north of Girona, and the whole thing happens in one place.</p>
+
+      <hr class="divider">
+      <div class="section-label">Where you'll be</div>
+      <div class="places">
+        <div class="place">
+          <img class="place-thumb" data-wiki="Empordà" data-alt="Catalonia" alt="Mas Rosset">
+          <div class="place-body">
+            <h3>Mas Rosset</h3>
+            <p>The venue — a restored masia in the countryside north of Girona, rural enough that there is no Uber and no passing taxi. You have the car all weekend, which solves it.</p>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Mas+Rosset+Cornellà+del+Terri" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Ceremony 4pm</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="night">Tonight · <b>DoubleTree by Hilton Girona — Mossèn Joan Pons 1 · King with balcony</b></div>
+      <div class="daynav"><a href="#sep-25"><small>Previous</small>Fri 25 · Girona, and the meet &amp; greet</a><a class="nx" href="#sep-27"><small>Next</small>Sun 27 · Brunch and pool</a></div>
+    </section>
+    <section class="dayp" id="sep-27">
+      <div class="dayp-head">
+        <div class="dayp-eyebrow">Sunday · September 27, 2026 · Day 8 of 14</div>
+        <h1>Brunch and pool</h1>
+        <div><span class="badge us">Recovery</span></div>
+        <div class="transit"><span>On site all day · no transit</span></div>
+      </div>
+
+      <div class="fixed">
+        <div class="fixed-col">
+          <h4>Reservations &amp; fixed points</h4>
+          <ul class="res">
+        <li><b>Brunch from 10:00am</b><span class="sub">At the hotel</span></li>
+        <li><b>DoubleTree by Hilton Girona</b><span class="sub">Mossèn Joan Pons 1 · King with balcony</span><span class="ref ok">conf 3526531356</span></li>
+          </ul>
+        </div>
+        <div class="fixed-col">
+          <h4>The day</h4>
+          <ul class="sched">
+        <li><time>10:00</time><span>Brunch, loosely.</span></li>
+        <li><time>Afternoon</time><span>The Urban Roof pool.</span></li>
+        <li><time>Whenever</time><span>The video recap.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="dayp-lede">Brunch from ten for whoever surfaces, then the rooftop pool and the video recap. Nothing scheduled, deliberately.</p>
+
+      <hr class="divider">
+      <div class="section-label">If the day has room</div>
+      <div class="options"><div class="opt-grid"><div class="opt-card"><b>Girona again</b><p>Anything the Friday afternoon didn't reach — the cathedral, the walls, the Call.</p></div><div class="opt-card"><b>Banyoles</b><p>Twenty-five minutes, and a flat lakeside hour is about the right ambition for this particular Sunday.</p></div></div></div>
+      <div class="night">Tonight · <b>DoubleTree by Hilton Girona — Mossèn Joan Pons 1 · King with balcony</b></div>
+      <div class="daynav"><a href="#sep-26"><small>Previous</small>Sat 26 · Jessica and Daniel · Mas Rosset</a><a class="nx" href="#sep-28"><small>Next</small>Mon 28 · Vineyard picnic, then the coast</a></div>
+    </section>
+    <section class="dayp" id="sep-28">
+      <div class="dayp-head">
+        <div class="dayp-eyebrow">Monday · September 28, 2026 · Day 9 of 14</div>
+        <h1>Vineyard picnic, then the coast</h1>
+        <div><span class="badge group">Everyone</span> <span class="badge wedding">Then Jessi &amp; Dan</span> <span class="badge booked">Longest drive</span></div>
+        <div class="transit"><span>Girona → Clos de Basella · ~40 min</span><span>Basella → Lloret · ~55 min</span><span>124 km on the day</span></div>
+      </div>
+
+      <div class="fixed">
+        <div class="fixed-col">
+          <h4>Reservations &amp; fixed points</h4>
+          <ul class="res">
+        <li><b>Check out of the DoubleTree</b><span class="sub">By 12:00</span></li>
+        <li><b>Clos de Basella · 12:00–3:00pm</b><span class="sub">Vineyard walk, winery tour, gourmet picnic among the vines</span><span class="ref warn">Refs differ — Devon's 1411134659 (9 adults) vs Shannon's 1411134619 (6). Confirm.</span></li>
+        <li><b>Hotel Santa Marta</b><span class="sub">Platja de Santa Cristina, Lloret · Premium sea-view terrace</span><span class="ref ok">conf 26082370424</span></li>
+          </ul>
+        </div>
+        <div class="fixed-col">
+          <h4>The day</h4>
+          <ul class="sched">
+        <li><time>~10:30</time><span>Check out and drive north — the winery is above Girona, not below it.</span></li>
+        <li><time>12:00</time><span>Clos de Basella. Walk, tour, then a long picnic.</span></li>
+        <li><time>15:00</time><span>It ends. The Raymonds turn back to Barcelona from here.</span></li>
+        <li><time>~16:30</time><span>Into Hotel Santa Marta. Free parking, and free EV charging — plug in tonight.</span></li>
+        <li><time>Evening</time><span>Dinner with Jessi and Dan's group.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="dayp-lede">The heaviest driving day, and it lands on a checkout morning with a wine tasting in the middle. Clos de Basella is north of Girona in the Alt Empordà; Lloret is well south. Settle who drives before the tasting, not after.</p>
+
+      <hr class="divider">
+      <div class="section-label">Where you'll be</div>
+      <div class="places">
+        <div class="place">
+          <img class="place-thumb" data-wiki="Empordà" data-alt="Catalonia" alt="Clos de Basella">
+          <div class="place-body">
+            <h3>Clos de Basella</h3>
+            <p>A small organic and biodynamic estate in the Empordà, the wine country between Girona and the French border. The picnic is the whole point rather than an add-on — local cheeses, cured meats and the estate's own wines, among the vines, for three hours.</p>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Clos+de+Basella" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Wine</span> <span class="tag">Long lunch</span></div>
+          </div>
+        </div><div class="place">
+          <img class="place-thumb" data-wiki="Lloret de Mar" data-alt="Costa Brava" alt="Hotel Santa Marta">
+          <div class="place-body">
+            <h3>Hotel Santa Marta</h3>
+            <p>Pine woods above its own beach at the far southern end of Lloret, three kilometres clear of the town and everything the town is known for. Free parking with EV charging, a free spa hour per stay, and breakfast included.</p>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+Santa+Marta+Lloret+de+Mar" target="_blank" rel="noopener">Maps ↗</a><span class="tag">One night</span> <span class="tag">EV charging</span></div>
+          </div>
+        </div>
+      </div>
+      <hr class="divider">
+      <div class="section-label">If the day has room</div>
+      <div class="options"><div class="opt-grid"><div class="opt-card"><b>Besalú on the way</b><p>Roughly on the line between Girona and the winery if you leave early enough.</p></div><div class="opt-card"><b>Tossa de Mar</b><p>Twenty-five minutes north of Lloret on the cliff road — a walled medieval town on the sea, and the best evening drive on this coast.</p></div></div></div>
+      <div class="night">Tonight · <b>Hotel Santa Marta — Platja de Santa Cristina, Lloret · Premium sea-view terrace</b></div>
+      <div class="daynav"><a href="#sep-27"><small>Previous</small>Sun 27 · Brunch and pool</a><a class="nx" href="#sep-29"><small>Next</small>Tue 29 · Lloret morning, then back to Barcelona</a></div>
+    </section>
+    <section class="dayp" id="sep-29">
+      <div class="dayp-head">
+        <div class="dayp-eyebrow">Tuesday · September 29, 2026 · Day 10 of 14</div>
+        <h1>Lloret morning, then back to Barcelona</h1>
+        <div><span class="badge beach">Coast morning</span> <span class="badge booked">Car back 5pm</span></div>
+        <div class="transit"><span>Everything near the hotel is on foot</span><span>Depart Lloret 15:15</span><span>Lloret → Sants · 74 km · 56 min</span><span>Car back at 17:00</span></div>
+      </div>
+
+      <div class="fixed">
+        <div class="fixed-col">
+          <h4>Reservations &amp; fixed points</h4>
+          <ul class="res">
+        <li><b>Free spa hour</b><span class="sub">Included in the Santa Marta rate, one hour per stay</span></li>
+        <li><b>Check out of Hotel Santa Marta</b><span class="sub">Leave the bags — you're not leaving until three</span></li>
+        <li><b>National · return 5:00pm</b><span class="sub">Barcelona Sants, same garage, level -1</span><span class="ref ok">conf 2131029323</span></li>
+        <li><b>Grand Hotel Central</b><span class="sub">Via Laietana 30 · Deluxe King</span><span class="ref ok">conf 1000596772</span></li>
+          </ul>
+        </div>
+        <div class="fixed-col">
+          <h4>The day</h4>
+          <ul class="sched">
+        <li><time>08:00</time><span>Breakfast, included.</span></li>
+        <li><time>09:30</time><span>The free spa hour, or straight out to the gardens.</span></li>
+        <li><time>10:00</time><span>Santa Clotilde opens. €6.10, and it's essentially next door.</span></li>
+        <li><time>~12:00</time><span>Check out and leave the bags at the hotel.</span></li>
+        <li><time>12:00–14:00</time><span>Sa Boadella and Santa Cristina.</span></li>
+        <li><time>14:00</time><span>Lunch in Lloret.</span></li>
+        <li><time>15:15</time><span>Leave. Half three at the latest — the car is due back at five, and the road in clogs from six.</span></li>
+        <li><time>17:00</time><span>Car back at Sants.</span></li>
+        <li><time>~17:30</time><span>Into the Grand Hotel Central. Room's ready; check-in was three.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="dayp-lede">The gardens, the hotel beach and the next cove along all sit on one walk, and the gardens open at ten. Then the drive back, the car handed over, and an evening with the Raymonds — who came back to Barcelona yesterday and have nothing scheduled.</p>
+
+      <hr class="divider">
+      <div class="section-label">Where you'll be</div>
+      <div class="places">
+        <div class="place">
+          <img class="place-thumb" data-wiki="Lloret de Mar" data-alt="Costa Brava" alt="Jardins de Santa Clotilde">
+          <div class="place-body">
+            <h3>Jardins de Santa Clotilde</h3>
+            <p>The best thing near the hotel by a wide margin, and essentially next door — laid out along the clifftop in 1919 by Nicolau Rubió i Tudurí in the manner of an Italian Renaissance garden. Cypress avenues, statuary, ponds, and long staircases dropping through the pines to frame the sea. €6.10, open 10:00 to 20:00.</p>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Jardins+de+Santa+Clotilde+Lloret+de+Mar" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Gardens</span> <span class="tag">Opens 10:00</span></div>
+          </div>
+        </div><div class="place">
+          <img class="place-thumb" data-wiki="Costa Brava" data-alt="Cala Sa Boadella" alt="Santa Cristina and Sa Boadella">
+          <div class="place-body">
+            <h3>Santa Cristina and Sa Boadella</h3>
+            <p>Santa Cristina is the hotel's own beach — broad, sheltered, backed by umbrella pines, with a hermitage on the headland. Sa Boadella is the next cove over, ten minutes down a wooded path: no road, no buildings, pines to the sand, one small chiringuito. Regularly named among the finest coves on the Costa Brava.</p>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Cala+Sa+Boadella+Lloret+de+Mar" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Clothing optional</span> <span class="tag">10 min walk</span></div>
+          </div>
+        </div>
+      </div>
+      <hr class="divider">
+      <div class="section-label">If the day has room</div>
+      <div class="options"><div class="opt-grid"><div class="opt-card"><b>Camí de Ronda</b><p>The old coastguard path runs past the hotel — 8.5 km south to Blanes, 11 km north to Tossa. Take as much as the morning allows.</p></div><div class="opt-card"><b>Castell de Sant Joan</b><p>Ten minutes' drive, an 11th-century watchtower with the coast laid out both ways.</p></div><div class="opt-card"><b>Marimurtra, Blanes</b><p>Twenty minutes south — a clifftop botanical garden, one of the best in Europe, if Santa Clotilde leaves you wanting more of the same.</p></div></div></div>
+      <div class="night">Tonight · <b>Grand Hotel Central — Via Laietana 30 · Deluxe King</b></div>
+      <div class="daynav"><a href="#sep-28"><small>Previous</small>Mon 28 · Vineyard picnic, then the coast</a><a class="nx" href="#sep-30"><small>Next</small>Wed 30 · Figueres and the Dalí Theatre-Museum</a></div>
+    </section>
+    <section class="dayp" id="sep-30">
+      <div class="dayp-head">
+        <div class="dayp-eyebrow">Wednesday · September 30, 2026 · Day 11 of 14</div>
+        <h1>Figueres and the Dalí Theatre-Museum</h1>
+        <div><span class="badge group">Devon, Tasia &amp; Scott</span> <span class="badge us">Propose it</span></div>
+        <div class="transit"><span>Sants → Figueres-Vilafant · 55–65 min · AVE</span><span>Station → museum · 20 min walk or 5 min taxi</span></div>
+      </div>
+
+      <div class="fixed">
+        <div class="fixed-col">
+          <h4>Reservations &amp; fixed points</h4>
+          <ul class="res">
+        <li><b>AVE Barcelona → Figueres</b><span class="sub">Book nearer the date — no advantage to booking early</span><span class="ref warn">Not booked</span></li>
+        <li><b>Dalí Theatre-Museum</b><span class="sub">Tue–Sun 9:30–18:00 · closed Mondays in September</span></li>
+        <li><b>Grand Hotel Central</b><span class="sub">Via Laietana 30 · Deluxe King</span><span class="ref ok">conf 1000596772</span></li>
+          </ul>
+        </div>
+        <div class="fixed-col">
+          <h4>The day</h4>
+          <ul class="sched">
+        <li><time>Morning</time><span>AVE from Sants. Under an hour and nobody watches a clock.</span></li>
+        <li><time>~10:30</time><span>Figueres-Vilafant, then twenty minutes on foot into town.</span></li>
+        <li><time>Midday on</time><span>The museum. Allow three hours; it rewards it.</span></li>
+        <li><time>Afternoon</time><span>Lunch in Figueres, then back whenever.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="dayp-lede">The natural day to do this with Devon and Tasia — it's one of their three open Barcelona days and the museum is squarely their kind of thing. A Wednesday because it's shut Mondays through September, which is what killed the original plan of doing it after the picnic.</p>
+
+      <hr class="divider">
+      <div class="section-label">Where you'll be</div>
+      <div class="places">
+        <div class="place">
+          <img class="place-thumb" data-wiki="Dalí Theatre-Museum" data-alt="Figueres" alt="Teatre-Museu Dalí">
+          <div class="place-body">
+            <h3>Teatre-Museu Dalí</h3>
+            <p>Dalí built it inside the bombed-out shell of the town theatre and designed every room as a single work — the Mae West face you assemble by standing in the right spot, the Rainy Taxi in the courtyard, giant eggs along the roofline. He's buried in the basement. Not a museum of his paintings so much as the largest surrealist object he ever made.</p>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Teatre-Museu+Dalí+Figueres" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Art</span> <span class="tag">Unmissable</span></div>
+          </div>
+        </div>
+      </div>
+      <hr class="divider">
+      <div class="section-label">If the day has room</div>
+      <div class="options"><div class="opt-grid"><div class="opt-card"><b>Cadaqués</b><p>An hour east over the hills — the whitewashed village Dalí actually lived in, with his house at Portlligat. Needs a car, so it's an alternate rather than a plan.</p></div><div class="opt-card"><b>Castell de Sant Ferran</b><p>On the hill above Figueres, the largest bastion fortress in Europe and almost empty.</p></div><div class="opt-card"><b>Girona on the way back</b><p>The AVE passes through. A second look costs an hour.</p></div></div></div>
+      <div class="night">Tonight · <b>Grand Hotel Central — Via Laietana 30 · Deluxe King</b></div>
+      <div class="daynav"><a href="#sep-29"><small>Previous</small>Tue 29 · Lloret morning, then back to Barcelona</a><a class="nx" href="#oct-01"><small>Next</small>Thu 1 · El Born, and a final dinner</a></div>
+    </section>
+    <section class="dayp" id="oct-01">
+      <div class="dayp-head">
+        <div class="dayp-eyebrow">Thursday · October 1, 2026 · Day 12 of 14</div>
+        <h1>El Born, and a final dinner</h1>
+        <div><span class="badge group">Devon, Tasia &amp; Scott</span> <span class="badge wedding">Their last full day</span></div>
+        <div class="transit"><span>All in the city · metro or on foot</span></div>
+      </div>
+
+      <div class="fixed">
+        <div class="fixed-col">
+          <h4>Reservations &amp; fixed points</h4>
+          <ul class="res">
+        <li><b>Final dinner with the Raymonds</b><span class="sub">Their last night · El Born</span><span class="ref warn">Book somewhere</span></li>
+        <li><b>Grand Hotel Central</b><span class="sub">Via Laietana 30 · Deluxe King</span><span class="ref ok">conf 1000596772</span></li>
+          </ul>
+        </div>
+        <div class="fixed-col">
+          <h4>The day</h4>
+          <ul class="sched">
+        <li><time>Morning</time><span>El Born, on foot from the hotel.</span></li>
+        <li><time>Midday</time><span>Santa Maria del Mar, then the Picasso museum three minutes away.</span></li>
+        <li><time>Afternoon</time><span>Mar Bella fits without leaving the city if the weather holds.</span></li>
+        <li><time>Evening</time><span>The farewell dinner.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="dayp-lede">Their itinerary marks this as the last full day with a final dinner, so keep it in town. El Born is the neighbourhood for it — tight lanes, wine bars, and the two best things three minutes apart, all of it a few streets from the hotel.</p>
+
+      <hr class="divider">
+      <div class="section-label">Where you'll be</div>
+      <div class="places">
+        <div class="place">
+          <img class="place-thumb" data-wiki="Santa Maria del Mar, Barcelona" data-alt="Barcelona" alt="Santa Maria del Mar">
+          <div class="place-body">
+            <h3>Santa Maria del Mar</h3>
+            <p>Built in fifty-five years by the parish itself, which is why it's all one style — bare, tall, astonishingly plain Catalan Gothic with almost nothing in it. The anarchists burned the baroque fittings in 1936 and the building was better for it. Free most of the day.</p>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Santa+Maria+del+Mar+Barcelona" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Gothic</span> <span class="tag">Free</span></div>
+          </div>
+        </div><div class="place">
+          <img class="place-thumb" data-wiki="Museu Picasso" data-alt="Barcelona" alt="Museu Picasso">
+          <div class="place-body">
+            <h3>Museu Picasso</h3>
+            <p>Five medieval palaces knocked together, holding the early work almost nobody associates with him — academic paintings made at fifteen, the Blue Period, and the full Las Meninas series. Book ahead; it sells out.</p>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Museu+Picasso+Barcelona" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Art</span> <span class="tag">Book ahead</span></div>
+          </div>
+        </div>
+      </div>
+      <hr class="divider">
+      <div class="section-label">If the day has room</div>
+      <div class="options"><div class="opt-grid"><div class="opt-card"><b>Mar Bella</b><p>Metro L4, fifteen minutes, and the only clothing-optional beach you don't need a day for.</p></div><div class="opt-card"><b>El Born CCM</b><p>The excavated 1700s streets under the old market hall, free to walk into.</p></div><div class="opt-card"><b>Palau de la Música</b><p>Domènech i Montaner again, and the interior nobody expects. Tours sell out; same-day is sometimes possible.</p></div></div></div>
+      <div class="night">Tonight · <b>Grand Hotel Central — Via Laietana 30 · Deluxe King</b></div>
+      <div class="daynav"><a href="#sep-30"><small>Previous</small>Wed 30 · Figueres and the Dalí Theatre-Museum</a><a class="nx" href="#oct-02"><small>Next</small>Fri 2 · Goodbyes, then Montserrat</a></div>
+    </section>
+    <section class="dayp" id="oct-02">
+      <div class="dayp-head">
+        <div class="dayp-eyebrow">Friday · October 2, 2026 · Day 13 of 14</div>
+        <h1>Goodbyes, then Montserrat</h1>
+        <div><span class="badge us">Just us, after the goodbyes</span></div>
+        <div class="transit"><span>Raymonds depart BCN 11:00am</span><span>Pl. Espanya → Monistrol · 1h · R5</span><span>Rack railway or cable car · 15 min</span></div>
+      </div>
+
+      <div class="fixed">
+        <div class="fixed-col">
+          <h4>Reservations &amp; fixed points</h4>
+          <ul class="res">
+        <li><b>Raymonds fly 11:00am</b><span class="sub">DL195, the same flight you take tomorrow</span><span class="ref">conf F7YTHX</span></li>
+        <li><b>Grand Hotel Central</b><span class="sub">Via Laietana 30 · Deluxe King</span><span class="ref ok">conf 1000596772</span></li>
+          </ul>
+        </div>
+        <div class="fixed-col">
+          <h4>The day</h4>
+          <ul class="sched">
+        <li><time>Early</time><span>Goodbyes.</span></li>
+        <li><time>~11:00</time><span>They fly.</span></li>
+        <li><time>Late morning</time><span>R5 from Plaça Espanya. No car by now — it went back on Tuesday.</span></li>
+        <li><time>Midday</time><span>Rack railway or cable car up. The boys' choir sings most days around one.</span></li>
+        <li><time>Afternoon</time><span>The ridge paths above the abbey are the real reason to come.</span></li>
+        <li><time>Evening</time><span>Back, and pack.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="dayp-lede">See everyone off, then get out of the city for the last full day. Montserrat is the one piece of real landscape within reach of Barcelona — and doing it now means you come home to a packed apartment and an easy morning.</p>
+
+      <hr class="divider">
+      <div class="section-label">Where you'll be</div>
+      <div class="places">
+        <div class="place">
+          <img class="place-thumb" data-wiki="Montserrat (mountain)" data-alt="Montserrat" alt="Montserrat">
+          <div class="place-body">
+            <h3>Montserrat</h3>
+            <p>A Benedictine monastery wedged into a mountain of pink conglomerate that erodes into hundreds of rounded fingers, visible from half of Catalonia. The Black Madonna is inside; the boys' choir sings most days around 1pm. The real draw is above the abbey — funiculars and ridge paths with a thousand-metre drop to the plain.</p>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Montserrat+Monastery" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Landscape</span> <span class="tag">Full day</span></div>
+          </div>
+        </div>
+      </div>
+      <hr class="divider">
+      <div class="section-label">If the day has room</div>
+      <div class="options"><div class="opt-grid"><div class="opt-card"><b>Sitges</b><p>Thirty-five minutes on the R2 from Passeig de Gràcia. Seventeen beaches, two of them clothing-optional, and no planning at all. The lowest-effort version of this day.</p></div><div class="opt-card"><b>Penedès</b><p>Cava country, forty-five minutes out at Sant Sadurní. Tours run most afternoons.</p></div><div class="opt-card"><b>Stay in the city</b><p>Montjuïc has the Romanesque collection, a castle at the top by cable car, and the fountain show below.</p></div></div></div>
+      <div class="night">Tonight · <b>Grand Hotel Central — Via Laietana 30 · Deluxe King</b></div>
+      <div class="daynav"><a href="#oct-01"><small>Previous</small>Thu 1 · El Born, and a final dinner</a><a class="nx" href="#oct-03"><small>Next</small>Sat 3 · Home</a></div>
+    </section>
+    <section class="dayp" id="oct-03">
+      <div class="dayp-head">
+        <div class="dayp-eyebrow">Saturday · October 3, 2026 · Day 14 of 14</div>
+        <h1>Home</h1>
+        <div><span class="badge us">Just us</span></div>
+        <div class="transit"><span>Leave by 8:15am · 35 min to BCN</span><span>DL195 · 11:00am → ATL 3:28pm</span></div>
+      </div>
+
+      <div class="fixed">
+        <div class="fixed-col">
+          <h4>Reservations &amp; fixed points</h4>
+          <ul class="res">
+        <li><b>DL195 BCN → ATL · 11:00am</b><span class="sub">Nonstop · Delta One · arrives ATL 3:28pm</span><span class="ref ok">conf HTIZJY</span></li>
+        <li><b>Check out of the Grand Hotel Central</b><span class="sub">By 12:00 — but you'll be gone by 8:15</span></li>
+          </ul>
+        </div>
+        <div class="fixed-col">
+          <h4>The day</h4>
+          <ul class="sched">
+        <li><time>08:15</time><span>Leave the hotel. Thirty-five minutes to the airport.</span></li>
+        <li><time>11:00</time><span>Wheels up.</span></li>
+        <li><time>15:28</time><span>Atlanta.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="dayp-lede">Nonstop, Delta One. Two free checked bags each to 70 lbs. Checkout is noon, so the flight is the only thing setting the alarm.</p>
+
+      <div class="night">Tonight · <b>Home</b></div>
+      <div class="daynav"><a href="#oct-02"><small>Previous</small>Fri 2 · Goodbyes, then Montserrat</a><span></span></div>
+    </section>
+
+  <div class="footer">Spain 2026 · <a href="https://whiteraymondspain.netlify.app">whiteraymondspain.netlify.app</a></div>
+</div>
+<script>
+async function wikiThumb(t){
+  const api='https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&pithumbsize=900&format=json&origin=*&redirects=1&titles='+encodeURIComponent(t);
+  try{const r=await fetch(api);if(r.ok){const d=await r.json(),p=d&&d.query&&d.query.pages;
+    for(const id in p){if(p[id].thumbnail&&p[id].thumbnail.source)return p[id].thumbnail.source;}}}catch(e){}
+  try{const r2=await fetch('https://en.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(t));
+    if(r2.ok){const d2=await r2.json();if(d2.thumbnail&&d2.thumbnail.source)return d2.thumbnail.source;}}catch(e){}
+  return null;
+}
+async function loadWiki(root){
+  const imgs=(root||document).querySelectorAll('img[data-wiki]:not([data-done])');
+  await Promise.all(Array.from(imgs).map(async img=>{
+    img.setAttribute('data-done','1');
+    let s=await wikiThumb(img.getAttribute('data-wiki'));
+    if(!s&&img.getAttribute('data-alt')) s=await wikiThumb(img.getAttribute('data-alt'));
+    if(s){img.src=s;img.classList.add('loaded');} else {img.classList.add('noimg');}
+  }));
+}
+</script>
+<script>
+const IDS = [...document.querySelectorAll('section.dayp')].map(s=>s.id);
+function show(id, push){
+  if(!IDS.includes(id)) id = IDS[0];
+  document.querySelectorAll('section.dayp').forEach(s=>s.classList.toggle('on', s.id===id));
+  document.querySelectorAll('#rail a').forEach(a=>a.classList.toggle('on', a.dataset.id===id));
+  const on = document.querySelector('#rail a.on');
+  if(on) on.scrollIntoView({block:'nearest', inline:'center', behavior:'smooth'});
+  loadWiki(document.getElementById(id));
+  window.scrollTo({top:0, behavior:'instant'});
+  if(push && location.hash.slice(1)!==id) history.replaceState(null,'','#'+id);
+}
+function pick(){
+  const h = location.hash.slice(1);
+  if(IDS.includes(h)) return h;
+  // If the trip is running, open on today.
+  const t = new Date(), y = t.getFullYear();
+  if(y === 2026){
+    const iso = t.toISOString().slice(0,10);
+    const map = {'2026-09-20':'sep-20','2026-09-21':'sep-21','2026-09-22':'sep-22','2026-09-23':'sep-23',
+      '2026-09-24':'sep-24','2026-09-25':'sep-25','2026-09-26':'sep-26','2026-09-27':'sep-27',
+      '2026-09-28':'sep-28','2026-09-29':'sep-29','2026-09-30':'sep-30','2026-10-01':'oct-01',
+      '2026-10-02':'oct-02','2026-10-03':'oct-03'};
+    if(map[iso]) return map[iso];
+  }
+  return IDS[0];
+}
+window.addEventListener('hashchange', ()=>show(location.hash.slice(1), false));
+document.addEventListener('keydown', e=>{
+  if(e.target.matches('input,textarea')) return;
+  const i = IDS.indexOf(document.querySelector('section.dayp.on').id);
+  if(e.key==='ArrowRight' && i<IDS.length-1){ location.hash = IDS[i+1]; }
+  if(e.key==='ArrowLeft'  && i>0){ location.hash = IDS[i-1]; }
+});
+show(pick(), true);
+</script>
+</body>
+</html>

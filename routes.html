@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<style>html{background:#14100e}
+  nav.pages{ display:flex; gap:6px; flex-wrap:wrap; margin:0 0 30px; font-size:12px; }
+  nav.pages a{ color:#b6a698; text-decoration:none; padding:5px 12px; border:1px solid #372c25;
+               border-radius:100px; transition:.15s; }
+  nav.pages a:hover{ color:#ece4dc; border-color:#7a4529; background:#1c1714; }
+  nav.pages a.here{ color:#e08a5f; border-color:#7a4529; background:#1c1714; }
+</style>
 <meta charset="UTF-8">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#14100e">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Spain 2026 — Routes</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
@@ -10,9 +19,9 @@
 <style>
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   :root{
-    --cream:#f7f3ee;--warm-white:#faf8f5;--terracotta:#c2603a;--terracotta-light:#d4795a;
-    --deep:#2a1f1a;--mid:#5c4a3d;--light:#9c8878;--rule:#e0d5ca;--tag-bg:#efe8e0;
-    --car:#c2603a;--rail:#2a7a8a;--walk:#4a7c59;
+    --cream:#1c1714;--warm-white:#14100e;--terracotta:#e08a5f;--terracotta-light:#f0a884;
+    --deep:#ece4dc;--mid:#b6a698;--light:#8a7a6c;--rule:#372c25;--tag-bg:#241d19;
+    --car:#e08a5f;--rail:#6cc4d4;--walk:#8bc79a;
   }
   body{background:var(--warm-white);color:var(--deep);font-family:'Jost',sans-serif;font-weight:300;line-height:1.6}
   .page{max-width:1180px;margin:0 auto;padding:44px 32px 80px}
@@ -23,18 +32,18 @@
   .layout{display:grid;grid-template-columns:320px 1fr;gap:22px;align-items:start}
   @media(max-width:860px){.layout{grid-template-columns:1fr}}
 
-  .legs{border:1px solid var(--rule);border-radius:5px;overflow:hidden;background:#fff}
-  .legs-head{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px;border-bottom:1px solid var(--rule);background:var(--cream)}
+  .legs{border:1px solid var(--rule);border-radius:5px;overflow:hidden;background:#1c1714}
+  .legs-head{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px;border-bottom:1px solid var(--rule);background:#241d19}
   .legs-head b{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--light);font-weight:500}
   .steppers{display:flex;gap:6px}
-  .steppers button,.allbtn{font-family:'Jost',sans-serif;font-size:12px;font-weight:500;color:var(--mid);background:#fff;
+  .steppers button,.allbtn{font-family:'Jost',sans-serif;font-size:12px;font-weight:500;color:var(--mid);background:#241d19;
     border:1px solid var(--rule);border-radius:3px;padding:3px 9px;cursor:pointer;line-height:1.5}
   .steppers button:hover,.allbtn:hover{background:var(--tag-bg);color:var(--deep)}
   .leg-list{max-height:560px;overflow-y:auto}
   .leg{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--rule);
     padding:10px 12px;cursor:pointer;font-family:'Jost',sans-serif;border-left:3px solid transparent}
-  .leg:hover{background:var(--cream)}
-  .leg.on{background:var(--cream);border-left-color:var(--terracotta)}
+  .leg:hover{background:#241d19}
+  .leg.on{background:#2b221d;border-left-color:var(--terracotta)}
   .leg-day{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--light);font-weight:500}
   .leg-title{font-size:13.5px;color:var(--deep);font-weight:400;margin:1px 0 2px}
   .leg.on .leg-title{font-weight:500}
@@ -50,19 +59,23 @@
   .under .dash{border-top-style:dashed}
   #status{font-size:12px;color:var(--light);margin-left:auto}
 
-  .detail{margin-top:16px;border:1px solid var(--rule);border-radius:5px;padding:16px 18px;background:#fff}
+  .detail{margin-top:16px;border:1px solid var(--rule);border-radius:5px;padding:16px 18px;background:#1c1714}
   .detail h3{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;margin-bottom:3px}
   .detail .dmeta{font-size:11px;letter-spacing:.05em;color:var(--light);margin-bottom:9px}
   .detail p{font-size:13.5px;color:var(--mid);max-width:70ch}
   .detail a.gmaps{display:inline-block;margin-top:11px;font-size:12px;font-weight:500;letter-spacing:.04em;
     color:var(--terracotta);text-decoration:none;border-bottom:1px solid var(--terracotta-light)}
 
-  .note{background:var(--cream);border-left:3px solid var(--terracotta);padding:13px 17px;margin:26px 0 0;
+  .note{background:#1c1714;border-left:3px solid var(--terracotta);padding:13px 17px;margin:26px 0 0;
     border-radius:0 3px 3px 0;font-size:13px;color:var(--mid);max-width:80ch}
   .note strong{color:var(--deep);font-weight:500}
-  .leaflet-container{font-family:'Jost',sans-serif}
+  .leaflet-container{font-family:'Jost',sans-serif;background:#14100e}
+  .leaflet-control-zoom a{background:#1c1714;color:#ece4dc;border-color:#372c25}
+  .leaflet-control-zoom a:hover{background:#241d19;color:#e08a5f}
+  .leaflet-control-attribution{background:rgba(20,16,14,.8)!important;color:#8a7a6c}
+  .leaflet-control-attribution a{color:#b6a698}
   .pin-lbl{font-size:11px;font-weight:500;color:var(--deep);white-space:nowrap;
-    text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff,0 0 3px #fff}
+    text-shadow:0 0 3px #14100e,0 0 3px #14100e,0 0 3px #14100e,0 0 3px #14100e}
 </style>
 </head>
 <body>
@@ -70,6 +83,15 @@
   <div class="eyebrow">Spain · September 20 – October 3, 2026</div>
   <h1>Every leg, on a real map</h1>
   <div class="subtitle">Step through one leg at a time — routes follow actual roads and rail corridors</div>
+
+  <nav class="pages">
+  <a href="index.html">The trip</a>
+  <a href="day.html">Day by day</a>
+  <a href="routes.html" class="here">Routes</a>
+  <a href="map.html">Map</a>
+  <a href="spain-trip-reference.html">Group reference</a>
+  <a href="travel-profile.html">Profile</a>
+</nav>
 
   <div class="layout">
     <div class="legs">
@@ -97,6 +119,12 @@
   </div>
 
   <div class="note">
+    <strong>The car covers Sep 24 to Sep 29 only</strong> — National, Citroën ë-C4 electric, picked up at Barcelona
+    Sants at 10:30am on the 24th and back there at 5:00pm on the 29th. 361 km all told. Every other leg on this page is
+    metro, AVE or on foot.
+  </div>
+
+  <div class="note">
     <strong>Rail legs</strong> are drawn along the parallel road corridor — OSRM routes cars, not trains — so treat those
     lines as the right shape and the right endpoints rather than the exact track. Times shown are the real train times.
     If the routing service is unreachable, legs fall back to straight lines and the status line will say so.
@@ -112,7 +140,8 @@ if (typeof L === 'undefined') {
 <script>
 const P = {
   atlBcn:      {n:"Barcelona Airport (BCN)",      lat:41.2971, lon:2.0785},
-  bcn:         {n:"Barcelona — base",              lat:41.3870, lon:2.1700},
+  bcn:         {n:"Barcelona — Grand Hotel Central", lat:41.3856, lon:2.1780},
+  sants:       {n:"Barcelona Sants — National",    lat:41.3793, lon:2.1400},
   guell:       {n:"Park Güell",                    lat:41.4145, lon:2.1527},
   sagrada:     {n:"Sagrada Família",               lat:41.4036, lon:2.1744},
   santpau:     {n:"Sant Pau Recinte Modernista",   lat:41.4118, lon:2.1743},
@@ -120,7 +149,7 @@ const P = {
   florentina:  {n:"Castell de Santa Florentina",   lat:41.5983, lon:2.5735},
   girona:      {n:"Girona — DoubleTree",           lat:41.9856, lon:2.8194},
   masrosset:   {n:"Mas Rosset — the wedding",      lat:42.0700, lon:2.8200},
-  basella:     {n:"Clos de Basella",               lat:42.1550, lon:2.9980},
+  basella:     {n:"Clos de Basella",               lat:42.2050, lon:2.9951},
   santamarta:  {n:"Hotel Santa Marta, Lloret",     lat:41.6934, lon:2.8158},
   boadella:    {n:"Cala Sa Boadella",              lat:41.6944, lon:2.8228},
   clotilde:    {n:"Jardins de Santa Clotilde",     lat:41.6960, lon:2.8262},
@@ -130,50 +159,53 @@ const P = {
 };
 
 const LEGS = [
-  {d:"Mon Sep 21", t:"Land BCN → Barcelona", from:"atlBcn", to:"bcn", mode:"car", time:"35 min",
-   x:"DL194 lands 12:50pm. Taxi or Uber ~€35–45, or the Aerobús to Plaça Catalunya for €7.25."},
+  {d:"Mon Sep 21", t:"Land BCN → Grand Hotel Central", from:"atlBcn", to:"bcn", mode:"car", time:"35 min",
+   x:"DL194 lands 12:50pm. Taxi or Uber ~€35–45, or the Aerobús to Plaça Catalunya for €7.25. No rental car on these dates — the city runs on the metro."},
   {d:"Tue Sep 22", t:"Barcelona → Park Güell", from:"bcn", to:"guell", mode:"walk", time:"25 min",
    x:"Metro L3 to Lesseps, then the walk up. Meet the group at the Mirador de Joan Sales at 3:15pm for the 3:30 tour."},
   {d:"Wed Sep 23", t:"Sagrada Família → Sant Pau", from:"sagrada", to:"santpau", mode:"walk", time:"12 min",
    x:"Straight up Avinguda Gaudí. Sagrada entry 10:15am on your own tickets; Sant Pau self-guided at 2:00pm."},
-  {d:"Thu Sep 24", t:"Barcelona → Castell de Santa Florentina", from:"bcn", to:"florentina", mode:"car", time:"50 min",
-   x:"Driving north with the group. Canet de Mar, on the coast."},
-  {d:"Thu Sep 24", t:"Santa Florentina → Girona", from:"florentina", to:"girona", mode:"car", time:"50 min",
-   x:"Into the DoubleTree for the wedding weekend. The Raymonds are in the same hotel, Sep 24–28."},
-  {d:"Sat Sep 26", t:"Girona → Mas Rosset", from:"girona", to:"masrosset", mode:"car", time:"20 min",
-   x:"Wedding day. Rural venue with no Uber in Girona — pre-book a taxi for the ride back."},
-  {d:"Mon Sep 28", t:"Mas Rosset → Clos de Basella", from:"masrosset", to:"basella", mode:"car", time:"30 min",
-   x:"Check out at 10:00am, picnic and tasting at noon in Siurana d'Empordà."},
-  {d:"Mon Sep 28", t:"Clos de Basella → Lloret", from:"basella", to:"santamarta", mode:"car", time:"1h 15",
-   x:"Down to the coast for one night at Hotel Santa Marta, above Santa Cristina beach."},
+  {d:"Thu Sep 24", t:"Hotel → Sants, collect the car", from:"bcn", to:"sants", mode:"walk", time:"15 min",
+   x:"Check out by 9:45 and taxi over. National counter is in the Saba car park on level -1, not the concourse. Pickup 10:30am — allow 30–40 min for paperwork, loading and learning an unfamiliar EV."},
+  {d:"Thu Sep 24", t:"Sants → Castell de Santa Florentina", from:"sants", to:"florentina", mode:"car", time:"46 min · 49 km",
+   x:"Away by about 11:10 on the C-32. Canet de Mar, on the coast. Lunch in the town 12:15–13:15, castle at 13:30."},
+  {d:"Thu Sep 24", t:"Santa Florentina → Girona", from:"florentina", to:"girona", mode:"car", time:"~1h",
+   x:"Into the DoubleTree around 15:45 for the wedding weekend. The Raymonds are in the same hotel, Sep 24–28. Covered parking €14/day."},
+  {d:"Sat Sep 26", t:"Girona → Mas Rosset", from:"girona", to:"masrosset", mode:"car", time:"18 min · 19.7 km",
+   x:"Wedding day, ceremony at 4:00pm. Rural venue with no Uber in Girona — but you have the car, so no taxi to pre-book. ~40 km round trip."},
+  {d:"Mon Sep 28", t:"Girona → Clos de Basella", from:"girona", to:"basella", mode:"car", time:"~40 min",
+   x:"Check out at 10:00am and head north — the winery is in the Alt Empordà at Siurana d'Empordà, above Girona, not below it. Picnic and tasting from noon to 3:00pm."},
+  {d:"Mon Sep 28", t:"Clos de Basella → Lloret", from:"basella", to:"santamarta", mode:"car", time:"~55 min",
+   x:"South to the coast for one night at Hotel Santa Marta, above Santa Cristina beach. 124 km on the day, the longest of the trip — and it lands on a checkout day after a wine tasting, so settle who drives. Free parking and EV charging at the hotel."},
   {d:"Tue Sep 29", t:"Lloret — the coast path", from:"santamarta", to:"clotilde", mode:"walk", time:"15 min",
-   x:"The morning before driving back. Santa Cristina below the hotel, Sa Boadella over the headland, and the Santa Clotilde gardens along the clifftop — all on one walk."},
-  {d:"Tue Sep 29", t:"Lloret → Barcelona", from:"santamarta", to:"bcn", mode:"car", time:"1h 15",
-   x:"Back to base and back with the Raymonds, who returned to Barcelona the day before."},
+   x:"Santa Cristina below the hotel, Sa Boadella over the headland, and the Santa Clotilde gardens along the clifftop — all on one walk. Gardens open 10:00, €6.10. Check out around noon and leave the bags."},
+  {d:"Tue Sep 29", t:"Lloret → Sants, return the car", from:"santamarta", to:"sants", mode:"car", time:"56 min · 74 km",
+   x:"Leave at 15:15 on the C-32, car back by 17:00, into the hotel about 17:30. Don't push past 18:00 — the road inbound clogs from six to eight."},
   {d:"Wed Sep 30", t:"Barcelona → Figueres (Dalí)", from:"bcn", to:"figueres", mode:"rail", time:"55–65 min",
    x:"AVE from Sants to Figueres-Vilafant, then 20 min on foot. Wednesday works — the museum is shut Mondays in September."},
   {d:"Thu Oct 1",  t:"Barcelona → Mar Bella", from:"bcn", to:"marbella", mode:"walk", time:"15 min",
    x:"Metro L4. In the city, so it fits any spare afternoon — including the Raymonds' last full day."},
   {d:"Fri Oct 2",  t:"Barcelona → Montserrat", from:"bcn", to:"montserrat", mode:"rail", time:"1h",
-   x:"After the goodbyes. R5 from Plaça Espanya, then the rack railway or cable car up."},
+   x:"After the goodbyes. R5 from Plaça Espanya, then the rack railway or cable car up. No car by now — it went back on the 29th."},
   {d:"Alternate",  t:"Barcelona → Sitges", from:"bcn", to:"sitges", mode:"rail", time:"35 min",
    x:"R2 from Passeig de Gràcia. Swap it in for Montserrat if Oct 2 wants a beach instead of a mountain."}
 ];
 
-const COLOR = {car:"#c2603a", rail:"#2a7a8a", walk:"#4a7c59"};
+const COLOR = {car:"#e08a5f", rail:"#6cc4d4", walk:"#8bc79a"};
 const MODE_LABEL = {car:"Drive", rail:"Rail", walk:"Walk / metro"};
 
 const HAS_MAP = (typeof L !== 'undefined');
 let map = null;
 if (HAS_MAP) {
   map = L.map('map', {scrollWheelZoom:false}).setView([41.75, 2.4], 8);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom:18, attribution:'&copy; OpenStreetMap contributors'
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    maxZoom:19, subdomains:'abcd',
+    attribution:'&copy; OpenStreetMap contributors &copy; CARTO'
   }).addTo(map);
 } else {
   document.getElementById('map').innerHTML =
     '<div style="display:flex;align-items:center;justify-content:center;height:100%;padding:28px;'+
-    'text-align:center;color:#5c4a3d;font-size:14px">The map library could not load, so the map is '+
+    'text-align:center;color:#b6a698;font-size:14px">The map library could not load, so the map is '+
     'unavailable — the leg list and the Google Maps links below still work.</div>';
   document.getElementById('status').textContent = 'Map unavailable — offline?';
 }
@@ -183,12 +215,12 @@ let active = 0, failures = 0;
 
 function dot(color, r){
   return L.divIcon({className:'', iconSize:[r*2,r*2], iconAnchor:[r,r],
-    html:`<div style="width:${r*2}px;height:${r*2}px;border-radius:50%;background:${color};border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.15)"></div>`});
+    html:`<div style="width:${r*2}px;height:${r*2}px;border-radius:50%;background:${color};border:2px solid #14100e;box-shadow:0 0 0 1px rgba(255,255,255,.22)"></div>`});
 }
 
 if (HAS_MAP) Object.keys(P).forEach(k=>{
   const p = P[k];
-  const m = L.marker([p.lat,p.lon], {icon:dot("#9c8878",5), opacity:.55, zIndexOffset:0}).addTo(map);
+  const m = L.marker([p.lat,p.lon], {icon:dot("#8a7a6c",5), opacity:.55, zIndexOffset:0}).addTo(map);
   m.bindPopup(`<b>${p.n}</b><br><a href="https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lon}" target="_blank" rel="noopener">Open in Google Maps</a>`);
   markers[k] = m;
 });
@@ -226,8 +258,8 @@ function show(i){
 
   if(HAS_MAP){
     lines.forEach((pl,j)=>{ if(pl) pl.setStyle({opacity: j===i ? 0.95 : 0.12, weight: j===i ? 5 : 3}); });
-    Object.keys(markers).forEach(k=>markers[k].setOpacity(.4).setIcon(dot("#9c8878",5)));
-    markers[leg.from].setOpacity(1).setIcon(dot("#5c4a3d",7));
+    Object.keys(markers).forEach(k=>markers[k].setOpacity(.4).setIcon(dot("#8a7a6c",5)));
+    markers[leg.from].setOpacity(1).setIcon(dot("#b6a698",7));
     markers[leg.to].setOpacity(1).setIcon(dot(COLOR[leg.mode],8));
     if(lines[i]) map.fitBounds(lines[i].getBounds(), {padding:[45,45], maxZoom:14});
     else map.fitBounds(L.latLngBounds([[a.lat,a.lon],[b.lat,b.lon]]), {padding:[45,45], maxZoom:14});
@@ -245,13 +277,13 @@ function show(i){
 function showAll(){
   if(HAS_MAP){
     lines.forEach(pl=>{ if(pl) pl.setStyle({opacity:.85, weight:3.5}); });
-    Object.keys(markers).forEach(k=>markers[k].setOpacity(.9).setIcon(dot("#5c4a3d",5)));
+    Object.keys(markers).forEach(k=>markers[k].setOpacity(.9).setIcon(dot("#b6a698",5)));
     const all = lines.filter(Boolean);
     if(all.length) map.fitBounds(L.featureGroup(all).getBounds(), {padding:[35,35]});
   }
   document.querySelectorAll('.leg').forEach(el=>el.classList.remove('on'));
   document.getElementById('detail').innerHTML =
-    `<h3>All legs</h3><div class="dmeta">Sep 20 – Oct 3 · 14 legs</div>
+    `<h3>All legs</h3><div class="dmeta">Sep 20 – Oct 3 · 15 legs</div>
      <p>Barcelona is the hub — everything radiates from it, and the only nights away are Girona for the wedding weekend
      and one on the coast at Lloret. Pick a leg on the left to isolate it.</p>`;
 }
