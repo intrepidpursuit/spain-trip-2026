@@ -89,17 +89,33 @@
                        letter-spacing:.14em; text-transform:uppercase; margin-bottom:3px; }
 
   .story{ max-width:64ch; }
-  .beat{ margin:0 0 40px; }
+  .beat{ margin:0 0 38px; }
   .beat-when{ font-size:10px; font-weight:500; letter-spacing:.16em; text-transform:uppercase;
-              color:var(--terracotta); margin-bottom:7px; }
-  .beat h2{ font-size:clamp(21px,2.7vw,27px); margin-bottom:9px; }
-  .beat p{ font-size:15px; color:var(--mid); line-height:1.75; }
-  .beat p + p{ margin-top:11px; }
-  .beat .go{ display:inline-block; margin-top:11px; font-size:12px; letter-spacing:.03em;
-             color:var(--light); text-decoration:none; border-bottom:1px solid var(--rule); padding-bottom:1px; transition:.15s; }
-  .beat .go:hover{ color:var(--terracotta); border-color:var(--terracotta-dim); }
+              color:var(--terracotta); margin-bottom:6px; }
+  .beat h2{ font-family:'Jost',sans-serif; font-weight:400; font-size:20px; letter-spacing:-.005em;
+            color:var(--text); margin-bottom:7px; }
+  .beat p{ font-size:14.5px; color:var(--mid); line-height:1.7; max-width:60ch; }
   .beat.pivot{ border-left:2px solid var(--terracotta-dim); padding-left:22px; }
-  .beat.pivot h2{ color:var(--text); }
+
+  .ev{ list-style:none; margin:13px 0 0; }
+  .ev li{ display:flex; gap:14px; align-items:baseline; padding:4px 0; font-size:13.5px; color:var(--mid); }
+  .ev time{ flex:0 0 96px; text-align:right; font-size:11.5px; letter-spacing:.03em; color:var(--terracotta);
+            font-weight:500; white-space:nowrap; }
+  .ev .d{ color:var(--light); }
+
+  .btags{ display:flex; flex-wrap:wrap; gap:5px; align-items:center; margin-top:13px; }
+  .btag{ font-size:10px; font-weight:500; letter-spacing:.08em; text-transform:uppercase;
+         padding:3px 9px; border-radius:3px; border:1px solid transparent; }
+  .btag.grp{ background:var(--group-bg); color:var(--group); }
+  .btag.grp.solo{ background:var(--surface-2); color:var(--light); }
+  .btag.grp.wed{ background:var(--wedding-bg); color:var(--wedding); }
+  .btag.act{ background:transparent; border-color:var(--rule); color:var(--mid); }
+  .btag.trn{ background:var(--surface-2); color:var(--mid); }
+
+  .beat .go{ display:inline-block; margin-top:13px; font-size:12px; letter-spacing:.03em;
+             color:var(--light); text-decoration:none; border-bottom:1px solid var(--rule);
+             padding-bottom:1px; transition:.15s; }
+  .beat .go:hover{ color:var(--terracotta); border-color:var(--terracotta-dim); }
 
   .strip{ display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1px;
           background:var(--rule); border:1px solid var(--rule); border-radius:6px; overflow:hidden; margin:30px 0 4px; }
@@ -107,22 +123,22 @@
   .cell .k{ font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--light); margin-bottom:5px; }
   .cell .v{ font-size:14px; color:var(--text); font-weight:400; line-height:1.4; }
   .cell .s{ font-size:11.5px; color:var(--mid); margin-top:3px; }
+  @media (max-width:560px){ .ev time{ flex-basis:76px } }
 </style>
 </head>
 <body>
 <div class="page">
 
   <div class="header">
-    <div class="eyebrow">Spain · September 20 – October 3, 2026</div>
+    <div class="eyebrow">Spain &middot; September 20 &ndash; October 3, 2026</div>
     <h1>Barcelona &amp; Catalonia</h1>
     <div class="subtitle">Thirteen days, one wedding, and a base you keep coming back to</div>
     <p class="intro">In and out of Barcelona, with four nights in Girona for Jessica and Daniel's wedding and one on the
-    Costa Brava on the way back. Everything is booked — flights, all four stays, and the car for the five days that
-    need one. This page is the story of it; the day pages have the times, the confirmation numbers and everything
-    optional underneath.</p>
+    Costa Brava on the way back. Everything is booked &mdash; flights, all four stays, and the car for the five days
+    that need one. This page is the summary; the day pages have the full detail.</p>
     <div class="flights">
-      <div class="flight-pill"><strong>Outbound</strong>DL194 · ATL 10:10pm Sep 20 → BCN 12:50pm Sep 21<br>Delta One Extra · 9C &amp; 9G</div>
-      <div class="flight-pill"><strong>Return</strong>DL195 · BCN 11:00am Oct 3 → ATL 3:28pm<br>Delta One · conf HTIZJY</div>
+      <div class="flight-pill"><strong>Outbound</strong>DL194 &middot; ATL 10:10pm Sep 20 &rarr; BCN 12:50pm Sep 21<br>Delta One Extra &middot; 9C &amp; 9G</div>
+      <div class="flight-pill"><strong>Return</strong>DL195 &middot; BCN 11:00am Oct 3 &rarr; ATL 3:28pm<br>Delta One &middot; conf HTIZJY</div>
     </div>
   </div>
 
@@ -138,80 +154,92 @@
   <div class="story">
     <div class="beat">
       <div class="beat-when">Sat 20 – Mon 21 September</div>
-      <h2>It starts in the air</h2>
-      <p>An overnight nonstop out of Atlanta, a lie-flat seat, and Barcelona at ten to one the next afternoon. That first day is really half a day: check in at the Grand Hotel Central on Via Laietana, then walk the Gothic Quarter once the heat has gone out of it.</p>
-      <p>Nobody else has landed yet. This is the only part of the trip that belongs entirely to the two of you.</p>
-      <a class="go" href="day.html#sep-20">The full day →</a>
+      <h2>Fly out, arrive Barcelona</h2>
+      <p>An overnight nonstop, and half a day at the other end. Nobody else has landed yet.</p>
+      <ul class="ev"><li><time>22:10</time><span><span class="d">Sat 20 &middot; </span>DL194 departs Atlanta</span></li><li><time>12:50</time><span><span class="d">Mon 21 &middot; </span>Land BCN</span></li><li><time>from 15:00</time><span><span class="d">Mon 21 &middot; </span>Check in &middot; Grand Hotel Central</span></li></ul>
+      <div class="btags"><span class="btag grp solo">Just us</span><span class="btag act">Arrival</span><span class="btag trn">Flight + taxi</span></div>
+      <a class="go" href="day.html#sep-20">Full day &rarr;</a>
     </div>
 
     <div class="beat">
       <div class="beat-when">Tue 22 – Wed 23 September</div>
-      <h2>Everyone arrives</h2>
-      <p>Devon, Tasia and Scott come in on the same routing a day behind, and the trip becomes a group thing at quarter past three at the Mirador de Joan Sales. Park Güell, then dinner in Gràcia.</p>
-      <p>The next morning is the Sagrada Família at ten fifteen — ninety minutes minimum, and the interior is the reason, not the facade. Sant Pau in the afternoon, twelve minutes up Avinguda Gaudí and far quieter.</p>
-      <a class="go" href="day.html#sep-22">The full day →</a>
+      <h2>The Raymonds arrive</h2>
+      <p>The group assembles. Two Gaud&iacute; days back to back, both with fixed entry times.</p>
+      <ul class="ev"><li><time>12:50</time><span><span class="d">Tue 22 &middot; </span>Devon, Tasia and Scott land</span></li><li><time>15:15</time><span><span class="d">Tue 22 &middot; </span>Meet &middot; Mirador de Joan Sales</span></li><li><time>15:30</time><span><span class="d">Tue 22 &middot; </span>Park G&uuml;ell tour</span></li><li><time>19:00</time><span><span class="d">Tue 22 &middot; </span>Dinner &middot; Gallo Santo, Gr&agrave;cia</span></li><li><time>10:15</time><span><span class="d">Wed 23 &middot; </span>Sagrada Fam&iacute;lia &mdash; your entry</span></li><li><time>10:45</time><span><span class="d">Wed 23 &middot; </span>Sagrada Fam&iacute;lia &mdash; theirs</span></li><li><time>14:00</time><span><span class="d">Wed 23 &middot; </span>Sant Pau, self-guided</span></li></ul>
+      <div class="btags"><span class="btag grp">Everyone</span><span class="btag act">Sightseeing</span><span class="btag trn">Metro + walking</span></div>
+      <a class="go" href="day.html#sep-22">Full day &rarr;</a>
     </div>
 
     <div class="beat pivot">
       <div class="beat-when">Thursday 24 September</div>
-      <h2>North, with a castle in the middle</h2>
-      <p>The tightest morning of the trip. Check out at quarter to ten, collect the car at Sants at half past — it's an electric Citroën, parked underground on level minus one — and be on the coast road by ten past eleven.</p>
-      <p>Lunch at Canet de Mar, then Castell de Santa Florentina at half one: an eleventh-century manor that Domènech i Montaner turned into something closer to a fantasy, and that Game of Thrones used as Horn Hill. Girona by a quarter to four.</p>
-      <a class="go" href="day.html#sep-24">The full day →</a>
+      <h2>Drive north to Girona</h2>
+      <p>The tightest morning of the trip: checkout, rental counter, coast road, castle. 108 km.</p>
+      <ul class="ev"><li><time>09:45</time><span>Check out &middot; Grand Hotel Central</span></li><li><time>10:30</time><span>Collect the car &middot; Sants, level -1</span></li><li><time>12:15</time><span>Lunch &middot; Canet de Mar</span></li><li><time>13:30</time><span>Castell de Santa Florentina</span></li><li><time>~15:45</time><span>Into the DoubleTree, Girona</span></li></ul>
+      <div class="btags"><span class="btag grp">Everyone</span><span class="btag act">Transit day</span><span class="btag trn">Car</span></div>
+      <a class="go" href="day.html#sep-24">Full day &rarr;</a>
     </div>
 
     <div class="beat">
       <div class="beat-when">Friday 25 September</div>
-      <h2>Girona, at its own pace</h2>
-      <p>Free until the evening. The old town is small enough to do properly in an afternoon — coloured houses over the Onyar, one of the best-preserved Jewish quarters in Europe, and city walls you can walk end to end for nothing.</p>
-      <p>The meet and greet is downstairs at the hotel, which means the one evening with a fixed start needs no transport at all.</p>
-      <a class="go" href="day.html#sep-25">The full day →</a>
+      <h2>Girona</h2>
+      <p>Free until evening. The old town does properly in an afternoon, and the meet and greet is downstairs.</p>
+      <ul class="ev"><li><time>Evening</time><span>Meet &amp; greet &middot; at the DoubleTree</span></li></ul>
+      <div class="btags"><span class="btag grp">Everyone</span><span class="btag act">Old town</span><span class="btag trn">On foot</span></div>
+      <a class="go" href="day.html#sep-25">Full day &rarr;</a>
     </div>
 
     <div class="beat pivot">
       <div class="beat-when">Sat 26 – Sun 27 September</div>
-      <h2>The reason for all of it</h2>
-      <p>Jessica and Daniel, four o'clock, at a restored farmhouse in the countryside north of Girona. Hair and makeup from six in the morning, portraits at two, and the whole day happens in one place.</p>
-      <p>Sunday is deliberately empty. Brunch from ten for whoever surfaces, then the rooftop pool and the video recap.</p>
-      <a class="go" href="day.html#sep-26">The full day →</a>
+      <h2>The wedding</h2>
+      <p>A restored farmhouse north of Girona, and the whole day in one place. Sunday is deliberately empty.</p>
+      <ul class="ev"><li><time>06:00</time><span><span class="d">Sat 26 &middot; </span>Hair and makeup begins</span></li><li><time>12:30</time><span><span class="d">Sat 26 &middot; </span>Photographer</span></li><li><time>14:00</time><span><span class="d">Sat 26 &middot; </span>Family and friend portraits</span></li><li><time>16:00</time><span><span class="d">Sat 26 &middot; </span>Ceremony &middot; Mas Rosset</span></li><li><time>10:00</time><span><span class="d">Sun 27 &middot; </span>Brunch, then the rooftop pool</span></li></ul>
+      <div class="btags"><span class="btag grp wed">Wedding party</span><span class="btag act">Wedding &amp; recovery</span><span class="btag trn">Car</span></div>
+      <a class="go" href="day.html#sep-26">Full day &rarr;</a>
     </div>
 
     <div class="beat">
       <div class="beat-when">Monday 28 September</div>
-      <h2>Vines, then the sea</h2>
-      <p>Check out and drive north — the winery is above Girona, not below it, which is what makes this the longest driving day of the trip. Three hours at Clos de Basella: a walk through the vines, the cellar, and a picnic that is the point rather than an add-on.</p>
-      <p>At three it ends and the group splits. The Raymonds turn back to Barcelona; you carry on south to a single night at Hotel Santa Marta, in pine woods above its own beach and three kilometres clear of Lloret proper.</p>
-      <a class="go" href="day.html#sep-28">The full day →</a>
+      <h2>Vineyard picnic, then Lloret</h2>
+      <p>The longest drive of the trip, on a checkout day, with a wine tasting in the middle. The group splits here.</p>
+      <ul class="ev"><li><time>by 12:00</time><span>Check out &middot; DoubleTree Girona</span></li><li><time>12:00</time><span>Clos de Basella &middot; walk, cellar, picnic</span></li><li><time>15:00</time><span>It ends. The Raymonds turn back to Barcelona</span></li><li><time>~16:30</time><span>Into Hotel Santa Marta, Lloret</span></li></ul>
+      <div class="btags"><span class="btag grp wed">Everyone, then Jessi &amp; Dan</span><span class="btag act">Wine + transit</span><span class="btag trn">Car &middot; 124 km</span></div>
+      <a class="go" href="day.html#sep-28">Full day &rarr;</a>
     </div>
 
     <div class="beat">
       <div class="beat-when">Tuesday 29 September</div>
-      <h2>One good morning on the coast</h2>
-      <p>The gardens at Santa Clotilde open at ten and are essentially next door — cypress avenues and long staircases dropping through the pines to frame the sea. Santa Cristina is below the hotel and Sa Boadella is the next cove over the headland, so all three sit on one walk.</p>
-      <p>Leave at quarter past three, hand the car back at Sants at five, and rejoin the Raymonds in Barcelona for the evening.</p>
-      <a class="go" href="day.html#sep-29">The full day →</a>
+      <h2>Coast morning, then back</h2>
+      <p>Gardens, hotel beach and the next cove all sit on one walk. Then the drive back and the car handed over.</p>
+      <ul class="ev"><li><time>10:00</time><span>Jardins de Santa Clotilde open</span></li><li><time>~12:00</time><span>Check out, leave the bags</span></li><li><time>15:15</time><span>Leave Lloret</span></li><li><time>17:00</time><span>Car back at Sants</span></li><li><time>~17:30</time><span>Check in &middot; Grand Hotel Central</span></li></ul>
+      <div class="btags"><span class="btag grp solo">Just us, then everyone</span><span class="btag act">Beach &amp; gardens</span><span class="btag trn">On foot + car</span></div>
+      <a class="go" href="day.html#sep-29">Full day &rarr;</a>
     </div>
 
     <div class="beat">
       <div class="beat-when">Wednesday 30 September</div>
       <h2>Figueres</h2>
-      <p>The Dalí Theatre-Museum, built inside the bombed-out shell of the town theatre and designed room by room as a single work. He's buried in the basement. An hour on the AVE and no car required — which matters, because the museum shuts on Mondays through September and that closure is what reshaped this whole week.</p>
-      <a class="go" href="day.html#sep-30">The full day →</a>
+      <p>The Dal&iacute; Theatre-Museum, with Devon and Tasia. An hour on the AVE and no car needed.</p>
+      <ul class="ev"><li><time>Morning</time><span>AVE &middot; Sants &rarr; Figueres-Vilafant, 55&ndash;65 min</span></li><li><time>9:30&ndash;18:00</time><span>Museum hours &middot; shut Mondays in September</span></li></ul>
+      <div class="btags"><span class="btag grp">With the Raymonds</span><span class="btag act">Museum</span><span class="btag trn">Train</span></div>
+      <a class="go" href="day.html#sep-30">Full day &rarr;</a>
     </div>
 
     <div class="beat">
       <div class="beat-when">Thu 1 – Fri 2 October</div>
-      <h2>The last days together, then the last day alone</h2>
-      <p>Thursday is the Raymonds' final full day, so it stays in the city: El Born, Santa Maria del Mar, the Picasso museum three minutes away, and a farewell dinner.</p>
-      <p>They fly at eleven on Friday. After the goodbyes, Montserrat — a monastery wedged into a mountain of pink conglomerate, and the one piece of real landscape within reach of Barcelona. Doing it now means coming home to a packed suitcase and an easy morning.</p>
-      <a class="go" href="day.html#oct-01">The full day →</a>
+      <h2>Last days with the Raymonds</h2>
+      <p>Thursday stays in the city for their last full day. Friday is goodbyes, then the one piece of real landscape near Barcelona.</p>
+      <ul class="ev"><li><time>Evening</time><span><span class="d">Thu 1 &middot; </span>Farewell dinner &middot; El Born</span></li><li><time>11:00</time><span><span class="d">Fri 2 &middot; </span>They fly &middot; DL195</span></li><li><time>Midday</time><span><span class="d">Fri 2 &middot; </span>Montserrat &middot; R5 from Pla&ccedil;a Espanya</span></li><li><time>~13:00</time><span><span class="d">Fri 2 &middot; </span>Boys&rsquo; choir, most days</span></li></ul>
+      <div class="btags"><span class="btag grp">Everyone, then just us</span><span class="btag act">City + mountain</span><span class="btag trn">Metro + train</span></div>
+      <a class="go" href="day.html#oct-01">Full day &rarr;</a>
     </div>
 
     <div class="beat">
       <div class="beat-when">Saturday 3 October</div>
-      <h2>Home</h2>
-      <p>Out of the hotel by quarter past eight, wheels up at eleven, Atlanta at half three the same afternoon.</p>
-      <a class="go" href="day.html#oct-03">The full day →</a>
+      <h2>Fly home</h2>
+      <p>Checkout is noon, but the flight sets the alarm.</p>
+      <ul class="ev"><li><time>08:15</time><span>Leave the hotel</span></li><li><time>11:00</time><span>DL195 departs BCN</span></li><li><time>15:28</time><span>Atlanta</span></li></ul>
+      <div class="btags"><span class="btag grp solo">Just us</span><span class="btag act">Departure</span><span class="btag trn">Taxi + flight</span></div>
+      <a class="go" href="day.html#oct-03">Full day &rarr;</a>
     </div>
   </div>
 
@@ -219,19 +247,18 @@
 
   <div class="section-label">The short version</div>
   <h2>What's locked in</h2>
-  <p class="lede">Everything below is booked and paid. The day pages carry the confirmation numbers and the
-  cancellation terms.</p>
+  <p class="lede">All booked and paid. The day pages carry the confirmation numbers and the cancellation terms.</p>
 
   <div class="strip">
-    <div class="cell"><div class="k">Sep 21–24</div><div class="v">Grand Hotel Central</div><div class="s">Barcelona · Superior King</div></div>
-    <div class="cell"><div class="k">Sep 24–28</div><div class="v">DoubleTree Girona</div><div class="s">King with balcony · non-refundable</div></div>
-    <div class="cell"><div class="k">Sep 28</div><div class="v">Hotel Santa Marta</div><div class="s">Lloret · sea-view terrace</div></div>
-    <div class="cell"><div class="k">Sep 29–Oct 3</div><div class="v">Grand Hotel Central</div><div class="s">Barcelona · Deluxe King</div></div>
+    <div class="cell"><div class="k">Sep 21&ndash;24</div><div class="v">Grand Hotel Central</div><div class="s">Barcelona &middot; Superior King</div></div>
+    <div class="cell"><div class="k">Sep 24&ndash;28</div><div class="v">DoubleTree Girona</div><div class="s">King with balcony &middot; non-refundable</div></div>
+    <div class="cell"><div class="k">Sep 28</div><div class="v">Hotel Santa Marta</div><div class="s">Lloret &middot; sea-view terrace</div></div>
+    <div class="cell"><div class="k">Sep 29&ndash;Oct 3</div><div class="v">Grand Hotel Central</div><div class="s">Barcelona &middot; Deluxe King</div></div>
   </div>
   <div class="strip">
-    <div class="cell"><div class="k">The car</div><div class="v">Citroën ë-C4, electric</div><div class="s">National · Sants, level -1 · Sep 24 10:30am → Sep 29 5:00pm</div></div>
-    <div class="cell"><div class="k">Driving</div><div class="v">361 km, five days</div><div class="s">All motorway · one charge, free at Santa Marta</div></div>
-    <div class="cell"><div class="k">Before you fly</div><div class="v">Two driving permits</div><div class="s">An IDP is required in Spain — AAA, about $20, same day</div></div>
+    <div class="cell"><div class="k">The car</div><div class="v">Citro&euml;n &euml;-C4, electric</div><div class="s">National &middot; Sants, level -1 &middot; Sep 24 10:30am &rarr; Sep 29 5:00pm</div></div>
+    <div class="cell"><div class="k">Driving</div><div class="v">361 km, five days</div><div class="s">All motorway &middot; one charge, free at Santa Marta</div></div>
+    <div class="cell"><div class="k">Before you fly</div><div class="v">Two driving permits</div><div class="s">An IDP is required in Spain &mdash; AAA, about $20, same day</div></div>
   </div>
 
   <hr class="divider">
@@ -243,14 +270,14 @@
 
   <table>
     <tr><th>Beach</th><th>Where</th><th>Getting there</th><th>Dress</th></tr>
-    <tr><td>Mar Bella</td><td>Barcelona · Poblenou</td><td class="nw">Metro L4 · 15 min</td><td><span class="tag co">Clothing optional</span></td></tr>
+    <tr><td>Mar Bella</td><td>Barcelona &middot; Poblenou</td><td class="nw">Metro L4 &middot; 15 min</td><td><span class="tag co">Clothing optional</span></td></tr>
     <tr><td>Cala Sa Boadella</td><td>Lloret de Mar</td><td class="nw">10 min walk from the hotel</td><td><span class="tag co">Clothing optional</span></td></tr>
     <tr><td>Balmins</td><td>Sitges</td><td class="nw">10 min walk from town</td><td><span class="tag co">Clothing optional</span></td></tr>
-    <tr><td>Platja de l'Home Mort</td><td>Sitges · south</td><td class="nw">Taxi + 10 min walk</td><td><span class="tag co">Clothing optional</span></td></tr>
-    <tr><td>La Musclera</td><td>Arenys de Mar</td><td class="nw">R1 train · 50 min</td><td><span class="tag co">Clothing optional</span></td></tr>
+    <tr><td>Platja de l'Home Mort</td><td>Sitges &middot; south</td><td class="nw">Taxi + 10 min walk</td><td><span class="tag co">Clothing optional</span></td></tr>
+    <tr><td>La Musclera</td><td>Arenys de Mar</td><td class="nw">R1 train &middot; 50 min</td><td><span class="tag co">Clothing optional</span></td></tr>
     <tr><td>Platja de Santa Cristina</td><td>Lloret de Mar</td><td class="nw">At the hotel</td><td><span class="tag top">Topless common</span></td></tr>
-    <tr><td>Bassa Rodona</td><td>Sitges · centre</td><td class="nw">Seafront</td><td><span class="tag top">Topless common</span></td></tr>
-    <tr><td>Barceloneta · Bogatell</td><td>Barcelona</td><td class="nw">Metro L4 · 15 min</td><td><span class="tag top">Topless common</span></td></tr>
+    <tr><td>Bassa Rodona</td><td>Sitges &middot; centre</td><td class="nw">Seafront</td><td><span class="tag top">Topless common</span></td></tr>
+    <tr><td>Barceloneta &middot; Bogatell</td><td>Barcelona</td><td class="nw">Metro L4 &middot; 15 min</td><td><span class="tag top">Topless common</span></td></tr>
   </table>
 
   <hr class="divider">
@@ -259,18 +286,18 @@
   <h2>Who's on what</h2>
   <table>
     <tr><th>Who</th><th>In Spain</th><th>Staying</th></tr>
-    <tr><td>Joseph &amp; Melissa</td><td class="nw">Sep 21 – Oct 3</td><td>Grand Hotel Central · DoubleTree Girona · Santa Marta · Grand Hotel Central</td></tr>
-    <tr><td>Devon, Tasia &amp; Scott</td><td class="nw">Sep 22 – Oct 2</td><td>Sercotel Caspe · DoubleTree Girona · Grand Hotel Central. Sixt XC40 from Sants, Sep 24–30. They do not go to Lloret.</td></tr>
+    <tr><td>Joseph &amp; Melissa</td><td class="nw">Sep 21 &ndash; Oct 3</td><td>Grand Hotel Central &middot; DoubleTree Girona &middot; Santa Marta &middot; Grand Hotel Central</td></tr>
+    <tr><td>Devon, Tasia &amp; Scott</td><td class="nw">Sep 22 &ndash; Oct 2</td><td>Sercotel Caspe &middot; DoubleTree Girona &middot; Grand Hotel Central. Sixt XC40 from Sants, Sep 24&ndash;30. They do not go to Lloret.</td></tr>
     <tr><td>Jessica &amp; Daniel</td><td class="nw">The wedding</td><td>Mas Rosset on the 26th, then Lloret with their group</td></tr>
   </table>
 
   <div class="note">
-    <strong>The three days that are actually yours to plan:</strong> Sep 29 evening, Sep 30 and Oct 1 — all open for
-    the Raymonds too. Dalí takes the 30th. The 1st is their last full day, so it stays in the city for the farewell
-    dinner. That leaves the 29th evening, and Mar Bella or Sitges if a spare afternoon appears.
+    <strong>The three days that are actually yours to plan:</strong> Sep 29 evening, Sep 30 and Oct 1 &mdash; all open
+    for the Raymonds too. Dal&iacute; takes the 30th. The 1st is their last full day, so it stays in the city for the
+    farewell dinner. That leaves the 29th evening, and Mar Bella or Sitges if a spare afternoon appears.
   </div>
 
-  <div class="footer">Spain 2026 · <a href="https://whiteraymondspain.netlify.app">whiteraymondspain.netlify.app</a></div>
+  <div class="footer">Spain 2026 &middot; <a href="https://whiteraymondspain.netlify.app">whiteraymondspain.netlify.app</a></div>
 </div>
 
 </body>

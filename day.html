@@ -7,6 +7,8 @@
 <meta name="theme-color" content="#14100e">
 <title>Day by day — Spain 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
 <style>
   *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
   :root{
@@ -137,6 +139,35 @@
                font-family:'Cormorant Garamond',serif; font-size:16px; }
   .opt-card p{ font-size:12.5px; color:var(--mid); line-height:1.6; }
 
+  .daymap-wrap{ margin-top:6px; }
+  .daymap{ height:340px; border:1px solid var(--rule); border-radius:6px; background:var(--surface);
+           overflow:hidden; }
+  .daymap .ph{ display:flex; align-items:center; justify-content:center; height:100%; padding:0 30px;
+               text-align:center; font-size:13px; color:var(--light); }
+  .leglist{ list-style:none; margin-top:12px; }
+  .leglist li{ display:flex; gap:11px; align-items:baseline; padding:6px 0; font-size:13px;
+               border-bottom:1px solid var(--rule-soft); }
+  .leglist li:last-child{ border-bottom:0 }
+  .leglist .dot{ width:9px; height:9px; border-radius:50%; flex:0 0 9px; transform:translateY(1px) }
+  .leglist .lg{ flex:1; color:var(--mid) }
+  .leglist a{ font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:var(--light);
+              text-decoration:none; white-space:nowrap; border-bottom:1px solid var(--rule) }
+  .leglist a:hover{ color:var(--terracotta); border-color:var(--terracotta-dim) }
+  .leglist a.nav{ border:1px solid var(--terracotta-dim); border-radius:100px; padding:3px 10px;
+                  color:var(--terracotta); background:rgba(224,138,95,.08); }
+  .leglist a.nav:hover{ background:var(--terracotta); color:#181210; border-color:var(--terracotta) }
+  .navhint{ font-size:11.5px; color:var(--light); margin-top:11px; line-height:1.55; max-width:64ch }
+  .navhint b{ color:var(--mid); font-weight:500 }
+  .night a.nav{ margin-left:8px; font-size:11px; letter-spacing:.05em; text-transform:uppercase;
+                text-decoration:none; color:var(--terracotta); border:1px solid var(--terracotta-dim);
+                border-radius:100px; padding:3px 10px; }
+  .night a.nav:hover{ background:var(--terracotta); color:#181210 }
+  .leaflet-container{ font-family:'Jost',sans-serif; background:#14100e }
+  .leaflet-control-zoom a{ background:#1c1714; color:#ece4dc; border-color:#372c25 }
+  .leaflet-control-zoom a:hover{ background:#241d19; color:#e08a5f }
+  .leaflet-control-attribution{ background:rgba(20,16,14,.8)!important; color:#8a7a6c; font-size:10px }
+  .leaflet-control-attribution a{ color:#b6a698 }
+
   .night{ margin-top:30px; padding-top:18px; border-top:1px solid var(--rule); font-size:12.5px; color:var(--light); }
   .night b{ color:var(--mid); font-weight:400; }
 
@@ -232,6 +263,15 @@
       <p class="dayp-lede">DL194 lands at 12:50pm, so this is an afternoon and an evening rather than a full day. Check in, then walk the old city once the heat has gone. Early night — the group lands tomorrow and Park Güell is a real afternoon.</p>
 
       <hr class="divider">
+      <div class="section-label">Getting between them</div>
+      <div class="daymap-wrap">
+        <div class="daymap" id="map-sep-21" data-legs='[{"a":[41.2971,2.0785,"Barcelona Airport (BCN)"],"b":[41.3856,2.178,"Grand Hotel Central"],"m":"car"}]'>
+          <div class="ph">Map loading…</div>
+        </div>
+        <ul class="leglist"><li><span class="dot" style="background:#e08a5f"></span><span class="lg">Airport → hotel · 35 min · taxi or Aerobús</span><a href="https://www.google.com/maps/dir/?api=1&origin=41.2971,2.0785&destination=41.3856,2.178&travelmode=driving" target="_blank" rel="noopener">Route</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.3856,2.178&travelmode=driving&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></li></ul>
+        <p class="navhint"><b>Navigate</b> starts turn-by-turn from wherever you are and hands off to Android Auto. <b>Route</b> shows the whole leg end to end without starting navigation.</p>
+      </div>
+      <hr class="divider">
       <div class="section-label">Where you'll be</div>
       <div class="places">
         <div class="place">
@@ -253,7 +293,7 @@
       <hr class="divider">
       <div class="section-label">If the day has room</div>
       <div class="options"><div class="opt-grid"><div class="opt-card"><b>Santa Maria del Mar</b><p>Ten minutes from the hotel and free most of the day — a good low-effort first stop if the room isn't ready.</p></div><div class="opt-card"><b>Bunkers del Carmel</b><p>Civil-war gun emplacements above the city with the best free view in Barcelona. Sunset is the point. A taxi up, walk down.</p></div></div></div>
-      <div class="night">Tonight · <b>Grand Hotel Central — Via Laietana 30 · Superior King</b></div>
+      <div class="night">Tonight · <b>Grand Hotel Central — Via Laietana 30 · Superior King</b> <a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.3856,2.178&travelmode=driving&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
       <div class="daynav"><a href="#sep-20"><small>Previous</small>Sat 20 · Depart Atlanta</a><a class="nx" href="#sep-22"><small>Next</small>Tue 22 · Park Güell with everyone</a></div>
     </section>
     <section class="dayp" id="sep-22">
@@ -288,6 +328,15 @@
       <p class="dayp-lede">The group's first day. Meet at the Mirador de Joan Sales at 3:15pm for the 3:30 tour — roughly three hours across the monumental zone and the free wooded park above it. Dinner at seven in Gràcia.</p>
 
       <hr class="divider">
+      <div class="section-label">Getting between them</div>
+      <div class="daymap-wrap">
+        <div class="daymap" id="map-sep-22" data-legs='[{"a":[41.3856,2.178,"Grand Hotel Central"],"b":[41.4145,2.1527,"Park G\u00fcell"],"m":"walk"},{"a":[41.4145,2.1527,"Park G\u00fcell"],"b":[41.403,2.156,"Gr\u00e0cia \u00b7 Gallo Santo"],"m":"walk"}]'>
+          <div class="ph">Map loading…</div>
+        </div>
+        <ul class="leglist"><li><span class="dot" style="background:#8bc79a"></span><span class="lg">Hotel → Park Güell · 25 min · metro L3 Lesseps</span><a href="https://www.google.com/maps/dir/?api=1&origin=41.3856,2.178&destination=41.4145,2.1527&travelmode=walking" target="_blank" rel="noopener">Route</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.4145,2.1527&travelmode=walking&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></li><li><span class="dot" style="background:#8bc79a"></span><span class="lg">Park Güell → Gràcia · 20 min downhill</span><a href="https://www.google.com/maps/dir/?api=1&origin=41.4145,2.1527&destination=41.403,2.156&travelmode=walking" target="_blank" rel="noopener">Route</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.403,2.156&travelmode=walking&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></li></ul>
+        <p class="navhint"><b>Navigate</b> starts turn-by-turn from wherever you are and hands off to Android Auto. <b>Route</b> shows the whole leg end to end without starting navigation.</p>
+      </div>
+      <hr class="divider">
       <div class="section-label">Where you'll be</div>
       <div class="places">
         <div class="place">
@@ -309,7 +358,7 @@
       <hr class="divider">
       <div class="section-label">If the day has room</div>
       <div class="options"><div class="opt-grid"><div class="opt-card"><b>Casa Vicens</b><p>Gaudí's first house, ten minutes from Gallo Santo and almost never crowded. A good hour before dinner.</p></div><div class="opt-card"><b>Bunkers del Carmel</b><p>Twenty minutes downhill from Park Güell if the tour ends with light left.</p></div></div></div>
-      <div class="night">Tonight · <b>Grand Hotel Central — Via Laietana 30 · Superior King</b></div>
+      <div class="night">Tonight · <b>Grand Hotel Central — Via Laietana 30 · Superior King</b> <a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.3856,2.178&travelmode=driving&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
       <div class="daynav"><a href="#sep-21"><small>Previous</small>Mon 21 · Land Barcelona, settle in</a><a class="nx" href="#sep-23"><small>Next</small>Wed 23 · Sagrada Família and Sant Pau</a></div>
     </section>
     <section class="dayp" id="sep-23">
@@ -343,6 +392,15 @@
       <p class="dayp-lede">Two Modernista buildings twelve minutes apart, with lunch between them. Your Sagrada entry is 10:15 and the Raymonds are at 10:45, so you'll be inside together either way.</p>
 
       <hr class="divider">
+      <div class="section-label">Getting between them</div>
+      <div class="daymap-wrap">
+        <div class="daymap" id="map-sep-23" data-legs='[{"a":[41.3856,2.178,"Grand Hotel Central"],"b":[41.4036,2.1744,"Sagrada Fam\u00edlia"],"m":"walk"},{"a":[41.4036,2.1744,"Sagrada Fam\u00edlia"],"b":[41.4118,2.1743,"Sant Pau"],"m":"walk"}]'>
+          <div class="ph">Map loading…</div>
+        </div>
+        <ul class="leglist"><li><span class="dot" style="background:#8bc79a"></span><span class="lg">Hotel → Sagrada Família · 20 min · metro L2</span><a href="https://www.google.com/maps/dir/?api=1&origin=41.3856,2.178&destination=41.4036,2.1744&travelmode=walking" target="_blank" rel="noopener">Route</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.4036,2.1744&travelmode=walking&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></li><li><span class="dot" style="background:#8bc79a"></span><span class="lg">Sagrada → Sant Pau · 12 min up Avinguda Gaudí</span><a href="https://www.google.com/maps/dir/?api=1&origin=41.4036,2.1744&destination=41.4118,2.1743&travelmode=walking" target="_blank" rel="noopener">Route</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.4118,2.1743&travelmode=walking&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></li></ul>
+        <p class="navhint"><b>Navigate</b> starts turn-by-turn from wherever you are and hands off to Android Auto. <b>Route</b> shows the whole leg end to end without starting navigation.</p>
+      </div>
+      <hr class="divider">
       <div class="section-label">Where you'll be</div>
       <div class="places">
         <div class="place">
@@ -364,7 +422,7 @@
       <hr class="divider">
       <div class="section-label">If the day has room</div>
       <div class="options"><div class="opt-grid"><div class="opt-card"><b>Mar Bella</b><p>Metro L4 and fifteen minutes if the afternoon wants a beach instead. Naturist section signposted.</p></div><div class="opt-card"><b>Casa Batlló or La Pedrera</b><p>Both on Passeig de Gràcia, both bookable same-day out of season, both an hour.</p></div></div></div>
-      <div class="night">Tonight · <b>Grand Hotel Central — Via Laietana 30 · Superior King</b></div>
+      <div class="night">Tonight · <b>Grand Hotel Central — Via Laietana 30 · Superior King</b> <a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.3856,2.178&travelmode=driving&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
       <div class="daynav"><a href="#sep-22"><small>Previous</small>Tue 22 · Park Güell with everyone</a><a class="nx" href="#sep-24"><small>Next</small>Thu 24 · North to Girona, castle on the way</a></div>
     </section>
     <section class="dayp" id="sep-24">
@@ -403,6 +461,15 @@
       <p class="dayp-lede">The one genuinely tight morning of the trip. Checkout, rental counter, coast road, castle, then inland to Girona — and the castle slot is what everything else has to fit around.</p>
 
       <hr class="divider">
+      <div class="section-label">Getting between them</div>
+      <div class="daymap-wrap">
+        <div class="daymap" id="map-sep-24" data-legs='[{"a":[41.3856,2.178,"Grand Hotel Central"],"b":[41.3793,2.14,"Barcelona Sants"],"m":"car"},{"a":[41.3793,2.14,"Barcelona Sants"],"b":[41.5983,2.5735,"Castell de Santa Florentina"],"m":"car"},{"a":[41.5983,2.5735,"Castell de Santa Florentina"],"b":[41.9856,2.8194,"DoubleTree Girona"],"m":"car"}]'>
+          <div class="ph">Map loading…</div>
+        </div>
+        <ul class="leglist"><li><span class="dot" style="background:#8bc79a"></span><span class="lg">Hotel → Sants · 15 min · taxi with the bags</span><a href="https://www.google.com/maps/dir/?api=1&origin=41.3856,2.178&destination=41.3793,2.14&travelmode=walking" target="_blank" rel="noopener">Route</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.3793,2.14&travelmode=walking&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></li><li><span class="dot" style="background:#e08a5f"></span><span class="lg">Sants → Castell de Santa Florentina · 49 km · 46 min</span><a href="https://www.google.com/maps/dir/?api=1&origin=41.3793,2.14&destination=41.5983,2.5735&travelmode=driving" target="_blank" rel="noopener">Route</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.5983,2.5735&travelmode=driving&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></li><li><span class="dot" style="background:#e08a5f"></span><span class="lg">Canet de Mar → Girona · ~1h</span><a href="https://www.google.com/maps/dir/?api=1&origin=41.5983,2.5735&destination=41.9856,2.8194&travelmode=driving" target="_blank" rel="noopener">Route</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.9856,2.8194&travelmode=driving&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></li></ul>
+        <p class="navhint"><b>Navigate</b> starts turn-by-turn from wherever you are and hands off to Android Auto. <b>Route</b> shows the whole leg end to end without starting navigation.</p>
+      </div>
+      <hr class="divider">
       <div class="section-label">Where you'll be</div>
       <div class="places">
         <div class="place">
@@ -424,7 +491,7 @@
       <hr class="divider">
       <div class="section-label">If the day has room</div>
       <div class="options"><div class="opt-grid"><div class="opt-card"><b>Skip the castle</b><p>If the tickets never go on sale, the coast road through the Maresme is pleasant on its own and you reach Girona in time for a long evening in the old town.</p></div><div class="opt-card"><b>Museu Domènech i Montaner</b><p>In Canet de Mar itself, five minutes from lunch — the architect's own house, and a small one-room answer to the castle if that falls through.</p></div></div></div>
-      <div class="night">Tonight · <b>DoubleTree by Hilton Girona — Mossèn Joan Pons 1 · King with balcony</b></div>
+      <div class="night">Tonight · <b>DoubleTree by Hilton Girona — Mossèn Joan Pons 1 · King with balcony</b> <a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.9856,2.8194&travelmode=driving&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
       <div class="daynav"><a href="#sep-23"><small>Previous</small>Wed 23 · Sagrada Família and Sant Pau</a><a class="nx" href="#sep-25"><small>Next</small>Fri 25 · Girona, and the meet &amp; greet</a></div>
     </section>
     <section class="dayp" id="sep-25">
@@ -456,6 +523,15 @@
       <p class="dayp-lede">Free until evening. Girona is compact enough to do properly in an afternoon, and the meet and greet is at your own hotel, so there's nothing to plan around but the walk back.</p>
 
       <hr class="divider">
+      <div class="section-label">Getting between them</div>
+      <div class="daymap-wrap">
+        <div class="daymap" id="map-sep-25" data-legs='[{"a":[41.9856,2.8194,"DoubleTree Girona"],"b":[41.9874,2.825,"Girona old town"],"m":"walk"}]'>
+          <div class="ph">Map loading…</div>
+        </div>
+        <ul class="leglist"><li><span class="dot" style="background:#8bc79a"></span><span class="lg">Hotel → Barri Vell · ~2 km</span><a href="https://www.google.com/maps/dir/?api=1&origin=41.9856,2.8194&destination=41.9874,2.825&travelmode=walking" target="_blank" rel="noopener">Route</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.9874,2.825&travelmode=walking&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></li></ul>
+        <p class="navhint"><b>Navigate</b> starts turn-by-turn from wherever you are and hands off to Android Auto. <b>Route</b> shows the whole leg end to end without starting navigation.</p>
+      </div>
+      <hr class="divider">
       <div class="section-label">Where you'll be</div>
       <div class="places">
         <div class="place">
@@ -477,7 +553,7 @@
       <hr class="divider">
       <div class="section-label">If the day has room</div>
       <div class="options"><div class="opt-grid"><div class="opt-card"><b>Besalú</b><p>Twenty minutes out — a medieval town entered across a fortified bridge, and the best short trip from Girona.</p></div><div class="opt-card"><b>Banyoles</b><p>The largest lake in Catalonia, with a flat hour's walk around it. Good if the day wants to be gentle.</p></div><div class="opt-card"><b>El Call</b><p>Girona's Jewish quarter deserves its own hour rather than being walked through on the way somewhere.</p></div></div></div>
-      <div class="night">Tonight · <b>DoubleTree by Hilton Girona — Mossèn Joan Pons 1 · King with balcony</b></div>
+      <div class="night">Tonight · <b>DoubleTree by Hilton Girona — Mossèn Joan Pons 1 · King with balcony</b> <a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.9856,2.8194&travelmode=driving&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
       <div class="daynav"><a href="#sep-24"><small>Previous</small>Thu 24 · North to Girona, castle on the way</a><a class="nx" href="#sep-26"><small>Next</small>Sat 26 · Jessica and Daniel · Mas Rosset</a></div>
     </section>
     <section class="dayp" id="sep-26">
@@ -513,6 +589,15 @@
       <p class="dayp-lede">The day the trip was built around. A restored Catalan farmhouse in the countryside north of Girona, and the whole thing happens in one place.</p>
 
       <hr class="divider">
+      <div class="section-label">Getting between them</div>
+      <div class="daymap-wrap">
+        <div class="daymap" id="map-sep-26" data-legs='[{"a":[41.9856,2.8194,"DoubleTree Girona"],"b":[42.07,2.82,"Mas Rosset"],"m":"car"}]'>
+          <div class="ph">Map loading…</div>
+        </div>
+        <ul class="leglist"><li><span class="dot" style="background:#e08a5f"></span><span class="lg">Girona → Mas Rosset · 19.7 km · 18 min</span><a href="https://www.google.com/maps/dir/?api=1&origin=41.9856,2.8194&destination=42.07,2.82&travelmode=driving" target="_blank" rel="noopener">Route</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=42.07,2.82&travelmode=driving&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></li></ul>
+        <p class="navhint"><b>Navigate</b> starts turn-by-turn from wherever you are and hands off to Android Auto. <b>Route</b> shows the whole leg end to end without starting navigation.</p>
+      </div>
+      <hr class="divider">
       <div class="section-label">Where you'll be</div>
       <div class="places">
         <div class="place">
@@ -524,7 +609,7 @@
           </div>
         </div>
       </div>
-      <div class="night">Tonight · <b>DoubleTree by Hilton Girona — Mossèn Joan Pons 1 · King with balcony</b></div>
+      <div class="night">Tonight · <b>DoubleTree by Hilton Girona — Mossèn Joan Pons 1 · King with balcony</b> <a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.9856,2.8194&travelmode=driving&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
       <div class="daynav"><a href="#sep-25"><small>Previous</small>Fri 25 · Girona, and the meet &amp; greet</a><a class="nx" href="#sep-27"><small>Next</small>Sun 27 · Brunch and pool</a></div>
     </section>
     <section class="dayp" id="sep-27">
@@ -558,7 +643,7 @@
       <hr class="divider">
       <div class="section-label">If the day has room</div>
       <div class="options"><div class="opt-grid"><div class="opt-card"><b>Girona again</b><p>Anything the Friday afternoon didn't reach — the cathedral, the walls, the Call.</p></div><div class="opt-card"><b>Banyoles</b><p>Twenty-five minutes, and a flat lakeside hour is about the right ambition for this particular Sunday.</p></div></div></div>
-      <div class="night">Tonight · <b>DoubleTree by Hilton Girona — Mossèn Joan Pons 1 · King with balcony</b></div>
+      <div class="night">Tonight · <b>DoubleTree by Hilton Girona — Mossèn Joan Pons 1 · King with balcony</b> <a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.9856,2.8194&travelmode=driving&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
       <div class="daynav"><a href="#sep-26"><small>Previous</small>Sat 26 · Jessica and Daniel · Mas Rosset</a><a class="nx" href="#sep-28"><small>Next</small>Mon 28 · Vineyard picnic, then the coast</a></div>
     </section>
     <section class="dayp" id="sep-28">
@@ -593,6 +678,15 @@
       <p class="dayp-lede">The heaviest driving day, and it lands on a checkout morning with a wine tasting in the middle. Clos de Basella is north of Girona in the Alt Empordà; Lloret is well south. Settle who drives before the tasting, not after.</p>
 
       <hr class="divider">
+      <div class="section-label">Getting between them</div>
+      <div class="daymap-wrap">
+        <div class="daymap" id="map-sep-28" data-legs='[{"a":[41.9856,2.8194,"DoubleTree Girona"],"b":[42.205,2.9951,"Clos de Basella"],"m":"car"},{"a":[42.205,2.9951,"Clos de Basella"],"b":[41.6934,2.8158,"Hotel Santa Marta"],"m":"car"}]'>
+          <div class="ph">Map loading…</div>
+        </div>
+        <ul class="leglist"><li><span class="dot" style="background:#e08a5f"></span><span class="lg">Girona → Clos de Basella · ~40 min</span><a href="https://www.google.com/maps/dir/?api=1&origin=41.9856,2.8194&destination=42.205,2.9951&travelmode=driving" target="_blank" rel="noopener">Route</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=42.205,2.9951&travelmode=driving&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></li><li><span class="dot" style="background:#e08a5f"></span><span class="lg">Clos de Basella → Lloret · ~55 min</span><a href="https://www.google.com/maps/dir/?api=1&origin=42.205,2.9951&destination=41.6934,2.8158&travelmode=driving" target="_blank" rel="noopener">Route</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.6934,2.8158&travelmode=driving&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></li></ul>
+        <p class="navhint"><b>Navigate</b> starts turn-by-turn from wherever you are and hands off to Android Auto. <b>Route</b> shows the whole leg end to end without starting navigation.</p>
+      </div>
+      <hr class="divider">
       <div class="section-label">Where you'll be</div>
       <div class="places">
         <div class="place">
@@ -614,7 +708,7 @@
       <hr class="divider">
       <div class="section-label">If the day has room</div>
       <div class="options"><div class="opt-grid"><div class="opt-card"><b>Besalú on the way</b><p>Roughly on the line between Girona and the winery if you leave early enough.</p></div><div class="opt-card"><b>Tossa de Mar</b><p>Twenty-five minutes north of Lloret on the cliff road — a walled medieval town on the sea, and the best evening drive on this coast.</p></div></div></div>
-      <div class="night">Tonight · <b>Hotel Santa Marta — Platja de Santa Cristina, Lloret · Premium sea-view terrace</b></div>
+      <div class="night">Tonight · <b>Hotel Santa Marta — Platja de Santa Cristina, Lloret · Premium sea-view terrace</b> <a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.6934,2.8158&travelmode=driving&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
       <div class="daynav"><a href="#sep-27"><small>Previous</small>Sun 27 · Brunch and pool</a><a class="nx" href="#sep-29"><small>Next</small>Tue 29 · Lloret morning, then back to Barcelona</a></div>
     </section>
     <section class="dayp" id="sep-29">
@@ -654,6 +748,15 @@
       <p class="dayp-lede">The gardens, the hotel beach and the next cove along all sit on one walk, and the gardens open at ten. Then the drive back, the car handed over, and an evening with the Raymonds — who came back to Barcelona yesterday and have nothing scheduled.</p>
 
       <hr class="divider">
+      <div class="section-label">Getting between them</div>
+      <div class="daymap-wrap">
+        <div class="daymap" id="map-sep-29" data-legs='[{"a":[41.6934,2.8158,"Hotel Santa Marta"],"b":[41.696,2.8262,"Jardins de Santa Clotilde"],"m":"car"},{"a":[41.6934,2.8158,"Hotel Santa Marta"],"b":[41.3793,2.14,"Barcelona Sants"],"m":"car"}]'>
+          <div class="ph">Map loading…</div>
+        </div>
+        <ul class="leglist"><li><span class="dot" style="background:#8bc79a"></span><span class="lg">Hotel → Santa Clotilde · 15 min on foot</span><a href="https://www.google.com/maps/dir/?api=1&origin=41.6934,2.8158&destination=41.696,2.8262&travelmode=walking" target="_blank" rel="noopener">Route</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.696,2.8262&travelmode=walking&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></li><li><span class="dot" style="background:#e08a5f"></span><span class="lg">Lloret → Sants · 74 km · 56 min</span><a href="https://www.google.com/maps/dir/?api=1&origin=41.6934,2.8158&destination=41.3793,2.14&travelmode=driving" target="_blank" rel="noopener">Route</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.3793,2.14&travelmode=driving&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></li></ul>
+        <p class="navhint"><b>Navigate</b> starts turn-by-turn from wherever you are and hands off to Android Auto. <b>Route</b> shows the whole leg end to end without starting navigation.</p>
+      </div>
+      <hr class="divider">
       <div class="section-label">Where you'll be</div>
       <div class="places">
         <div class="place">
@@ -675,7 +778,7 @@
       <hr class="divider">
       <div class="section-label">If the day has room</div>
       <div class="options"><div class="opt-grid"><div class="opt-card"><b>Camí de Ronda</b><p>The old coastguard path runs past the hotel — 8.5 km south to Blanes, 11 km north to Tossa. Take as much as the morning allows.</p></div><div class="opt-card"><b>Castell de Sant Joan</b><p>Ten minutes' drive, an 11th-century watchtower with the coast laid out both ways.</p></div><div class="opt-card"><b>Marimurtra, Blanes</b><p>Twenty minutes south — a clifftop botanical garden, one of the best in Europe, if Santa Clotilde leaves you wanting more of the same.</p></div></div></div>
-      <div class="night">Tonight · <b>Grand Hotel Central — Via Laietana 30 · Deluxe King</b></div>
+      <div class="night">Tonight · <b>Grand Hotel Central — Via Laietana 30 · Deluxe King</b> <a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.3856,2.178&travelmode=driving&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
       <div class="daynav"><a href="#sep-28"><small>Previous</small>Mon 28 · Vineyard picnic, then the coast</a><a class="nx" href="#sep-30"><small>Next</small>Wed 30 · Figueres and the Dalí Theatre-Museum</a></div>
     </section>
     <section class="dayp" id="sep-30">
@@ -709,6 +812,15 @@
       <p class="dayp-lede">The natural day to do this with Devon and Tasia — it's one of their three open Barcelona days and the museum is squarely their kind of thing. A Wednesday because it's shut Mondays through September, which is what killed the original plan of doing it after the picnic.</p>
 
       <hr class="divider">
+      <div class="section-label">Getting between them</div>
+      <div class="daymap-wrap">
+        <div class="daymap" id="map-sep-30" data-legs='[{"a":[41.3793,2.14,"Barcelona Sants"],"b":[42.2686,2.9598,"Teatre-Museu Dal\u00ed, Figueres"],"m":"rail"}]'>
+          <div class="ph">Map loading…</div>
+        </div>
+        <ul class="leglist"><li><span class="dot" style="background:#6cc4d4"></span><span class="lg">Sants → Figueres-Vilafant · 55–65 min · AVE</span><a href="https://www.google.com/maps/dir/?api=1&origin=41.3793,2.14&destination=42.2686,2.9598&travelmode=transit" target="_blank" rel="noopener">Route</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=42.2686,2.9598&travelmode=transit&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></li></ul>
+        <p class="navhint"><b>Navigate</b> starts turn-by-turn from wherever you are and hands off to Android Auto. <b>Route</b> shows the whole leg end to end without starting navigation.</p>
+      </div>
+      <hr class="divider">
       <div class="section-label">Where you'll be</div>
       <div class="places">
         <div class="place">
@@ -723,7 +835,7 @@
       <hr class="divider">
       <div class="section-label">If the day has room</div>
       <div class="options"><div class="opt-grid"><div class="opt-card"><b>Cadaqués</b><p>An hour east over the hills — the whitewashed village Dalí actually lived in, with his house at Portlligat. Needs a car, so it's an alternate rather than a plan.</p></div><div class="opt-card"><b>Castell de Sant Ferran</b><p>On the hill above Figueres, the largest bastion fortress in Europe and almost empty.</p></div><div class="opt-card"><b>Girona on the way back</b><p>The AVE passes through. A second look costs an hour.</p></div></div></div>
-      <div class="night">Tonight · <b>Grand Hotel Central — Via Laietana 30 · Deluxe King</b></div>
+      <div class="night">Tonight · <b>Grand Hotel Central — Via Laietana 30 · Deluxe King</b> <a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.3856,2.178&travelmode=driving&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
       <div class="daynav"><a href="#sep-29"><small>Previous</small>Tue 29 · Lloret morning, then back to Barcelona</a><a class="nx" href="#oct-01"><small>Next</small>Thu 1 · El Born, and a final dinner</a></div>
     </section>
     <section class="dayp" id="oct-01">
@@ -756,6 +868,15 @@
       <p class="dayp-lede">Their itinerary marks this as the last full day with a final dinner, so keep it in town. El Born is the neighbourhood for it — tight lanes, wine bars, and the two best things three minutes apart, all of it a few streets from the hotel.</p>
 
       <hr class="divider">
+      <div class="section-label">Getting between them</div>
+      <div class="daymap-wrap">
+        <div class="daymap" id="map-oct-01" data-legs='[{"a":[41.3856,2.178,"Grand Hotel Central"],"b":[41.3995,2.2115,"Mar Bella"],"m":"walk"}]'>
+          <div class="ph">Map loading…</div>
+        </div>
+        <ul class="leglist"><li><span class="dot" style="background:#8bc79a"></span><span class="lg">El Born → Mar Bella · 15 min · metro L4</span><a href="https://www.google.com/maps/dir/?api=1&origin=41.3856,2.178&destination=41.3995,2.2115&travelmode=walking" target="_blank" rel="noopener">Route</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.3995,2.2115&travelmode=walking&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></li></ul>
+        <p class="navhint"><b>Navigate</b> starts turn-by-turn from wherever you are and hands off to Android Auto. <b>Route</b> shows the whole leg end to end without starting navigation.</p>
+      </div>
+      <hr class="divider">
       <div class="section-label">Where you'll be</div>
       <div class="places">
         <div class="place">
@@ -777,7 +898,7 @@
       <hr class="divider">
       <div class="section-label">If the day has room</div>
       <div class="options"><div class="opt-grid"><div class="opt-card"><b>Mar Bella</b><p>Metro L4, fifteen minutes, and the only clothing-optional beach you don't need a day for.</p></div><div class="opt-card"><b>El Born CCM</b><p>The excavated 1700s streets under the old market hall, free to walk into.</p></div><div class="opt-card"><b>Palau de la Música</b><p>Domènech i Montaner again, and the interior nobody expects. Tours sell out; same-day is sometimes possible.</p></div></div></div>
-      <div class="night">Tonight · <b>Grand Hotel Central — Via Laietana 30 · Deluxe King</b></div>
+      <div class="night">Tonight · <b>Grand Hotel Central — Via Laietana 30 · Deluxe King</b> <a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.3856,2.178&travelmode=driving&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
       <div class="daynav"><a href="#sep-30"><small>Previous</small>Wed 30 · Figueres and the Dalí Theatre-Museum</a><a class="nx" href="#oct-02"><small>Next</small>Fri 2 · Goodbyes, then Montserrat</a></div>
     </section>
     <section class="dayp" id="oct-02">
@@ -812,6 +933,15 @@
       <p class="dayp-lede">See everyone off, then get out of the city for the last full day. Montserrat is the one piece of real landscape within reach of Barcelona — and doing it now means you come home to a packed apartment and an easy morning.</p>
 
       <hr class="divider">
+      <div class="section-label">Getting between them</div>
+      <div class="daymap-wrap">
+        <div class="daymap" id="map-oct-02" data-legs='[{"a":[41.3856,2.178,"Grand Hotel Central"],"b":[41.5934,1.838,"Montserrat"],"m":"rail"}]'>
+          <div class="ph">Map loading…</div>
+        </div>
+        <ul class="leglist"><li><span class="dot" style="background:#6cc4d4"></span><span class="lg">Barcelona → Montserrat · 1h · R5 + rack railway</span><a href="https://www.google.com/maps/dir/?api=1&origin=41.3856,2.178&destination=41.5934,1.838&travelmode=transit" target="_blank" rel="noopener">Route</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.5934,1.838&travelmode=transit&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></li></ul>
+        <p class="navhint"><b>Navigate</b> starts turn-by-turn from wherever you are and hands off to Android Auto. <b>Route</b> shows the whole leg end to end without starting navigation.</p>
+      </div>
+      <hr class="divider">
       <div class="section-label">Where you'll be</div>
       <div class="places">
         <div class="place">
@@ -826,7 +956,7 @@
       <hr class="divider">
       <div class="section-label">If the day has room</div>
       <div class="options"><div class="opt-grid"><div class="opt-card"><b>Sitges</b><p>Thirty-five minutes on the R2 from Passeig de Gràcia. Seventeen beaches, two of them clothing-optional, and no planning at all. The lowest-effort version of this day.</p></div><div class="opt-card"><b>Penedès</b><p>Cava country, forty-five minutes out at Sant Sadurní. Tours run most afternoons.</p></div><div class="opt-card"><b>Stay in the city</b><p>Montjuïc has the Romanesque collection, a castle at the top by cable car, and the fountain show below.</p></div></div></div>
-      <div class="night">Tonight · <b>Grand Hotel Central — Via Laietana 30 · Deluxe King</b></div>
+      <div class="night">Tonight · <b>Grand Hotel Central — Via Laietana 30 · Deluxe King</b> <a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.3856,2.178&travelmode=driving&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
       <div class="daynav"><a href="#oct-01"><small>Previous</small>Thu 1 · El Born, and a final dinner</a><a class="nx" href="#oct-03"><small>Next</small>Sat 3 · Home</a></div>
     </section>
     <section class="dayp" id="oct-03">
@@ -857,6 +987,15 @@
 
       <p class="dayp-lede">Nonstop, Delta One. Two free checked bags each to 70 lbs. Checkout is noon, so the flight is the only thing setting the alarm.</p>
 
+      <hr class="divider">
+      <div class="section-label">Getting between them</div>
+      <div class="daymap-wrap">
+        <div class="daymap" id="map-oct-03" data-legs='[{"a":[41.3856,2.178,"Grand Hotel Central"],"b":[41.2971,2.0785,"Barcelona Airport (BCN)"],"m":"car"}]'>
+          <div class="ph">Map loading…</div>
+        </div>
+        <ul class="leglist"><li><span class="dot" style="background:#e08a5f"></span><span class="lg">Hotel → BCN · 35 min</span><a href="https://www.google.com/maps/dir/?api=1&origin=41.3856,2.178&destination=41.2971,2.0785&travelmode=driving" target="_blank" rel="noopener">Route</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.2971,2.0785&travelmode=driving&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></li></ul>
+        <p class="navhint"><b>Navigate</b> starts turn-by-turn from wherever you are and hands off to Android Auto. <b>Route</b> shows the whole leg end to end without starting navigation.</p>
+      </div>
       <div class="night">Tonight · <b>Home</b></div>
       <div class="daynav"><a href="#oct-02"><small>Previous</small>Fri 2 · Goodbyes, then Montserrat</a><span></span></div>
     </section>
@@ -882,6 +1021,55 @@ async function loadWiki(root){
   }));
 }
 </script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+if (typeof L === 'undefined') {
+  document.write('<scr'+'ipt src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"><\/scr'+'ipt>');
+}
+</script>
+<script>
+const COL = {car:"#e08a5f", rail:"#6cc4d4", walk:"#8bc79a"};
+const drawn = {};
+function dot(c,r){ return L.divIcon({className:'', iconSize:[r*2,r*2], iconAnchor:[r,r],
+  html:`<div style="width:${r*2}px;height:${r*2}px;border-radius:50%;background:${c};border:2px solid #14100e;box-shadow:0 0 0 1px rgba(255,255,255,.22)"></div>`}); }
+async function road(a,b){
+  try{
+    const u=`https://router.project-osrm.org/route/v1/driving/${a[1]},${a[0]};${b[1]},${b[0]}?overview=full&geometries=geojson`;
+    const r=await fetch(u); if(!r.ok) return null;
+    const j=await r.json();
+    if(!j.routes||!j.routes[0]) return null;
+    return j.routes[0].geometry.coordinates.map(c=>[c[1],c[0]]);
+  }catch(e){ return null; }
+}
+async function buildMap(el){
+  if(drawn[el.id]) { drawn[el.id].invalidateSize(); return; }
+  const legs = JSON.parse(el.dataset.legs || '[]');
+  if(!legs.length) return;
+  if(typeof L === 'undefined'){
+    el.innerHTML = '<div class="ph">The map library could not load. The directions links below still work.</div>';
+    return;
+  }
+  el.innerHTML = '';
+  const map = L.map(el, {scrollWheelZoom:false, attributionControl:true});
+  drawn[el.id] = map;
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+    {maxZoom:19, subdomains:'abcd', attribution:'&copy; OpenStreetMap &copy; CARTO'}).addTo(map);
+  const pts = [];
+  for(const lg of legs){
+    const a=[lg.a[0],lg.a[1]], b=[lg.b[0],lg.b[1]];
+    pts.push(a,b);
+    L.marker(a,{icon:dot(COL[lg.m],5)}).addTo(map).bindTooltip(lg.a[2],{direction:'top'});
+    L.marker(b,{icon:dot(COL[lg.m],5)}).addTo(map).bindTooltip(lg.b[2],{direction:'top'});
+    let line = await road(a,b);
+    const dashed = !line;
+    if(!line) line = [a,b];
+    L.polyline(line, {color:COL[lg.m], weight:3.2, opacity:.9,
+      dashArray: (lg.m==='rail'||dashed) ? '7 6' : null}).addTo(map);
+  }
+  map.fitBounds(L.latLngBounds(pts).pad(0.28));
+  setTimeout(()=>map.invalidateSize(),60);
+}
+</script>
 <script>
 const IDS = [...document.querySelectorAll('section.dayp')].map(s=>s.id);
 function show(id, push){
@@ -891,6 +1079,7 @@ function show(id, push){
   const on = document.querySelector('#rail a.on');
   if(on) on.scrollIntoView({block:'nearest', inline:'center', behavior:'smooth'});
   loadWiki(document.getElementById(id));
+  const mp=document.querySelector('#'+id+' .daymap'); if(mp) buildMap(mp);
   window.scrollTo({top:0, behavior:'instant'});
   if(push && location.hash.slice(1)!==id) history.replaceState(null,'','#'+id);
 }
