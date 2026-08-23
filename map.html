@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spain 2026 — Map &amp; Lloret Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream:#f7f3ee; --warm-white:#faf8f5; --terracotta:#c2603a; --terracotta-light:#d4795a;
+    --deep:#2a1f1a; --mid:#5c4a3d; --light:#9c8878; --rule:#e0d5ca; --tag-bg:#efe8e0;
+    --sea:#dfe9ec; --sea-line:#b9ced4; --land:#f2ece3;
+    --car:#c2603a; --train:#2a7a8a; --metro:#4a7c59;
+  }
+  body { background:var(--warm-white); color:var(--deep); font-family:'Jost',sans-serif; font-weight:300; line-height:1.7; }
+  .page { max-width:980px; margin:0 auto; padding:56px 40px 96px; }
+  .eyebrow { font-weight:500; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--terracotta); margin-bottom:14px; }
+  h1 { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:clamp(30px,5vw,48px); line-height:1.1; margin-bottom:14px; }
+  .subtitle { font-style:italic; font-family:'Cormorant Garamond',serif; font-size:17px; color:var(--light); }
+  h2 { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:clamp(22px,3vw,30px); margin-bottom:6px; line-height:1.2; }
+  .section-label { font-weight:500; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--terracotta); margin-bottom:8px; }
+  .lede { font-size:14px; color:var(--mid); margin-bottom:22px; max-width:62ch; }
+  hr.divider { border:0; border-top:1px solid var(--rule); margin:48px 0 34px; }
+
+  .map-wrap { background:var(--land); border:1px solid var(--rule); border-radius:4px; padding:10px; margin:22px 0 18px; overflow-x:auto; }
+  svg.map { display:block; width:100%; min-width:620px; height:auto; }
+
+  .legend { display:flex; flex-wrap:wrap; gap:8px 22px; font-size:12.5px; color:var(--mid); margin-bottom:26px; }
+  .legend i { display:inline-block; width:22px; height:0; border-top-width:2.5px; border-top-style:solid; vertical-align:middle; margin-right:7px; }
+  .legend .dash { border-top-style:dashed; }
+
+  table { width:100%; border-collapse:collapse; font-size:13px; margin:8px 0 26px; }
+  th { text-align:left; font-weight:500; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--light); padding:0 12px 8px 0; border-bottom:1px solid var(--rule); }
+  td { padding:9px 12px 9px 0; border-bottom:1px solid var(--rule); color:var(--mid); vertical-align:top; }
+  td:first-child { color:var(--deep); }
+  td.mode { white-space:nowrap; font-size:11px; letter-spacing:.06em; text-transform:uppercase; }
+  .m-car { color:var(--car); } .m-train { color:var(--train); } .m-metro { color:var(--metro); }
+  td.time { white-space:nowrap; color:var(--deep); }
+  tr.alt td:first-child { color:var(--mid); }
+
+  .place { margin-bottom:20px; padding-left:18px; border-left:2px solid var(--rule); }
+  .place.near { border-left-color:var(--terracotta); }
+  .place-name { font-family:'Cormorant Garamond',serif; font-size:19px; font-weight:600; margin-bottom:2px; }
+  .place-name a { color:inherit; text-decoration:none; border-bottom:1px solid var(--terracotta-light); }
+  .place-meta { font-size:11px; letter-spacing:.05em; color:var(--light); margin-bottom:5px; }
+  .place p { font-size:13.5px; color:var(--mid); line-height:1.65; max-width:66ch; }
+
+  .note { background:var(--cream); border-left:3px solid var(--terracotta); padding:14px 18px; margin:22px 0; border-radius:0 3px 3px 0; font-size:13.5px; color:var(--mid); }
+  .note strong { color:var(--deep); font-weight:500; }
+  .footer { margin-top:52px; padding-top:26px; border-top:1px solid var(--rule); font-style:italic; font-family:'Cormorant Garamond',serif; font-size:15px; color:var(--light); }
+
+  @media (max-width:640px){
+    .page { padding:34px 18px 72px; }
+    .place { padding-left:13px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="eyebrow">Spain · September–October 2026</div>
+  <h1>Where everything is</h1>
+  <div class="subtitle">Catalonia, drawn to scale — with how you get between each pair</div>
+
+  <div class="map-wrap">
+  <svg class="map" viewBox="-48 14 806 590" role="img" aria-label="Map of Catalonia showing trip locations and the routes between them">
+    <defs>
+      <style>
+        .lbl { font-family:'Jost',sans-serif; font-size:12px; font-weight:500; fill:#2a1f1a;
+               paint-order:stroke; stroke:#f2ece3; stroke-width:3.5px; stroke-linejoin:round; }
+        .lbl.sm { font-size:10.5px; font-weight:400; fill:#5c4a3d; }
+        .t { font-family:'Jost',sans-serif; font-size:10px; font-weight:500;
+             paint-order:stroke; stroke:#f2ece3; stroke-width:3.5px; stroke-linejoin:round; }
+        .r { fill:none; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round; }
+        .car{stroke:#c2603a;} .train{stroke:#2a7a8a;} .metro{stroke:#4a7c59;}
+        .alt{stroke-width:1.8; stroke-dasharray:5 5; opacity:.75;}
+      </style>
+    </defs>
+
+    <!-- sea -->
+    <path d="M630,-13 L680,34 L667,47 L637,59 L621,118 L646,189 L621,231 L590,260
+             L559,286 L532,294 L515,305 L449,340 L438,344 L333,420 L320,426
+             L208,489 L30,538 L0,570 L0,645 L800,645 L800,-50 Z"
+          fill="#dfe9ec" stroke="#b9ced4" stroke-width="1"/>
+
+    <!-- ===== ROUTES (main) ===== -->
+    <path class="r car"   d="M293,463 L320,426"/>
+    <path class="r car"   d="M320,426 L449,340"/>
+    <path class="r car"   d="M449,340 L525,175"/>
+    <path class="r car"   d="M525,175 L524,139"/>
+    <path class="r car"   d="M524,139 L580,103"/>
+    <path class="r car"   d="M580,103 L532,294"/>
+    <path class="r car"   d="M532,294 L320,426"/>
+    <path class="r train" d="M320,426 L525,175 L568,56"/>
+    <path class="r train" d="M320,426 L216,339"/>
+    <path class="r train" d="M320,426 L208,489"/>
+    <path class="r metro" d="M320,426 L333,420"/>
+
+    <!-- ===== ROUTES (alternates) ===== -->
+    <path class="r car alt"   d="M568,56 L667,47"/>
+    <path class="r car alt"   d="M525,175 L507,118 L486,84"/>
+    <path class="r car alt"   d="M532,294 L559,286"/>
+    <path class="r car alt"   d="M532,294 L515,305"/>
+    <path class="r train alt" d="M320,426 L30,538"/>
+    <path class="r train alt" d="M320,426 L199,409"/>
+
+    <!-- ===== ROUTE TIMES (main routes only; alternates are listed in the table) ===== -->
+    <text class="t" x="326" y="457" text-anchor="start" fill="#c2603a">35m</text>
+    <text class="t" x="384" y="374" text-anchor="middle" fill="#c2603a">50m</text>
+    <text class="t" x="495" y="256" text-anchor="start" fill="#c2603a">50m</text>
+    <text class="t" x="534" y="160" text-anchor="start" fill="#c2603a">20m</text>
+    <text class="t" x="552" y="134" text-anchor="middle" fill="#c2603a">30m</text>
+    <text class="t" x="566" y="205" text-anchor="start" fill="#c2603a">1h15</text>
+    <text class="t" x="428" y="376" text-anchor="middle" fill="#c2603a">1h15</text>
+    <text class="t" x="410" y="290" text-anchor="middle" fill="#2a7a8a">38m</text>
+    <text class="t" x="562" y="86" text-anchor="start" fill="#2a7a8a">20m</text>
+    <text class="t" x="264" y="374" text-anchor="middle" fill="#2a7a8a">1h</text>
+    <text class="t" x="260" y="452" text-anchor="middle" fill="#2a7a8a">35m</text>
+
+    <!-- ===== NODES ===== -->
+    <!-- major -->
+    <circle cx="320" cy="426" r="7" fill="#c2603a" stroke="#fff" stroke-width="2"/>
+    <text class="lbl" x="309" y="440" text-anchor="end">BARCELONA</text>
+    <circle cx="525" cy="175" r="7" fill="#c2603a" stroke="#fff" stroke-width="2"/>
+    <text class="lbl" x="516" y="180" text-anchor="end">GIRONA</text>
+    <circle cx="532" cy="294" r="7" fill="#c2603a" stroke="#fff" stroke-width="2"/>
+    <text class="lbl" x="523" y="298" text-anchor="end">LLORET</text>
+
+    <!-- itinerary stops -->
+    <circle cx="293" cy="463" r="4.5" fill="#5c4a3d" stroke="#fff" stroke-width="1.6"/>
+    <text class="lbl sm" x="288" y="480" text-anchor="end">BCN airport</text>
+    <circle cx="333" cy="420" r="4.5" fill="#4a7c59" stroke="#fff" stroke-width="1.6"/>
+    <text class="lbl sm" x="341" y="416" text-anchor="start">Mar Bella</text>
+    <circle cx="449" cy="340" r="4.5" fill="#5c4a3d" stroke="#fff" stroke-width="1.6"/>
+    <text class="lbl sm" x="444" y="357" text-anchor="end">Sta. Florentina</text>
+    <circle cx="524" cy="139" r="4.5" fill="#5c4a3d" stroke="#fff" stroke-width="1.6"/>
+    <text class="lbl sm" x="516" y="136" text-anchor="end">Mas Rosset</text>
+    <circle cx="580" cy="103" r="4.5" fill="#5c4a3d" stroke="#fff" stroke-width="1.6"/>
+    <text class="lbl sm" x="588" y="99" text-anchor="start">Clos de Basella</text>
+    <circle cx="568" cy="56" r="4.5" fill="#5c4a3d" stroke="#fff" stroke-width="1.6"/>
+    <text class="lbl sm" x="561" y="52" text-anchor="end">Figueres · Dalí</text>
+    <circle cx="216" cy="339" r="4.5" fill="#5c4a3d" stroke="#fff" stroke-width="1.6"/>
+    <text class="lbl sm" x="208" y="336" text-anchor="end">Montserrat</text>
+    <circle cx="208" cy="489" r="4.5" fill="#5c4a3d" stroke="#fff" stroke-width="1.6"/>
+    <text class="lbl sm" x="200" y="493" text-anchor="end">Sitges</text>
+
+    <!-- alternates -->
+    <circle cx="667" cy="47" r="3.6" fill="#9c8878" stroke="#fff" stroke-width="1.4"/>
+    <text class="lbl sm" x="662" y="36" text-anchor="end" fill="#9c8878">Cadaqués</text>
+    <circle cx="486" cy="84" r="3.6" fill="#9c8878" stroke="#fff" stroke-width="1.4"/>
+    <text class="lbl sm" x="479" y="80" text-anchor="end" fill="#9c8878">Besalú</text>
+    <circle cx="507" cy="118" r="3.6" fill="#9c8878" stroke="#fff" stroke-width="1.4"/>
+    <text class="lbl sm" x="499" y="112" text-anchor="end" fill="#9c8878">Banyoles</text>
+    <circle cx="559" cy="286" r="3.6" fill="#9c8878" stroke="#fff" stroke-width="1.4"/>
+    <text class="lbl sm" x="566" y="282" text-anchor="start" fill="#9c8878">Tossa</text>
+    <circle cx="515" cy="305" r="3.6" fill="#9c8878" stroke="#fff" stroke-width="1.4"/>
+    <text class="lbl sm" x="521" y="317" text-anchor="start" fill="#9c8878">Blanes</text>
+    <circle cx="438" cy="344" r="3.6" fill="#9c8878" stroke="#fff" stroke-width="1.4"/>
+    <text class="lbl sm" x="431" y="331" text-anchor="end" fill="#9c8878">Arenys</text>
+    <circle cx="199" cy="409" r="3.6" fill="#9c8878" stroke="#fff" stroke-width="1.4"/>
+    <text class="lbl sm" x="192" y="406" text-anchor="end" fill="#9c8878">Penedès</text>
+    <circle cx="30" cy="538" r="3.6" fill="#9c8878" stroke="#fff" stroke-width="1.4"/>
+    <text class="lbl sm" x="38" y="534" text-anchor="start" fill="#9c8878">Tarragona</text>
+
+    <text class="lbl sm" x="678" y="470" text-anchor="middle" fill="#8fa8b0"
+          font-style="italic" font-size="13" stroke="none">Mediterranean</text>
+  </svg>
+  </div>
+
+  <div class="legend">
+    <span><i style="border-color:var(--car)"></i>Car</span>
+    <span><i style="border-color:var(--train)"></i>Train</span>
+    <span><i style="border-color:var(--metro)"></i>Metro</span>
+    <span><i class="dash" style="border-color:var(--light)"></i>Alternate / optional</span>
+  </div>
+
+  <div class="section-label">Every leg</div>
+  <h2>Routes and times</h2>
+  <p class="lede">Times are typical door-to-door for the mode shown. Driving times assume the AP-7, which is tolled.</p>
+
+  <table>
+    <tr><th>From → To</th><th>Mode</th><th>Time</th><th>Notes</th></tr>
+    <tr><td>BCN airport → Barcelona</td><td class="mode m-car">Car</td><td class="time">35 min</td><td>Taxi or Uber ~€35–45; Aerobús €7.25 to Pl. Catalunya</td></tr>
+    <tr><td>Barcelona → Sta. Florentina</td><td class="mode m-car">Car</td><td class="time">50 min</td><td>Canet de Mar, on the coast road north</td></tr>
+    <tr><td>Sta. Florentina → Girona</td><td class="mode m-car">Car</td><td class="time">50 min</td><td>Sep 24, with the group</td></tr>
+    <tr><td>Barcelona → Girona</td><td class="mode m-train">Train</td><td class="time">38 min</td><td>AVE from Sants — the fast way if you're not driving</td></tr>
+    <tr><td>Girona → Mas Rosset</td><td class="mode m-car">Car</td><td class="time">20 min</td><td>Rural — no Uber in Girona, pre-book a taxi for the wedding night</td></tr>
+    <tr><td>Mas Rosset → Clos de Basella</td><td class="mode m-car">Car</td><td class="time">30 min</td><td>Siurana d'Empordà</td></tr>
+    <tr><td>Clos de Basella → Lloret</td><td class="mode m-car">Car</td><td class="time">1h 15</td><td>The Lloret branch</td></tr>
+    <tr><td>Clos de Basella → Barcelona</td><td class="mode m-car">Car</td><td class="time">1h 45</td><td>The Raymonds' route — ~135 km via the AP-7</td></tr>
+    <tr><td>Lloret → Barcelona</td><td class="mode m-car">Car</td><td class="time">1h 15</td><td>Also by bus from the seafront</td></tr>
+    <tr><td>Barcelona → Figueres</td><td class="mode m-train">Train</td><td class="time">55–65 min</td><td>AVE to Figueres-Vilafant, then 20 min walk to the Dalí museum</td></tr>
+    <tr><td>Barcelona → Montserrat</td><td class="mode m-train">Train</td><td class="time">1h</td><td>R5 from Pl. Espanya + rack railway or cable car</td></tr>
+    <tr><td>Barcelona → Sitges</td><td class="mode m-train">Train</td><td class="time">35 min</td><td>R2 from Passeig de Gràcia</td></tr>
+    <tr><td>Barcelona → Mar Bella</td><td class="mode m-metro">Metro</td><td class="time">15 min</td><td>L4 — inside the city, no day trip needed</td></tr>
+    <tr class="alt"><td>Figueres → Cadaqués</td><td class="mode m-car">Car</td><td class="time">1h</td><td>Alternate — no train, needs a car</td></tr>
+    <tr class="alt"><td>Girona → Banyoles → Besalú</td><td class="mode m-car">Car</td><td class="time">20 min</td><td>Alternate for the free Girona day</td></tr>
+    <tr class="alt"><td>Lloret → Tossa de Mar</td><td class="mode m-car">Car</td><td class="time">25 min</td><td>Alternate — cliff road</td></tr>
+    <tr class="alt"><td>Lloret → Blanes</td><td class="mode m-car">Car</td><td class="time">20 min</td><td>Alternate</td></tr>
+    <tr class="alt"><td>Barcelona → Arenys de Mar</td><td class="mode m-train">Train</td><td class="time">50 min</td><td>Alternate — R1 up the coast</td></tr>
+    <tr class="alt"><td>Barcelona → Penedès</td><td class="mode m-train">Train</td><td class="time">45 min</td><td>Alternate — cava country, Sant Sadurní</td></tr>
+    <tr class="alt"><td>Barcelona → Tarragona</td><td class="mode m-train">Train</td><td class="time">1h</td><td>Alternate — Roman ruins</td></tr>
+  </table>
+
+  <hr class="divider">
+
+  <div class="section-label">If you go to Lloret</div>
+  <h2>Around Hotel Santa Marta</h2>
+  <p class="lede">The hotel sits in pine woods above Santa Cristina beach at the far southern end of Lloret, roughly 3 km from the town centre and well clear of it. Almost everything worth seeing nearby is reachable on foot along the coast path; the rest is a short drive. Times below are approximate.</p>
+
+  <div class="place near">
+    <div class="place-name"><a href="https://lloretdemar.org/en/cultura/santa-clotilde-gardens/">Jardins de Santa Clotilde</a></div>
+    <div class="place-meta">~15 min walk · €6.10 adult, €3.10 reduced · open daily 10:00–20:00 in September · allow 1.5–2 hrs</div>
+    <p>The best thing near the hotel by a wide margin, and it's essentially next door — laid out along the clifftop directly between Fenals and Sa Boadella. Commissioned by the Marquis of Roviralta and designed in 1919 by Nicolau Rubió i Tudurí, in the manner of an Italian Renaissance garden: cypress avenues, statuary, ponds, and long staircases that drop through the pines toward the water, framing the sea at the bottom. Quiet, shaded, and genuinely beautiful rather than merely pleasant.</p>
+  </div>
+
+  <div class="place near">
+    <div class="place-name">Platja de Santa Cristina</div>
+    <div class="place-meta">At the hotel · direct access from the grounds</div>
+    <p>The hotel's own beach — broad, sheltered, backed by umbrella pines, with a hermitage on the headland above. Reached straight down from the gardens, which is why it stays calm: there's no through road, and the only casual arrivals come by boat or on foot.</p>
+  </div>
+
+  <div class="place near">
+    <div class="place-name">Cala Sa Boadella</div>
+    <div class="place-meta">~10 min walk over the headland</div>
+    <p>The next cove along, down a wooded path. Effectively the only undeveloped beach left in Lloret — no road, no buildings, pines running to the sand, and a single small chiringuito. Regularly named among the finest coves on the Costa Brava. Quiet on a weekday, and quieter still at the far end.</p>
+  </div>
+
+  <div class="place near">
+    <div class="place-name">Camí de Ronda</div>
+    <div class="place-meta">Passes the hotel · 8.5 km south to Blanes, 11 km north to Tossa</div>
+    <p>The old coastguard path, cut into the cliffs and running the length of this coast. The stretch outside the hotel links the Santa Clotilde gardens to Santa Cristina by way of Boadella, so the three sit on one walk. You can pick up as much or as little of it as you want — it's the most rewarding hour available without getting in a car.</p>
+  </div>
+
+  <div class="place">
+    <div class="place-name">Castell de Sant Joan</div>
+    <div class="place-meta">~10 min drive · modest entry fee · allow 1–1.5 hrs</div>
+    <p>An 11th-century watchtower on the hill between Lloret and Fenals beaches, knocked about by British bombardment in 1805 and restored since. Panoramic views up and down the coast. Dan will want this one.</p>
+  </div>
+
+  <div class="place">
+    <div class="place-name">Castell d'en Plaja</div>
+    <div class="place-meta">~10 min drive, or along the seafront on foot</div>
+    <p>The castle you've seen in every photo of Lloret — neo-Gothic, circular towers and pointed windows, planted on the rocks at Sa Caleta. It's actually 20th-century and privately built, which nobody mentions. Best at the end of the day.</p>
+  </div>
+
+  <div class="place">
+    <div class="place-name">Lloret old town</div>
+    <div class="place-meta">~10 min drive · half a morning</div>
+    <p>Worth an hour despite the town's reputation. Sant Romà church, begun in 1509 and reworked in 1914, wears bright <em>trencadís</em> mosaic domes. Can Font is an 1887 <em>indiano</em> house museum — built with money made in the Americas — and the only one of its kind preserved in Catalonia. The Modernist Cemetery on the hill is a listed collection of funerary architecture and much stranger and better than it sounds.</p>
+  </div>
+
+  <div class="place">
+    <div class="place-name">Tossa de Mar</div>
+    <div class="place-meta">25 min drive north</div>
+    <p>The cliff road there is half the reason to go. A walled medieval old town standing directly on the sea, with towers you can climb and a beach inside the walls. The best half-day from Lloret.</p>
+  </div>
+
+  <div class="place">
+    <div class="place-name">Blanes</div>
+    <div class="place-meta">20 min drive south</div>
+    <p>Chiefly for the Marimurtra botanical garden, laid out on the cliffs above the sea and among the most important Mediterranean collections in Europe. Also Cala Sant Francesc — the pine-backed cove with the café that's on Jessi's list — and another Castell de Sant Joan above the town.</p>
+  </div>
+
+  <div class="note">
+    <strong>Still undecided:</strong> whether you're at Lloret at all on Sep 28–30. The Raymonds drive back to Barcelona after the picnic and stay there through Oct 2, so this page covers the branch where you follow Jessi and Dan to the coast instead.
+  </div>
+
+  <div class="footer">Spain 2026 · map and Lloret notes</div>
+
+</div>
+</body>
+</html>
