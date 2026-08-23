@@ -66,7 +66,19 @@
   a.gm:hover{ background:var(--terracotta); border-color:var(--terracotta); color:#1a1410; }
   .tag{ background:var(--surface-2); color:var(--mid); font-size:10px; font-weight:500; letter-spacing:.08em;
         text-transform:uppercase; padding:3px 8px; border-radius:3px; }
-  .tag.co{ background:var(--beach-bg); color:var(--beach); }
+  .tag.co{ background:var(--beach-bg); color:var(--beach); position:relative; cursor:help;
+           border-bottom:1px dotted currentColor; }
+  .tag.co::after{ content:attr(data-tip); position:absolute; left:50%; bottom:calc(100% + 7px);
+    transform:translateX(-50%) translateY(3px); background:var(--raised); color:var(--text);
+    border:1px solid var(--rule); border-radius:4px; padding:5px 10px; font-size:11px;
+    letter-spacing:.02em; text-transform:none; font-weight:400; white-space:nowrap;
+    opacity:0; pointer-events:none; transition:opacity .14s, transform .14s; z-index:20;
+    box-shadow:0 4px 14px rgba(0,0,0,.45); }
+  .tag.co::before{ content:''; position:absolute; left:50%; bottom:calc(100% + 2px);
+    transform:translateX(-50%) translateY(3px); border:5px solid transparent;
+    border-top-color:var(--rule); opacity:0; pointer-events:none; transition:opacity .14s, transform .14s; }
+  .tag.co:hover::after, .tag.co:focus::after, .tag.co:hover::before, .tag.co:focus::before{
+    opacity:1; transform:translateX(-50%) translateY(0); }
   .tag.top{ background:#33291a; color:#d8b96a; }
   .links{ margin-top:6px; display:flex; flex-wrap:wrap; gap:5px; align-items:center; }
 
@@ -489,8 +501,8 @@
           <ul class="res">
         <li><b>Check out, Grand Hotel Central</b><span class="sub">Checkout is by 12:00 — go at 09:45, this day needs it</span></li>
         <li><b>National · pick up 10:30am</b><span class="sub">Citroën ë-C4 electric · Barcelona Sants, Saba car park LEVEL -1, not the concourse</span><span class="ref ok">conf 2131029323</span></li>
-        <li><b>Castell de Santa Florentina · ~1:30pm</b><span class="sub">Canet de Mar</span><span class="ref warn">Tickets weren't on sale as of late August — monitor</span></li>
         <li><b>DoubleTree by Hilton Girona</b><span class="sub">Mossèn Joan Pons 1 · King with balcony</span><span class="ref ok">conf 3526531356</span></li>
+        <li><b>Castell de Santa Florentina · 1:30pm</b><span class="sub">PROBLEM: the castle's published hours for September are Saturdays only, 10:00–12:00. Sep 24 is a Thursday, and 1:30pm is after the noon close. They do take group and private bookings — call before relying on this.</span><span class="ref warn">castelldesantaflorentina.com</span></li>
           </ul>
         </div>
         <div class="fixed-col">
@@ -501,7 +513,7 @@
         <li><time>10:30</time><span>Pick up the car. Allow 30–40 min for paperwork, finding it, loading, and working out an unfamiliar EV.</span></li>
         <li><time>~11:10</time><span>Away on the C-32. The Raymonds collect their Sixt at the same station at the same time.</span></li>
         <li><time>12:15–13:15</time><span>Lunch in Canet de Mar.</span></li>
-        <li><time>13:30</time><span>Castell de Santa Florentina, the medieval castle at Canet de Mar.</span></li>
+        <li><time>13:30</time><span>Castell de Santa Florentina — but check it is actually open. September is Saturdays only, 10:00–12:00, per the castle's own site.</span></li>
         <li><time>~14:30</time><span>On to Girona, about an hour.</span></li>
         <li><time>~15:45</time><span>Into the DoubleTree, your hotel in Girona. Covered parking €14/day.</span></li>
           </ul>
@@ -526,8 +538,8 @@
           <img class="place-thumb" data-wiki="Castell de Santa Florentina" data-alt="Canet de Mar" alt="Castell de Santa Florentina">
           <div class="place-body">
             <h3>Castell de Santa Florentina<span class="kind">Castle</span></h3>
-            <p>An 11th-century fortified manor at Canet de Mar, reworked by Domènech i Montaner into something between a castle and a Modernista fantasy. Still privately owned and lived in. Doubled as Horn Hill in Game of Thrones.</p>
-            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Castell+de+Santa+Florentina+Canet+de+Mar" target="_blank" rel="noopener">Maps ↗</a><a class="gm nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Castell+de+Santa+Florentina+Canet+de+Mar&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a><span class="tag">Castle</span> <span class="tag">Game of Thrones</span></div>
+            <p>An 11th-century fortified manor at Canet de Mar, reworked by Domènech i Montaner into something between a castle and a Modernista fantasy. Still privately owned and lived in. Doubled as Horn Hill in Game of Thrones. Note the published visiting hours: October–May the first Saturday of the month, June–September every Saturday, both 10:00–12:00, and Tuesday–Friday only in July and August. Sep 24 is a Thursday. Tours are also 'affected by group bookings and private events', so a wedding-party visit may well be arranged — but it needs a phone call, not an assumption.</p>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Castell+de+Santa+Florentina+Canet+de+Mar" target="_blank" rel="noopener">Maps ↗</a><a class="gm nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Castell+de+Santa+Florentina+Canet+de+Mar&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a><span class="tag">Castle</span> <span class="tag">Game of Thrones</span> <span class="tag">Check opening</span></div>
           </div>
         </div><div class="place">
           <img class="place-thumb" data-wiki="Canet de Mar" data-alt="Maresme" alt="Canet de Mar">
@@ -864,7 +876,7 @@
           <div class="place-body">
             <h3>Cala Sa Boadella<span class="kind">Beach</span></h3>
             <p>The next cove north and the one to aim for — 250 m of sand with pines running down to it, no road, no buildings and a single small chiringuito. Getting there is the good part: up through the Santa Clotilde gardens and along the hermitage road, then a 200 m dirt path down through the trees. Fifteen to twenty minutes at a stroll, shaded most of the way, with the coast opening up as you drop. It's a naturist-friendly beach, and much the quieter of the two.</p>
-            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Cala+Sa+Boadella+Lloret+de+Mar" target="_blank" rel="noopener">Maps ↗</a><a class="gm nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Cala+Sa+Boadella+Lloret+de+Mar&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a><span class="tag">15–20 min walk</span> <span class="tag">The quiet one</span> <span class="tag">CO</span></div>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Cala+Sa+Boadella+Lloret+de+Mar" target="_blank" rel="noopener">Maps ↗</a><a class="gm nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Cala+Sa+Boadella+Lloret+de+Mar&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a><span class="tag">15–20 min walk</span> <span class="tag">The quiet one</span> <span class="tag co" tabindex="0" data-tip="Clothing optional" aria-label="Clothing optional">CO</span></div>
           </div>
         </div>
       </div>

@@ -64,7 +64,19 @@
   a.gm:hover{ background:var(--terracotta); border-color:var(--terracotta); color:#1a1410; }
   .tag{ background:var(--surface-2); color:var(--mid); font-size:10px; font-weight:500; letter-spacing:.08em;
         text-transform:uppercase; padding:3px 8px; border-radius:3px; }
-  .tag.co{ background:var(--beach-bg); color:var(--beach); }
+  .tag.co{ background:var(--beach-bg); color:var(--beach); position:relative; cursor:help;
+           border-bottom:1px dotted currentColor; }
+  .tag.co::after{ content:attr(data-tip); position:absolute; left:50%; bottom:calc(100% + 7px);
+    transform:translateX(-50%) translateY(3px); background:var(--raised); color:var(--text);
+    border:1px solid var(--rule); border-radius:4px; padding:5px 10px; font-size:11px;
+    letter-spacing:.02em; text-transform:none; font-weight:400; white-space:nowrap;
+    opacity:0; pointer-events:none; transition:opacity .14s, transform .14s; z-index:20;
+    box-shadow:0 4px 14px rgba(0,0,0,.45); }
+  .tag.co::before{ content:''; position:absolute; left:50%; bottom:calc(100% + 2px);
+    transform:translateX(-50%) translateY(3px); border:5px solid transparent;
+    border-top-color:var(--rule); opacity:0; pointer-events:none; transition:opacity .14s, transform .14s; }
+  .tag.co:hover::after, .tag.co:focus::after, .tag.co:hover::before, .tag.co:focus::before{
+    opacity:1; transform:translateX(-50%) translateY(0); }
   .tag.top{ background:#33291a; color:#d8b96a; }
   .links{ margin-top:6px; display:flex; flex-wrap:wrap; gap:5px; align-items:center; }
 
@@ -91,6 +103,15 @@
   .kv dt{ color:var(--light); font-size:11px; letter-spacing:.08em; text-transform:uppercase; padding-top:3px }
   .kv dd b{ color:var(--text); font-weight:500 }
   .kv .c{ color:var(--booked); font-size:12px }
+  .links-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:11px; margin-top:16px }
+  .lk{ display:block; border:1px solid var(--rule); border-radius:6px; background:var(--surface);
+       padding:13px 16px; text-decoration:none; transition:.15s }
+  .lk:hover{ border-color:var(--terracotta-dim); background:var(--surface-2) }
+  .lk b{ display:block; color:var(--text); font-weight:500; font-size:14px; margin-bottom:2px }
+  .lk span{ display:block; color:var(--light); font-size:12px; line-height:1.5 }
+  .lk:hover b{ color:var(--terracotta) }
+  .lk.warn{ border-color:var(--warn); background:var(--warn-bg) }
+  .lk.warn span{ color:var(--warn) }
   @media (max-width:560px){ .kv{ grid-template-columns:1fr; gap:2px 0 } .kv dt{ margin-top:8px } }
 </style>
 </head>
@@ -182,7 +203,8 @@
     <tr><td class="nw">Sep 23 &middot; 2:00pm</td><td>Sant Pau, self-guided</td>
         <td>Jessi may hold five tickets at &euro;17 &middot; res #192834. Ask before buying.</td></tr>
     <tr><td class="nw">Sep 24 &middot; 1:30pm</td><td>Castell de Santa Florentina</td>
-        <td>Tickets were not on sale as of late August &mdash; monitor.</td></tr>
+        <td><b>Published hours do not fit.</b> September is Saturdays only, 10:00&ndash;12:00; Sep 24 is a Thursday
+        and 1:30pm is past closing. They do take group and private bookings &mdash; someone needs to call.</td></tr>
     <tr><td class="nw">Sep 28 &middot; noon</td><td>Clos de Basella picnic</td>
         <td><b>References differ.</b> Devon&rsquo;s 1411134659 (9 adults) vs Shannon Kuczerepa&rsquo;s 1411134619 (6). Confirm.</td></tr>
     <tr><td class="nw">Sep 30</td><td>AVE Barcelona &rarr; Figueres</td><td>Book nearer the date.</td></tr>
@@ -197,18 +219,63 @@
   </ul>
 
   <h2>Beaches within reach</h2>
-  <p class="lede">Everything here is reachable on a day already in the plan. <span class="tag co">CO</span> marks an
-  established clothing-optional section, usually one signposted end rather than the whole beach.</p>
+  <p class="lede">Everything here is reachable on a day already in the plan.</p>
   <table>
     <tr><th>Beach</th><th>Where</th><th>Getting there</th></tr>
     <tr><td>Platja de Santa Cristina</td><td>Lloret de Mar</td><td class="nw">At Hotel Santa Marta</td></tr>
-    <tr><td>Cala Sa Boadella <span class="tag co">CO</span></td><td>Lloret de Mar</td><td class="nw">10 min walk over the headland</td></tr>
-    <tr><td>Mar Bella <span class="tag co">CO</span></td><td>Barcelona &middot; Poblenou</td><td class="nw">Metro L4 &middot; 15 min</td></tr>
+    <tr><td>Cala Sa Boadella <span class="tag co" tabindex="0" data-tip="Clothing optional" aria-label="Clothing optional">CO</span></td><td>Lloret de Mar</td><td class="nw">15&ndash;20 min walk round by the hermitage road</td></tr>
+    <tr><td>Mar Bella <span class="tag co" tabindex="0" data-tip="Clothing optional" aria-label="Clothing optional">CO</span></td><td>Barcelona &middot; Poblenou</td><td class="nw">Metro L4 &middot; 15 min</td></tr>
     <tr><td>Barceloneta &middot; Bogatell</td><td>Barcelona</td><td class="nw">Metro L4 &middot; 15 min</td></tr>
-    <tr><td>Balmins <span class="tag co">CO</span></td><td>Sitges</td><td class="nw">10 min walk from town</td></tr>
-    <tr><td>Platja de l&rsquo;Home Mort <span class="tag co">CO</span></td><td>Sitges &middot; south</td><td class="nw">Taxi + 10 min walk</td></tr>
-    <tr><td>La Musclera <span class="tag co">CO</span></td><td>Arenys de Mar</td><td class="nw">R1 train &middot; 50 min</td></tr>
+    <tr><td>Balmins <span class="tag co" tabindex="0" data-tip="Clothing optional" aria-label="Clothing optional">CO</span></td><td>Sitges</td><td class="nw">10 min walk from town</td></tr>
+    <tr><td>Platja de l&rsquo;Home Mort <span class="tag co" tabindex="0" data-tip="Clothing optional" aria-label="Clothing optional">CO</span></td><td>Sitges &middot; south</td><td class="nw">Taxi + 10 min walk</td></tr>
+    <tr><td>La Musclera <span class="tag co" tabindex="0" data-tip="Clothing optional" aria-label="Clothing optional">CO</span></td><td>Arenys de Mar</td><td class="nw">R1 train &middot; 50 min</td></tr>
   </table>
+
+  <h2>Links</h2>
+  <p class="lede">Everything public that this plan was built from. Anything not listed here &mdash; reservations,
+  confirmations, the National booking &mdash; lives in email rather than on a page.</p>
+
+  <div class="links-grid">
+    <a class="lk" href="https://www.lovebird.com/raymondmaten4life" target="_blank" rel="noopener">
+      <b>Jessica &amp; Daniel&rsquo;s wedding site</b>
+      <span>lovebird.com &middot; schedule, travel notes and the RSVP</span></a>
+
+    <a class="lk" href="https://whiteraymondspain.netlify.app" target="_blank" rel="noopener">
+      <b>This site</b>
+      <span>whiteraymondspain.netlify.app</span></a>
+
+    <a class="lk" href="https://www.masrosset.com/" target="_blank" rel="noopener">
+      <b>Mas Rosset</b>
+      <span>The venue &middot; 18th-century farmhouse, Cornell&agrave; del Terri</span></a>
+
+    <a class="lk warn" href="https://castelldesantaflorentina.com/en/visitas-eng/" target="_blank" rel="noopener">
+      <b>Castell de Santa Florentina &mdash; visiting</b>
+      <span>Read this one. September is Saturdays 10:00&ndash;12:00 only.</span></a>
+
+    <a class="lk" href="https://closdebasella.com/en" target="_blank" rel="noopener">
+      <b>Clos de Basella</b>
+      <span>The Sep 28 vineyard picnic</span></a>
+
+    <a class="lk" href="https://www.grandhotelcentral.com/en/" target="_blank" rel="noopener">
+      <b>Grand Hotel Central</b>
+      <span>Both Barcelona stays</span></a>
+
+    <a class="lk" href="https://www.hilton.com/en/hotels/grojpdi-doubletree-girona/" target="_blank" rel="noopener">
+      <b>DoubleTree by Hilton Girona</b>
+      <span>The wedding weekend</span></a>
+
+    <a class="lk" href="https://hotelsantamarta.es/en/" target="_blank" rel="noopener">
+      <b>Hotel Santa Marta</b>
+      <span>Lloret, Sep 28 &mdash; same night as Jessi and Dan</span></a>
+
+    <a class="lk" href="https://patrimoni.lloret.cat/en/moll-open-museum-of-lloret/santa-clotilde-gardens" target="_blank" rel="noopener">
+      <b>Jardins de Santa Clotilde</b>
+      <span>Lloret town listing &middot; hours and ticket price</span></a>
+
+    <a class="lk" href="https://cms.lloret.cat/en/beach/cala-boadella" target="_blank" rel="noopener">
+      <b>Cala Boadella</b>
+      <span>Lloret town listing &middot; access and facilities</span></a>
+  </div>
 
   <h2>Infrastructure</h2>
   <ul>

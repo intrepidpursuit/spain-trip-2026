@@ -64,7 +64,19 @@
   a.gm:hover{ background:var(--terracotta); border-color:var(--terracotta); color:#1a1410; }
   .tag{ background:var(--surface-2); color:var(--mid); font-size:10px; font-weight:500; letter-spacing:.08em;
         text-transform:uppercase; padding:3px 8px; border-radius:3px; }
-  .tag.co{ background:var(--beach-bg); color:var(--beach); }
+  .tag.co{ background:var(--beach-bg); color:var(--beach); position:relative; cursor:help;
+           border-bottom:1px dotted currentColor; }
+  .tag.co::after{ content:attr(data-tip); position:absolute; left:50%; bottom:calc(100% + 7px);
+    transform:translateX(-50%) translateY(3px); background:var(--raised); color:var(--text);
+    border:1px solid var(--rule); border-radius:4px; padding:5px 10px; font-size:11px;
+    letter-spacing:.02em; text-transform:none; font-weight:400; white-space:nowrap;
+    opacity:0; pointer-events:none; transition:opacity .14s, transform .14s; z-index:20;
+    box-shadow:0 4px 14px rgba(0,0,0,.45); }
+  .tag.co::before{ content:''; position:absolute; left:50%; bottom:calc(100% + 2px);
+    transform:translateX(-50%) translateY(3px); border:5px solid transparent;
+    border-top-color:var(--rule); opacity:0; pointer-events:none; transition:opacity .14s, transform .14s; }
+  .tag.co:hover::after, .tag.co:focus::after, .tag.co:hover::before, .tag.co:focus::before{
+    opacity:1; transform:translateX(-50%) translateY(0); }
   .tag.top{ background:#33291a; color:#d8b96a; }
   .links{ margin-top:6px; display:flex; flex-wrap:wrap; gap:5px; align-items:center; }
 
@@ -86,6 +98,9 @@
   .flights{ display:flex; gap:10px; margin-top:24px; flex-wrap:wrap; }
   .flight-pill{ background:var(--surface); border:1px solid var(--rule-soft); border-radius:5px;
                 padding:10px 15px; font-size:13px; color:var(--mid); }
+  a.flight-pill{ text-decoration:none; transition:.15s }
+  a.flight-pill:hover{ border-color:var(--wedding); background:var(--wedding-bg) }
+  a.flight-pill.wed strong{ color:var(--wedding) }
   .flight-pill strong{ color:var(--terracotta); font-weight:500; display:block; font-size:10px;
                        letter-spacing:.14em; text-transform:uppercase; margin-bottom:3px; }
 
@@ -145,6 +160,7 @@
     <div class="flights">
       <div class="flight-pill"><strong>Outbound</strong>DL194 &middot; ATL 10:10pm Sep 20 &rarr; BCN 12:50pm Sep 21<br>Delta One Extra &middot; 9C &amp; 9G</div>
       <div class="flight-pill"><strong>Return</strong>DL195 &middot; BCN 11:00am Oct 3 &rarr; ATL 3:28pm<br>Delta One &middot; conf HTIZJY</div>
+      <a class="flight-pill wed" href="https://www.lovebird.com/raymondmaten4life" target="_blank" rel="noopener"><strong>The wedding</strong>Jessica &amp; Daniel &middot; Sep 26, Mas Rosset<br>lovebird.com &rarr;</a>
     </div>
   </div>
 
@@ -271,19 +287,18 @@
 
   <div class="section-label">Reference</div>
   <h2>Beaches</h2>
-  <p class="lede">Within reach without rearranging the trip. <span class="tag co">CO</span> marks a beach with an
-  established clothing-optional section &mdash; usually one signposted end rather than the whole thing.</p>
+  <p class="lede">Within reach without rearranging the trip.</p>
 
   <table>
     <tr><th>Beach</th><th>Where</th><th>Getting there</th></tr>
     <tr><td>Platja de Santa Cristina</td><td>Lloret de Mar</td><td class="nw">At the hotel &middot; 5 min down</td></tr>
-    <tr><td>Cala Sa Boadella <span class="tag co">CO</span></td><td>Lloret de Mar</td><td class="nw">10 min walk over the headland</td></tr>
-    <tr><td>Mar Bella <span class="tag co">CO</span></td><td>Barcelona &middot; Poblenou</td><td class="nw">Metro L4 &middot; 15 min</td></tr>
+    <tr><td>Cala Sa Boadella <span class="tag co" tabindex="0" data-tip="Clothing optional" aria-label="Clothing optional">CO</span></td><td>Lloret de Mar</td><td class="nw">15&ndash;20 min walk round by the hermitage road</td></tr>
+    <tr><td>Mar Bella <span class="tag co" tabindex="0" data-tip="Clothing optional" aria-label="Clothing optional">CO</span></td><td>Barcelona &middot; Poblenou</td><td class="nw">Metro L4 &middot; 15 min</td></tr>
     <tr><td>Barceloneta &middot; Bogatell</td><td>Barcelona</td><td class="nw">Metro L4 &middot; 15 min</td></tr>
-    <tr><td>Balmins <span class="tag co">CO</span></td><td>Sitges</td><td class="nw">10 min walk from town</td></tr>
+    <tr><td>Balmins <span class="tag co" tabindex="0" data-tip="Clothing optional" aria-label="Clothing optional">CO</span></td><td>Sitges</td><td class="nw">10 min walk from town</td></tr>
     <tr><td>Bassa Rodona</td><td>Sitges &middot; centre</td><td class="nw">Seafront</td></tr>
-    <tr><td>Platja de l'Home Mort <span class="tag co">CO</span></td><td>Sitges &middot; south</td><td class="nw">Taxi + 10 min walk</td></tr>
-    <tr><td>La Musclera <span class="tag co">CO</span></td><td>Arenys de Mar</td><td class="nw">R1 train &middot; 50 min</td></tr>
+    <tr><td>Platja de l'Home Mort <span class="tag co" tabindex="0" data-tip="Clothing optional" aria-label="Clothing optional">CO</span></td><td>Sitges &middot; south</td><td class="nw">Taxi + 10 min walk</td></tr>
+    <tr><td>La Musclera <span class="tag co" tabindex="0" data-tip="Clothing optional" aria-label="Clothing optional">CO</span></td><td>Arenys de Mar</td><td class="nw">R1 train &middot; 50 min</td></tr>
   </table>
 
   <hr class="divider">
