@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Spain Trip — September/October 2026</title>
+<title>Spain — September/October 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -13,58 +13,95 @@
     --light: #9c8878; --rule: #e0d5ca; --tag-bg: #efe8e0;
     --wedding: #7a5c8a; --wedding-light: #e8e0f0;
     --beach: #2a7a8a; --beach-light: #dff0f3;
-    --anniversary: #b8860b; --anniversary-light: #fdf5dc;
+    --group: #4a7c59; --group-light: #e2efe5;
   }
   body { background: var(--warm-white); color: var(--deep); font-family: 'Jost', sans-serif; font-weight: 300; line-height: 1.7; }
-  .page { max-width: 820px; margin: 0 auto; padding: 60px 40px 100px; }
-  .header { border-bottom: 1px solid var(--rule); padding-bottom: 40px; margin-bottom: 50px; }
+  .page { max-width: 860px; margin: 0 auto; padding: 60px 40px 100px; }
+
+  .header { border-bottom: 1px solid var(--rule); padding-bottom: 40px; margin-bottom: 44px; }
   .eyebrow { font-weight: 500; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 16px; }
-  h1 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(32px, 5vw, 52px); line-height: 1.1; color: var(--deep); margin-bottom: 16px; }
+  h1 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(32px, 5vw, 52px); line-height: 1.1; margin-bottom: 16px; }
   .subtitle { font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 17px; color: var(--light); }
   .intro { margin-top: 20px; font-size: 15px; color: var(--mid); }
   .flights { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
   .flight-pill { background: var(--tag-bg); border-radius: 3px; padding: 10px 16px; font-size: 13px; color: var(--mid); }
   .flight-pill strong { color: var(--deep); font-weight: 500; display: block; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 2px; }
-  .phase { margin-bottom: 48px; }
-  .phase-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 2px solid var(--rule); }
-  .phase-dates { font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 3vw, 30px); font-weight: 400; color: var(--deep); }
+  .flight-pill.action { background: #fbeee7; box-shadow: inset 0 0 0 1px var(--terracotta-light); }
+  .flight-pill.action strong { color: var(--terracotta); }
+
+  .note { background: var(--cream); border-left: 3px solid var(--terracotta); padding: 14px 18px; margin: 22px 0; border-radius: 0 3px 3px 0; font-size: 13.5px; color: var(--mid); }
+  .note strong { color: var(--deep); font-weight: 500; }
+  .note ul { margin: 8px 0 0 18px; }
+  .note li { margin-bottom: 3px; }
+
+  .phase { margin-bottom: 44px; }
+  .phase-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 26px; padding-bottom: 12px; border-bottom: 2px solid var(--rule); flex-wrap: wrap; }
+  .phase-dates { font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 3vw, 30px); font-weight: 400; }
   .phase-label { font-size: 10px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--terracotta); }
-  .day { display: flex; gap: 20px; margin-bottom: 20px; }
-  .day-date { width: 80px; flex-shrink: 0; font-size: 11px; font-weight: 500; color: var(--light); padding-top: 3px; text-align: right; letter-spacing: 0.03em; line-height: 1.4; }
-  .day-content { flex: 1; border-left: 2px solid var(--rule); padding-left: 20px; padding-bottom: 4px; }
-  .day-content.anniversary { border-left-color: var(--anniversary); }
+
+  .day { display: flex; gap: 20px; margin-bottom: 26px; }
+  .day-date { width: 78px; flex-shrink: 0; font-size: 11px; font-weight: 500; color: var(--light); padding-top: 3px; text-align: right; letter-spacing: 0.03em; line-height: 1.4; }
+  .day-content { flex: 1; border-left: 2px solid var(--rule); padding-left: 20px; padding-bottom: 4px; min-width: 0; }
   .day-content.wedding-event { border-left-color: var(--wedding); }
   .day-content.beach-day { border-left-color: var(--beach); }
-  .day-title { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 600; color: var(--deep); margin-bottom: 5px; }
-  .day-desc { font-size: 14px; color: var(--mid); line-height: 1.7; }
+  .day-content.group-day { border-left-color: var(--group); }
+  .day-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; margin-bottom: 4px; }
+  .day-desc { font-size: 14px; color: var(--mid); }
   .day-desc a { color: var(--terracotta); text-decoration: none; border-bottom: 1px solid var(--terracotta-light); }
-  .badge { display: inline-block; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; margin-bottom: 6px; }
-  .badge.anniversary { background: var(--anniversary-light); color: var(--anniversary); }
+
+  .badge { display: inline-block; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; margin-bottom: 6px; margin-right: 4px; }
   .badge.wedding { background: var(--wedding-light); color: var(--wedding); }
   .badge.beach { background: var(--beach-light); color: var(--beach); }
-  .beach-box { background: var(--beach-light); border-left: 3px solid var(--beach); padding: 12px 16px; margin: 10px 0; border-radius: 0 3px 3px 0; font-size: 13px; color: var(--mid); }
-  .beach-box strong { color: var(--deep); font-weight: 500; }
-  .beach-box a { color: var(--beach); text-decoration: none; }
-  .note { background: var(--cream); border-left: 3px solid var(--terracotta); padding: 12px 16px; margin: 12px 0; border-radius: 0 3px 3px 0; font-size: 13px; color: var(--mid); }
-  .note strong { color: var(--deep); font-weight: 500; }
-  .ref-section { margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid var(--rule); }
-  .section-label { font-weight: 500; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 10px; }
-  h2 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(22px, 3vw, 30px); color: var(--deep); margin-bottom: 16px; line-height: 1.2; }
-  .section-img { width: 100%; height: 200px; object-fit: cover; border-radius: 3px; margin-bottom: 20px; background: var(--tag-bg); display: block; }
-  .place { margin-bottom: 22px; display: flex; gap: 16px; }
-  .place-thumb { width: 96px; height: 70px; object-fit: cover; border-radius: 2px; flex-shrink: 0; background: var(--tag-bg); }
-  .place-body { flex: 1; border-left: 2px solid var(--rule); padding-left: 16px; }
-  .place-name { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--deep); margin-bottom: 3px; }
+  .badge.group { background: var(--group-light); color: var(--group); }
+  .badge.booked { background: #e6efe0; color: #4a6b34; }
+
+  /* Transitions — deliberately terse, visually separated from the day's substance */
+  .transit { font-size: 11.5px; letter-spacing: 0.04em; color: var(--light); margin: 6px 0 10px; padding-left: 2px; }
+  .transit span { display: inline-block; margin-right: 14px; white-space: nowrap; }
+  .transit b { font-weight: 500; color: var(--mid); }
+
+  /* Landmark cards */
+  .places { margin-top: 14px; }
+  .place { margin-bottom: 16px; display: flex; gap: 14px; }
+  .place-thumb { width: 128px; height: 88px; object-fit: cover; border-radius: 2px; flex-shrink: 0; background: var(--tag-bg); }
+  .place-body { flex: 1; min-width: 0; }
+  .place-name { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; margin-bottom: 2px; line-height: 1.25; }
   .place-name a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--terracotta-light); }
-  .place p { font-size: 13px; color: var(--mid); line-height: 1.65; }
+  .place p { font-size: 13px; color: var(--mid); line-height: 1.6; }
   .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 5px; }
   .tag { background: var(--tag-bg); color: var(--mid); font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 7px; border-radius: 2px; }
-  .footer { margin-top: 60px; padding-top: 28px; border-top: 1px solid var(--rule); font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 16px; color: var(--light); }
-  @media (max-width: 600px) {
+
+  .alt-section { margin-top: 20px; }
+  .alt-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 18px 26px; }
+  .alt { display: flex; gap: 13px; }
+  .alt-thumb { width: 104px; height: 74px; object-fit: cover; border-radius: 2px; flex-shrink: 0; background: var(--tag-bg); }
+  .alt-body { flex: 1; min-width: 0; }
+  .alt-name { font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 600; margin-bottom: 1px; line-height: 1.25; }
+  .alt-name a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--terracotta-light); }
+  .alt-when { font-size: 10px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 3px; }
+  .alt p { font-size: 12.5px; color: var(--mid); line-height: 1.55; }
+
+  h2 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(22px, 3vw, 30px); margin-bottom: 6px; line-height: 1.2; }
+  .section-label { font-weight: 500; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 10px; }
+  .lede { font-size: 14px; color: var(--mid); margin-bottom: 22px; }
+  .divider { border: 0; border-top: 1px solid var(--rule); margin: 46px 0 34px; }
+
+  table.bookings { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 8px; }
+  table.bookings th { text-align: left; font-weight: 500; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--light); padding: 0 10px 8px 0; border-bottom: 1px solid var(--rule); }
+  table.bookings td { padding: 9px 10px 9px 0; border-bottom: 1px solid var(--rule); color: var(--mid); vertical-align: top; }
+  table.bookings td:first-child { color: var(--deep); white-space: nowrap; }
+
+  .footer { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--rule); font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 15px; color: var(--light); }
+  .footer a { color: var(--light); }
+
+  @media (max-width: 620px) {
     .page { padding: 36px 20px 80px; }
-    .day { gap: 12px; } .day-date { width: 52px; font-size: 10px; }
-    .place { flex-direction: column; } .place-thumb { width: 100%; height: 130px; }
+    .day { gap: 12px; } .day-date { width: 50px; font-size: 10px; }
+    .day-content { padding-left: 14px; }
+    .place { gap: 11px; } .place-thumb { width: 92px; height: 68px; }
+    .alt-grid { grid-template-columns: 1fr; }
     .flights { flex-direction: column; }
+    .transit span { display: block; margin-right: 0; white-space: normal; }
   }
 </style>
 </head>
@@ -72,340 +109,470 @@
 <div class="page">
 
   <header class="header">
-    <div class="eyebrow">Trip Planning · September–October 2026</div>
-    <h1>Spain &amp; Morocco</h1>
+    <div class="eyebrow">Revised Plan · September–October 2026</div>
+    <h1>Barcelona &amp; Catalonia</h1>
     <div class="subtitle">Built around Jessica &amp; Daniel's wedding · September 26 · Mas Rosset, Girona</div>
-    <p class="intro">20 days. Delta One both ways. Into Málaga, home from Barcelona — a natural loop through Andalusia, across to Morocco, back up through Catalonia for the wedding and beyond.</p>
+    <p class="intro">Thirteen days instead of twenty. In and out of Barcelona, with Barcelona as home base throughout — Andalusia and Morocco are off. Everything now sits inside a two-hour radius, and the whole trip overlaps with the Raymonds and the wedding party.</p>
     <div class="flights">
-      <div class="flight-pill"><strong>Outbound · Sep 13</strong>ATL → AGP via Madrid · DL108/DL6750<br>Departs 9:55pm · Arrives Sep 14, 4:15pm</div>
-      <div class="flight-pill"><strong>Return · Oct 3</strong>BCN → ATL Nonstop · DL195<br>Departs 11:00am · Arrives 3:28pm</div>
+      <div class="flight-pill action"><strong>Outbound · needs rebooking</strong>ATL → BCN nonstop · Sun Sep 20<br>Lands Mon Sep 21, morning</div>
+      <div class="flight-pill"><strong>Return · Oct 3 · unchanged</strong>BCN → ATL nonstop · DL195<br>Departs 11:00am · Arrives 3:28pm</div>
       <div class="flight-pill"><strong>Confirmation</strong>HTIZJY</div>
     </div>
   </header>
 
-  <!-- PHASE 1 -->
-  <div class="phase">
-    <div class="phase-header">
-      <div class="phase-dates">Sep 14–19</div>
-      <div class="phase-label">Phase 1 · Andalusia</div>
-    </div>
-
-    <div class="day">
-      <div class="day-date">Sun<br>Sep 14</div>
-      <div class="day-content">
-        <div class="day-title">Arrive Málaga · 4:15pm</div>
-        <div class="day-desc">Easy arrival day. Check in, find a good dinner in the old town. The <a href="https://www.museopicassomalaga.org/en">Picasso Museum</a> and the Moorish Alcazaba fortress are both worth a morning before heading south.</div>
-      </div>
-    </div>
-
-    <div class="day">
-      <div class="day-date">Mon<br>Sep 15</div>
-      <div class="day-content anniversary">
-        <div class="badge anniversary">🎉 13th Anniversary</div>
-        <div class="day-title">Anniversary — Málaga or Seville</div>
-        <div class="day-desc">Stay near Málaga for a romantic dinner on the Costa del Sol, or push to Seville (2.5hrs by train) which has some of Spain's finest restaurants. Either way, book something special in advance.</div>
-      </div>
-    </div>
-
-    <div class="day">
-      <div class="day-date">Tue<br>Sep 16</div>
-      <div class="day-content beach-day">
-        <div class="badge beach">🏖 Beach Day</div>
-        <div class="day-title">Beach Day — Cantarrijan</div>
-        <div class="day-desc">One of the best naturist beaches in Andalusia, inside the Maro-Cerro Gordo Natural Park near Almuñécar. Dramatic cliff scenery, crystal water ideal for snorkeling, divided into textile and naturist sections each with a beach bar. Mixed crowd, all ages, good energy.</div>
-        <div class="beach-box"><strong>Also nearby:</strong> <a href="https://costanatura.com/naturist-beaches-in-andalucia/">Benalnatura</a> in Benalmádena — intimate naturist cove, great beach bar, gay-friendly, mixed straight/gay crowd of all ages. Very popular so arrive early on a weekday.</div>
-      </div>
-    </div>
-
-    <div class="day">
-      <div class="day-date">Wed–Thu<br>Sep 17–18</div>
-      <div class="day-content">
-        <div class="day-title">Seville — 2 nights</div>
-        <div class="day-desc">The <a href="https://alcazarsevilla.org/prepara-la-visita/">Alcázar palace</a> is one of the most extraordinary buildings in the world — book tickets in advance. The Gothic cathedral next door is vast and unmissable. Evenings: the Triana neighborhood for tapas and authentic flamenco (not the tourist show). Check the <a href="https://visitasevilla.es/en">city tourism site</a> for smaller local flamenco venues.</div>
-      </div>
-    </div>
-
-    <div class="day">
-      <div class="day-date">Fri<br>Sep 19</div>
-      <div class="day-content">
-        <div class="day-title">Granada — 1 night</div>
-        <div class="day-desc">The <a href="https://www.alhambra-patronato.es/en/">Alhambra</a> needs at least half a day — book tickets weeks in advance, they sell out. Every bar serves free tapas with drinks. Stay in the Albaicín neighborhood for views across to the Alhambra at night.</div>
-        <div class="note"><strong>Morocco decision point:</strong> From Granada, Tarifa is 2hrs south and the Tangier ferry is 45 minutes. If Morocco is happening, it starts from here tomorrow morning.</div>
-      </div>
-    </div>
+  <div class="note">
+    <strong>What changed and why.</strong>
+    <ul>
+      <li>The Málaga–Seville–Granada–Morocco front half is cut. It was eight days, four cities, two countries, a ferry and a domestic flight — nearly all the complexity lived there.</li>
+      <li>Only the outbound leg needs rebooking. The Oct 3 return out of Barcelona stays as booked.</li>
+      <li><strong>The Dalí museum is closed Mondays in September</strong>, so the old Sep 28 plan could never have worked. It now runs as a day trip from Barcelona on Oct 1, when it's open.</li>
+      <li>Sep 28–30 follows the group to the Costa Brava, then everyone is back in Barcelona together for the final stretch.</li>
+    </ul>
   </div>
 
-  <!-- PHASE 2 -->
+  <!-- ================= PHASE 1 ================= -->
   <div class="phase">
     <div class="phase-header">
-      <div class="phase-dates">Sep 20–22</div>
-      <div class="phase-label">Phase 2 · Morocco</div>
-    </div>
-
-    <div class="note">Friends arrive in Barcelona Sep 20 — no need to meet them right away. A couple of days in Morocco works perfectly, rejoining the wedding group around Sep 22–23.</div>
-
-    <div class="day">
-      <div class="day-date">Sat<br>Sep 20</div>
-      <div class="day-content">
-        <div class="day-title">Tarifa → Ferry → Tangier</div>
-        <div class="day-desc">The <a href="https://www.frs.es/en/">FRS ferry</a> from Tarifa is 45 minutes. Tangier: the old medina, the Kasbah on the hill, views back toward Spain. Matisse and Delacroix painted here; Paul Bowles lived here for decades. Stay in a riad — a traditional courtyard townhouse, plain outside, stunning within.</div>
-      </div>
+      <div class="phase-dates">Sep 21–24</div>
+      <div class="phase-label">Barcelona · home base</div>
     </div>
 
     <div class="day">
-      <div class="day-date">Sun<br>Sep 21</div>
+      <div class="day-date">Mon<br>Sep 21</div>
       <div class="day-content">
-        <div class="day-title">Chefchaouen — The Blue City</div>
-        <div class="day-desc">Two hours inland through the Rif Mountains. The entire old city is painted in shades of blue by Moorish and Jewish refugees expelled from Spain in 1492. The Spanish Mosque above town has panoramic views. Tagines, couscous, fresh bread with honey. The kind of place you wander rather than check things off. Side trip option: <strong>Volubilis</strong> — Morocco's best-preserved Roman ruins, 1st century AD mosaics and arches still standing in open landscape.</div>
+        <div class="day-title">Land Barcelona · settle in</div>
+        <div class="transit"><span><b>→</b> BCN airport → L'Eixample · 35 min · Aerobús or taxi</span></div>
+        <div class="day-desc">A deliberately empty day. Check into the apartment, sleep off the flight, then walk the old city in the late afternoon when the light is good and the heat has gone. Dinner nearby, early night — the group lands tomorrow and Park Güell is a real afternoon.</div>
+        <div class="places">
+          <div class="place">
+            <img class="place-thumb" data-wiki="Gothic Quarter, Barcelona" data-alt="Barcelona" alt="Gothic Quarter">
+            <div class="place-body">
+              <div class="place-name">Gothic Quarter</div>
+              <p>The Roman and medieval core — narrow stone lanes that open without warning onto small squares. Best walked with no destination. The cathedral cloister has a pond with resident geese.</p>
+              <div class="tags"><span class="tag">Medieval</span><span class="tag">Free</span><span class="tag">Walkable</span></div>
+            </div>
+          </div>
+          <div class="place">
+            <img class="place-thumb" data-wiki="La Boqueria" data-alt="Barcelona" alt="La Boqueria">
+            <div class="place-body">
+              <div class="place-name"><a href="https://www.boqueria.barcelona/">Mercat de la Boqueria</a></div>
+              <p>The market off La Rambla — jamón, seafood on ice, fruit juices, tiny counter bars at the back where the cooking is better than most restaurants. Free to enter. Go before 2pm.</p>
+              <div class="tags"><span class="tag">Food</span><span class="tag">Free</span></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-
-    <div class="day">
-      <div class="day-date">Mon<br>Sep 22</div>
-      <div class="day-content">
-        <div class="day-title">Ferry back → Fly to Barcelona</div>
-        <div class="day-desc">Back across to Tarifa, then fly to Barcelona to join the wedding group. Flight is about 1.5hrs.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PHASE 3 -->
-  <div class="phase">
-    <div class="phase-header">
-      <div class="phase-dates">Sep 22–27</div>
-      <div class="phase-label">Phase 3 · Barcelona &amp; The Wedding</div>
-    </div>
-
-    <div class="note">Items marked <span class="badge wedding" style="display:inline-block;margin:0 3px;vertical-align:middle">Wedding Group</span> are the planned wedding party activities — join as you like, none are mandatory.</div>
 
     <div class="day">
       <div class="day-date">Tue<br>Sep 22</div>
-      <div class="day-content wedding-event">
-        <div class="badge wedding">Wedding Group</div>
-        <div class="day-title">Barcelona — Park Güell · Dinner at Gallo Santo</div>
-        <div class="day-desc"><a href="https://parkguell.barcelona/en/">Park Güell</a> — Gaudí's surreal hilltop park. <strong>Tickets booked by AJ Silvi</strong> — guided skip-the-line tour, 3:30pm · Meet at Mirador de Joan Sales at 3:15pm · $38/each (expect a payment request). Dinner at <a href="https://gallosanto.com/">Gallo Santo</a> with the group.</div>
+      <div class="day-content group-day">
+        <div class="badge group">Group arrives</div><span class="badge booked">Booked</span>
+        <div class="day-title">Park Güell with everyone</div>
+        <div class="transit"><span><b>→</b> Group lands BCN · 10:30am</span><span><b>→</b> Apartment → Park Güell · 25 min · metro L3 Lesseps + walk</span></div>
+        <div class="day-desc">Meet at the Mirador de Joan Sales at <strong>3:15pm</strong> for the 3:30 guided tour — AJ booked four adults, ref 1411519457, $38 each owed to him. Roughly three hours to cover the monumental zone and the free wooded park above it. Dinner at 7pm at <a href="https://gallosanto.es/">Gallo Santo</a> in Gràcia with the group.</div>
+        <div class="places">
+          <div class="place">
+            <img class="place-thumb" data-wiki="Park Güell" data-alt="Barcelona" alt="Park Güell">
+            <div class="place-body">
+              <div class="place-name"><a href="https://parkguell.barcelona/en">Park Güell</a></div>
+              <p>Gaudí's failed luxury housing estate, now the most joyful thing in the city — a serpentine mosaic bench, a hall of tilted columns, and a terrace looking clean over Barcelona to the sea. The ticketed monumental zone is small; the free park around it is large and worth the extra hour.</p>
+              <div class="tags"><span class="tag">Gaudí</span><span class="tag">Architecture</span><span class="tag">Views</span><span class="tag">Unmissable</span></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="day">
       <div class="day-date">Wed<br>Sep 23</div>
-      <div class="day-content wedding-event">
-        <div class="badge wedding">Wedding Group</div>
-        <div class="day-title">Sagrada Família · Sant Pau Hospital</div>
-        <div class="day-desc"><a href="https://sagradafamilia.org/en/">Sagrada Família</a> — Gaudí's still-unfinished masterpiece. <strong>Tickets already booked for you</strong> (Melissa White · 2 adults) — guided skip-the-line tour, 9:00am · Meet at Carrer de Sardenya, 311 at 8:45am · $95/each (Jessi will send a Cash App request). Then: <a href="https://www.santpaubarcelona.org/en">Sant Pau Recinte Modernista</a> — the former hospital complex, arguably the most beautiful building in Barcelona. <strong>Need your own tickets</strong> — self-guided tour at 2:00pm on 09/23. Book at <a href="https://www.santpaubarcelona.org/en">santpaubarcelona.org</a>.</div>
+      <div class="day-content">
+        <span class="badge booked">Tickets in hand</span>
+        <div class="day-title">Sagrada Família &amp; Sant Pau</div>
+        <div class="transit"><span><b>→</b> Sagrada Família → Sant Pau · 12 min · on foot, straight up Avinguda Gaudí</span></div>
+        <div class="day-desc"><strong>10:15am</strong> entry at the Sagrada Família — your own general-admission tickets, 2 × €26. Note this is a later slot than the group's, so you'll be going in on your own. Lunch on Avinguda Gaudí, then Sant Pau at <strong>2:00pm</strong>, self-guided. The two sit at opposite ends of the same short avenue, which is the nicest twelve-minute walk in the city.</div>
+        <div class="places">
+          <div class="place">
+            <img class="place-thumb" data-wiki="Sagrada Família" data-alt="Barcelona" alt="Sagrada Família">
+            <div class="place-body">
+              <div class="place-name"><a href="https://sagradafamilia.org/en/">Basílica de la Sagrada Família</a></div>
+              <p>Gaudí's unfinished cathedral, under construction since 1882. The exterior is the famous part; the interior is the reason to go — a stone forest where the columns branch overhead and the stained glass throws red light west and blue light east. Give it 90 minutes minimum.</p>
+              <div class="tags"><span class="tag">Gaudí</span><span class="tag">Architecture</span><span class="tag">Unmissable</span></div>
+            </div>
+          </div>
+          <div class="place">
+            <img class="place-thumb" data-wiki="Hospital de Sant Pau" data-alt="Barcelona" alt="Sant Pau">
+            <div class="place-body">
+              <div class="place-name"><a href="https://www.santpaubarcelona.org/en">Sant Pau Recinte Modernista</a></div>
+              <p>A working hospital until 2009, built as twenty-seven separate mosaic-and-brick pavilions in a garden — Domènech i Montaner's answer to Gaudí, and to many people the better building. Far quieter than the Sagrada. Tickets are bought separately on the site.</p>
+              <div class="tags"><span class="tag">Modernisme</span><span class="tag">UNESCO</span><span class="tag">Quiet</span></div>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+  </div>
+
+  <!-- ================= PHASE 2 ================= -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-dates">Sep 24–28</div>
+      <div class="phase-label">Girona · the wedding</div>
     </div>
 
     <div class="day">
       <div class="day-date">Thu<br>Sep 24</div>
-      <div class="day-content wedding-event">
-        <div class="badge wedding">Wedding Group</div>
-        <div class="day-title">Vineyard Visit · Santa Florentina Castle · Check into Girona</div>
-        <div class="day-desc">Drive north from Barcelona into wine country, stop at <a href="https://www.castillosantaflorentina.com/">Santa Florentina Castle</a>, then check in around Girona ahead of the wedding weekend.</div>
+      <div class="day-content group-day">
+        <div class="badge group">With the group</div>
+        <div class="day-title">North to Girona · vineyard &amp; castle</div>
+        <div class="transit"><span><b>→</b> Barcelona → Girona area · 1h20 · driving with the group</span><span><b>→</b> Detour: Castell de Santa Florentina · +25 min</span></div>
+        <div class="day-desc">Check out of Barcelona and drive north with everyone. A vineyard stop and the castle on the way, then into the wedding-weekend lodging near Girona. The rest of the day is unstructured.</div>
+        <div class="places">
+          <div class="place">
+            <img class="place-thumb" data-wiki="Castell de Santa Florentina" data-alt="Canet de Mar" alt="Santa Florentina">
+            <div class="place-body">
+              <div class="place-name">Castell de Santa Florentina</div>
+              <p>An 11th-century fortified manor at Canet de Mar, reworked by Domènech i Montaner into something halfway between a castle and a Modernista fantasy. Still privately owned and lived in. Doubled as Horn Hill in <em>Game of Thrones</em>.</p>
+              <div class="tags"><span class="tag">Castle</span><span class="tag">Modernisme</span><span class="tag">Game of Thrones</span></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="day">
       <div class="day-date">Fri<br>Sep 25</div>
-      <div class="day-content">
-        <div class="day-title">Girona · Meet &amp; Greet Evening</div>
-        <div class="day-desc">Explore Girona during the day — the Jewish Quarter, the cathedral, the colorful houses along the Onyar River. Very walkable, very non-touristy. Evening Meet &amp; Greet at the DoubleTree.</div>
+      <div class="day-content group-day">
+        <div class="badge group">With the group</div>
+        <div class="day-title">Girona · meet &amp; greet</div>
+        <div class="transit"><span><b>→</b> Lodging → Girona old town · short hop, walkable once there</span></div>
+        <div class="day-desc">Free until evening — the day the wedding party explores on its own. The meet and greet is at the DoubleTree in the evening. Girona is compact enough to do properly in an afternoon.</div>
+        <div class="places">
+          <div class="place">
+            <img class="place-thumb" data-wiki="Girona" data-alt="Girona Cathedral" alt="Girona">
+            <div class="place-body">
+              <div class="place-name"><a href="https://www.girona.cat/turisme/eng/">Girona Old Town</a></div>
+              <p>Coloured houses stacked over the Onyar, one of Europe's best-preserved Jewish quarters, 12th-century Arab baths, and an iron footbridge built by Gustave Eiffel before the tower. You can walk the medieval walls end to end for free.</p>
+              <div class="tags"><span class="tag">Medieval</span><span class="tag">Free Walls</span><span class="tag">Game of Thrones</span></div>
+            </div>
+          </div>
+          <div class="place">
+            <img class="place-thumb" data-wiki="Girona Cathedral" data-alt="Girona" alt="Girona Cathedral">
+            <div class="place-body">
+              <div class="place-name">Girona Cathedral</div>
+              <p>Ninety-one steps up from the square, and the widest Gothic nave in the world at 23 metres — built without side aisles because the architects argued and the ambitious side won. The staircase is the one from the Great Sept.</p>
+              <div class="tags"><span class="tag">Gothic</span><span class="tag">Views</span></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="day">
       <div class="day-date">Sat<br>Sep 26</div>
       <div class="day-content wedding-event">
-        <div class="badge wedding">The Wedding 🥂</div>
-        <div class="day-title">Jessica &amp; Daniel — Mas Rosset</div>
-        <div class="day-desc"><a href="https://masrosset.com/en/">Mas Rosset</a>, Girona, Catalonia.</div>
+        <div class="badge wedding">🥂 Wedding Day</div>
+        <div class="day-title">Jessica &amp; Daniel · Mas Rosset</div>
+        <div class="transit"><span><b>→</b> On site all day · no transit</span></div>
+        <div class="day-desc">Hair and makeup from 6:00am, photographer from 12:30pm, family and friend portraits at 2:00pm, and the wedding itself from 4:00pm onward. A restored Catalan farmhouse in the countryside outside Girona — the whole day happens in one place.</div>
       </div>
     </div>
 
     <div class="day">
       <div class="day-date">Sun<br>Sep 27</div>
       <div class="day-content wedding-event">
-        <div class="badge wedding">Wedding Group</div>
-        <div class="day-title">Post-Wedding Brunch &amp; Pool · Mas Rosset</div>
-        <div class="day-desc">Slow morning at the venue. Check out after.</div>
+        <div class="badge wedding">Recovery</div>
+        <div class="day-title">Brunch &amp; pool</div>
+        <div class="transit"><span><b>→</b> On site all day · no transit</span></div>
+        <div class="day-desc">Brunch from 10:00am for whoever surfaces, then the pool and the video recap in the media room. Nothing scheduled, deliberately.</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-date">Mon<br>Sep 28</div>
+      <div class="day-content group-day">
+        <div class="badge group">With the group</div><span class="badge booked">Booked</span>
+        <div class="day-title">Vineyard picnic, then the coast</div>
+        <div class="transit"><span><b>→</b> Check out Mas Rosset · 10:00am</span><span><b>→</b> Mas Rosset → Siurana d'Empordà · 30 min</span><span><b>→</b> Siurana → Lloret de Mar · 1h15</span></div>
+        <div class="day-desc">Noon at <a href="https://closdebasella.com/">Clos de Basella</a> — guided vineyard walk, winery tour, and a long picnic among the vines with local cheeses, cured meats and the estate's biodynamic wines. Shannon booked six adults, ref 1411134619. Afterwards, drive down to the coast and check into the hotel.</div>
+        <div class="places">
+          <div class="place">
+            <img class="place-thumb" data-wiki="Empordà" data-alt="Penedès" alt="Empordà vineyards">
+            <div class="place-body">
+              <div class="place-name">Clos de Basella</div>
+              <p>A small organic and biodynamic estate in the Empordà, the wine country between Girona and the French border. Four and a half stars, and the picnic is the whole point rather than an add-on.</p>
+              <div class="tags"><span class="tag">Wine</span><span class="tag">Biodynamic</span><span class="tag">Long Lunch</span></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- PHASE 4 -->
+  <!-- ================= PHASE 3 ================= -->
   <div class="phase">
     <div class="phase-header">
-      <div class="phase-dates">Sep 28 – Oct 2</div>
-      <div class="phase-label">Phase 4 · Wide Open</div>
+      <div class="phase-dates">Sep 28–Oct 3</div>
+      <div class="phase-label">Costa Brava, then back to base</div>
     </div>
 
-    <div class="note">The wedding group heads to Lloret de Mar Sep 28–30, then Barcelona's Gothic Quarter. You can join them or do your own thing — entirely flexible.</div>
-
     <div class="day">
-      <div class="day-date">Mon<br>Sep 28</div>
-      <div class="day-content wedding-event">
-        <div class="badge wedding">Wedding Group</div>
-        <div class="day-title">Vineyard Picnic · Dalí Museum · Cadaqués</div>
-        <div class="day-desc"><strong>Noon: <a href="https://closdebasella.com/en">Clos de Basella</a> vineyard picnic — booked by Shannon Kuczerepa (6 adults).</strong> An organic, biodynamic winery in Siurana d'Empordà — guided vineyard walk, winery tour, then a gourmet picnic among the vines with local cheeses, cured meats, and estate wines. Highly rated. Ref: 1411134619.<br><br>Conveniently, Siurana d'Empordà is right in the Costa Brava/Figueres corridor — so after the picnic, head north to the <a href="https://www.salvador-dali.org/en/museums/dali-theatre-museum-in-figueres/">Dalí Theatre-Museum</a> in Figueres (45 min away) and overnight in <a href="https://www.cadaques.cat/en/">Cadaqués</a>, the whitewashed fishing village where Dalí lived.</div>
+      <div class="day-date">Tue<br>Sep 29</div>
+      <div class="day-content beach-day">
+        <div class="badge beach">🏖 Beach Day</div><span class="badge group">With the group</span>
+        <div class="day-title">Lloret · a day that goes nowhere</div>
+        <div class="transit"><span><b>→</b> Nothing scheduled · everything on foot from the hotel</span></div>
+        <div class="day-desc">The one genuinely idle day of the trip, and the group's too — their itinerary says only "relax, explore, enjoy." Hotel Santa Marta sits in pine woods above its own beach at the quiet southern end of Lloret, well away from the town. The coves either side are a short walk through the trees.</div>
+        <div class="places">
+          <div class="place">
+            <img class="place-thumb" data-wiki="Lloret de Mar" data-alt="Costa Brava" alt="Santa Cristina">
+            <div class="place-body">
+              <div class="place-name">Platja de Santa Cristina</div>
+              <p>The hotel's own beach — broad, sheltered, backed by umbrella pines, with a hermitage on the headland above it. Reached directly from the grounds. The calmest sand in Lloret by a distance.</p>
+              <div class="tags"><span class="tag">Beach</span><span class="tag">At the hotel</span></div>
+            </div>
+          </div>
+          <div class="place">
+            <img class="place-thumb" data-wiki="Costa Brava" data-alt="Lloret de Mar" alt="Cala Sa Boadella">
+            <div class="place-body">
+              <div class="place-name">Cala Sa Boadella</div>
+              <p>The next cove along, over the headland and down a wooded path — ten minutes on foot from the hotel. Effectively the only undeveloped beach left in Lloret: no buildings, no road, pines to the waterline, and a single small chiringuito. Widely rated among the finest coves on the Costa Brava. Quiet on a weekday, and quieter at the far end.</p>
+              <div class="tags"><span class="tag">Beach</span><span class="tag">Secluded</span><span class="tag">10 min walk</span></div>
+            </div>
+          </div>
+          <div class="place">
+            <img class="place-thumb" data-wiki="Tossa de Mar" data-alt="Costa Brava" alt="Tossa de Mar">
+            <div class="place-body">
+              <div class="place-name">Tossa de Mar <span style="font-weight:400;color:var(--light);font-size:13px;">— if you want an outing</span></div>
+              <p>Twenty-five minutes up a cliff road that is itself the attraction. A walled medieval old town sitting directly on the sea, with towers you can climb. The best half-day from Lloret if the beach starts to feel like enough.</p>
+              <div class="tags"><span class="tag">Optional</span><span class="tag">Medieval</span><span class="tag">25 min</span></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="day">
-      <div class="day-date">Tue–Wed<br>Sep 29–30</div>
-      <div class="day-content beach-day">
-        <div class="badge beach">🏖 Beach Days</div>
-        <div class="day-title">Costa Brava Beach Days</div>
-        <div class="day-desc"><strong>Playa Illa Roja</strong> near Begur — internationally known naturist beach in a dramatic cove, accessed through a wooded path, peaceful and relatively uncrowded. Or <strong>Cala Sa Boadella</strong> in Lloret de Mar — hidden naturist cove behind a pine forest, Costa Brava blue water. Either is a great slow beach day.</div>
+      <div class="day-date">Wed<br>Sep 30</div>
+      <div class="day-content group-day">
+        <div class="badge group">With the group</div>
+        <div class="day-title">Back to Barcelona · El Born</div>
+        <div class="transit"><span><b>→</b> Lloret de Mar → Barcelona · 1h15 · car, or bus from the seafront</span><span><b>→</b> Check into the second base · Gothic Quarter / El Born</span></div>
+        <div class="day-desc">Everyone drives back and the group settles into the Gothic Quarter for their last two nights. Their remaining days are unscheduled, so this is the stretch to actually spend with them. El Born is the neighbourhood to do it in — tight lanes, wine bars, and the two best things below within three minutes of each other.</div>
+        <div class="places">
+          <div class="place">
+            <img class="place-thumb" data-wiki="Santa Maria del Mar, Barcelona" data-alt="Barcelona" alt="Santa Maria del Mar">
+            <div class="place-body">
+              <div class="place-name">Santa Maria del Mar</div>
+              <p>Built in fifty-five years by the parish itself, which is why it is all one style — bare, tall, astonishingly plain Catalan Gothic with almost nothing in it. The anarchists burned the baroque fittings in 1936 and the building was better for it. Free most of the day.</p>
+              <div class="tags"><span class="tag">Gothic</span><span class="tag">Free</span></div>
+            </div>
+          </div>
+          <div class="place">
+            <img class="place-thumb" data-wiki="Museu Picasso" data-alt="Barcelona" alt="Museu Picasso">
+            <div class="place-body">
+              <div class="place-name"><a href="https://www.museupicasso.bcn.cat/en">Museu Picasso</a></div>
+              <p>Five medieval palaces knocked together, holding the early work almost no one associates with him — academic paintings made at fifteen, the Blue Period, and the full <em>Las Meninas</em> series. Book ahead; it sells out.</p>
+              <div class="tags"><span class="tag">Art</span><span class="tag">Book ahead</span></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="day">
       <div class="day-date">Thu<br>Oct 1</div>
-      <div class="day-content beach-day">
-        <div class="badge beach">🏖 Beach Day</div>
-        <div class="day-title">Barcelona — Mar Bella</div>
-        <div class="day-desc"><a href="https://de.hotels.com/see/go/spain/mar-bella-beach-barcelona">Mar Bella</a> is Barcelona's clothing-optional beach — explicitly known for attracting a young, cosmopolitan crowd: students, locals, water sports enthusiasts. LGBTQ-friendly, lively, 15 minutes from city center in the Poblenou district. The one most likely to have the mix you're looking for.</div>
-        <div class="beach-box"><strong>Also great:</strong> <a href="https://barcelona-home.com/blog/nudist-beaches-of-sitges/">Sitges</a> — 30 min by train, LGBTQ-friendly beach town with three clothing-optional beaches and a younger, lively crowd. Great as a day trip or overnight.</div>
+      <div class="day-content">
+        <div class="day-title">Figueres · the Dalí Theatre-Museum</div>
+        <div class="transit"><span><b>→</b> Barcelona Sants → Figueres Vilafant · 55–65 min · AVE</span><span><b>→</b> Station → museum · 20 min walk or 5 min taxi</span><span><b>→</b> Return the same evening</span></div>
+        <div class="day-desc">The reason this lands on a Thursday: the museum is closed Mondays through September, which killed the original plan of doing it after the picnic. By train it's an easy there-and-back with most of the day at the other end. September hours are 9:30 to 6:00.</div>
+        <div class="places">
+          <div class="place">
+            <img class="place-thumb" data-wiki="Dalí Theatre-Museum" data-alt="Figueres" alt="Dalí Theatre-Museum">
+            <div class="place-body">
+              <div class="place-name"><a href="https://www.salvador-dali.org/en/museums/dali-theatre-museum-in-figueres/">Teatre-Museu Dalí</a></div>
+              <p>Dalí built it inside the bombed-out shell of the town theatre and designed every room as a single work — the Mae West face you assemble by standing in the right spot, the Rainy Taxi in the courtyard, giant eggs along the roofline. He is buried in the basement. Not a museum of his paintings so much as the largest surrealist object he ever made.</p>
+              <div class="tags"><span class="tag">Art</span><span class="tag">Surrealism</span><span class="tag">Unmissable</span></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="day">
       <div class="day-date">Fri<br>Oct 2</div>
       <div class="day-content">
-        <div class="day-title">Barcelona — Final Day</div>
-        <div class="day-desc">Gothic Quarter wandering, <a href="https://www.museupicasso.bcn.cat/en/">Picasso Museum</a>, Boqueria market (go early). For live music: <a href="https://www.liceubarcelona.cat/en">Gran Teatre del Liceu</a> for opera, or jazz and flamenco in the Raval neighborhood. Good final dinner in Eixample for upscale Catalan cuisine.</div>
+        <div class="day-title">Goodbyes, then Montserrat</div>
+        <div class="transit"><span><b>→</b> Group departs BCN · morning</span><span><b>→</b> Pl. Espanya → Monistrol · 1h · train R5</span><span><b>→</b> Rack railway or cable car up · 15 min</span></div>
+        <div class="day-desc">See the Raymonds and everyone else off in the morning, then get out of the city for the last full day. Montserrat is the one piece of real landscape within reach of Barcelona, and doing it on the final day means you come home to a packed apartment and an easy morning.</div>
+        <div class="places">
+          <div class="place">
+            <img class="place-thumb" data-wiki="Montserrat (mountain)" data-alt="Santa Maria de Montserrat Abbey" alt="Montserrat">
+            <div class="place-body">
+              <div class="place-name"><a href="https://www.montserratvisita.com/en/">Montserrat</a></div>
+              <p>A Benedictine monastery wedged into a mountain of pink conglomerate rock that erodes into hundreds of rounded fingers — visible from half of Catalonia. The Black Madonna is inside; the boys' choir sings most days around 1pm. The real draw is above the abbey: funiculars and marked ridge paths with a thousand-metre drop to the plain.</p>
+              <div class="tags"><span class="tag">Landscape</span><span class="tag">Hiking</span><span class="tag">Full day</span></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="day">
       <div class="day-date">Sat<br>Oct 3</div>
       <div class="day-content">
-        <div class="day-title">Fly Home · BCN → ATL</div>
-        <div class="day-desc">DL195 departs 11:00am — airport by 8:30am. Nonstop, arrives Atlanta 3:28pm.</div>
+        <div class="day-title">Home</div>
+        <div class="transit"><span><b>→</b> Apartment → BCN · 35 min · leave by 8:15am</span><span><b>→</b> DL195 · departs 11:00am · arrives ATL 3:28pm</span></div>
+        <div class="day-desc">Nonstop, Delta One, and already booked. Bags are free to 70lbs, two each.</div>
       </div>
     </div>
   </div>
 
-  <!-- REFERENCE -->
-  <div style="margin-top:60px; padding-top:40px; border-top:2px solid var(--rule);">
-    <div class="eyebrow" style="margin-bottom:24px">Reference · All Destinations</div>
+  <hr class="divider">
 
-    <div class="ref-section">
-      <img class="section-img" data-wiki="Alhambra" alt="Andalusia">
-      <div class="section-label">Andalusia</div>
-      <div class="place">
-        <img class="place-thumb" data-wiki="Málaga" alt="Málaga">
-        <div class="place-body">
-          <div class="place-name"><a href="https://www.malagaturismo.com/en/">Málaga</a></div>
-          <p>Picasso's birthplace, excellent museum. Moorish Alcazaba. Great seafood. More than just a gateway city.</p>
-          <div class="tags"><span class="tag">Art</span><span class="tag">History</span><span class="tag">Food</span></div>
-        </div>
-      </div>
-      <div class="place">
-        <img class="place-thumb" data-wiki="Alcázar of Seville" alt="Seville">
-        <div class="place-body">
-          <div class="place-name"><a href="https://www.visitasevilla.es/en">Seville</a></div>
-          <p>The Alcázar is Moorish architecture at its peak. Authentic flamenco in Triana. Tapas culture that stays genuinely local.</p>
-          <div class="tags"><span class="tag">Architecture</span><span class="tag">Flamenco</span><span class="tag">UNESCO</span></div>
-        </div>
-      </div>
-      <div class="place">
-        <img class="place-thumb" data-wiki="Alhambra" alt="Granada">
-        <div class="place-body">
-          <div class="place-name"><a href="https://www.granadatur.com/en/">Granada</a></div>
-          <p>The Alhambra is unmissable — book weeks in advance. Free tapas everywhere. Stay in the Albaicín for the views at night.</p>
-          <div class="tags"><span class="tag">Ruins &amp; Palaces</span><span class="tag">Food</span><span class="tag">UNESCO</span></div>
-        </div>
-      </div>
-    </div>
+  <!-- ================= ALTERNATES ================= -->
+  <div class="alt-section">
+    <div class="section-label">If plans move</div>
+    <h2>Alternates</h2>
+    <p class="lede">Everything here is within a two-hour radius of Barcelona and slots into an open day without disturbing anything booked. Ordered roughly by how easy they are to add.</p>
 
-    <div class="ref-section">
-      <img class="section-img" data-wiki="Chefchaouen" alt="Morocco">
-      <div class="section-label">Morocco</div>
-      <div class="place">
-        <img class="place-thumb" data-wiki="Tangier" alt="Tangier">
-        <div class="place-body">
-          <div class="place-name">Tangier</div>
-          <p>The medina, the Kasbah, the views toward Spain. Where Matisse, Delacroix, and Paul Bowles all worked. Stay in a riad.</p>
-          <div class="tags"><span class="tag">History</span><span class="tag">Architecture</span></div>
-        </div>
-      </div>
-      <div class="place">
-        <img class="place-thumb" data-wiki="Chefchaouen" alt="Chefchaouen">
-        <div class="place-body">
-          <div class="place-name">Chefchaouen — The Blue City</div>
-          <p>An entire medina painted blue by refugees from Spain in 1492. The Spanish Mosque has panoramic views. Wander, don't rush.</p>
-          <div class="tags"><span class="tag">Architecture</span><span class="tag">History</span><span class="tag">Food</span><span class="tag">Unmissable</span></div>
-        </div>
-      </div>
-      <div class="place">
-        <img class="place-thumb" data-wiki="Volubilis" alt="Volubilis">
-        <div class="place-body">
-          <div class="place-name">Volubilis — Roman Ruins</div>
-          <p>Best Roman ruins in Morocco. 1st-century AD mosaics, triumphal arches, columns in open landscape. Rewards slow exploration.</p>
-          <div class="tags"><span class="tag">Roman Ruins</span><span class="tag">History</span></div>
-        </div>
-      </div>
-    </div>
+    <div class="alt-grid">
 
-    <div class="ref-section">
-      <img class="section-img" data-wiki="Sagrada Família" alt="Catalonia">
-      <div class="section-label">Catalonia</div>
-      <div class="place">
-        <img class="place-thumb" data-wiki="Girona" alt="Girona">
-        <div class="place-body">
-          <div class="place-name"><a href="https://www.girona.cat/turisme/eng/">Girona</a></div>
-          <p>Wedding base. Medieval walls, cathedral, Jewish Quarter, colorful houses on the Onyar River. Non-touristy and beautiful.</p>
-          <div class="tags"><span class="tag">Medieval</span><span class="tag">Architecture</span></div>
+      <div class="alt">
+        <img class="alt-thumb" data-wiki="Sitges" data-alt="Barcelona" alt="Sitges">
+        <div class="alt-body">
+          <div class="alt-when">Swap for Montserrat · Oct 2</div>
+          <div class="alt-name">Sitges</div>
+          <p>Thirty-five minutes on the R2 from Passeig de Gràcia, no car and no planning. A whitewashed seaside town with seventeen beaches, a Modernista museum quarter and an easy, unbothered atmosphere. The lowest-effort day on this list, and the best one if Oct 2 turns out to want a beach rather than a mountain.</p>
         </div>
       </div>
-      <div class="place">
-        <img class="place-thumb" data-wiki="Dalí Theatre-Museum" alt="Dalí Museum">
-        <div class="place-body">
-          <div class="place-name"><a href="https://www.salvador-dali.org/en/museums/dali-theatre-museum-in-figueres/">Dalí Theatre-Museum</a> — Figueres</div>
-          <p>Dalí designed the whole building as a work of art. One of the stranger and more wonderful museums in Europe.</p>
-          <div class="tags"><span class="tag">Art</span><span class="tag">Museum</span></div>
+
+      <div class="alt">
+        <img class="alt-thumb" data-wiki="Cadaqués" data-alt="Cap de Creus" alt="Cadaqués">
+        <div class="alt-body">
+          <div class="alt-when">Needs a car + a night</div>
+          <div class="alt-name">Cadaqués &amp; Portlligat</div>
+          <p>The fuller version of the Dalí day. Portlligat is the house he actually lived in — built out of fishermen's huts over forty years, with the egg on the roof — and Cadaqués is a whitewashed village at the end of a mountain road. Two hours past Figueres, so it only works as an overnight, which is what makes it the thing you'd add if you decide to rent a car.</p>
         </div>
       </div>
-      <div class="place">
-        <img class="place-thumb" data-wiki="Cadaqués" alt="Cadaqués">
-        <div class="place-body">
-          <div class="place-name"><a href="https://www.cadaques.cat/en/">Cadaqués</a></div>
-          <p>Whitewashed Costa Brava fishing village where Dalí lived. Rugged coastline, great seafood, completely off the tourist trail.</p>
-          <div class="tags"><span class="tag">Coastal</span><span class="tag">Food</span></div>
+
+      <div class="alt">
+        <img class="alt-thumb" data-wiki="Penedès" data-alt="Sant Sadurní d'Anoia" alt="Penedès">
+        <div class="alt-body">
+          <div class="alt-when">Half day · any open afternoon</div>
+          <div class="alt-name">Penedès cava country</div>
+          <p>Forty-five minutes by train to Sant Sadurní. Miles of cellars cut under the vineyards — Codorníu's are a Modernista landmark in their own right — plus small growers doing serious work. Worth knowing you'll already have had two wine days by then.</p>
         </div>
       </div>
-      <div class="place">
-        <img class="place-thumb" data-wiki="El Fonoll" alt="El Fonoll">
-        <div class="place-body">
-          <div class="place-name"><a href="https://elfonoll.cat/index.php?en=">El Fonoll</a> — Naturist Village</div>
-          <p>Restored medieval village in Catalan countryside. Stone buildings, organic gardens, communal paellas. Clothing optional, not required.</p>
-          <div class="tags"><span class="tag">Historic</span><span class="tag">Clothing Optional</span></div>
+
+      <div class="alt">
+        <img class="alt-thumb" data-wiki="Tarragona" data-alt="Tarragona Amphitheatre" alt="Tarragona">
+        <div class="alt-body">
+          <div class="alt-when">Full day · 1h by train</div>
+          <div class="alt-name">Tarragona</div>
+          <p>The Roman capital of the peninsula, with an amphitheatre built directly above the beach, a surviving circus under the medieval town, and an aqueduct outside the city. The best Roman ruins in Catalonia and almost no queues.</p>
         </div>
       </div>
+
+      <div class="alt">
+        <img class="alt-thumb" data-wiki="Besalú" data-alt="Banyoles" alt="Besalú">
+        <div class="alt-body">
+          <div class="alt-when">Slots into Sep 25 · near Girona</div>
+          <div class="alt-name">Besalú &amp; Banyoles</div>
+          <p>Twenty minutes from Girona. Besalú is an intact medieval town entered across a fortified stone bridge, with one of the only surviving Jewish ritual baths in Europe. Banyoles has the largest lake in Catalonia and a flat hour-long walk around it that is very good at sunset. The obvious escape if Girona feels too small for a full day.</p>
+        </div>
+      </div>
+
+      <div class="alt">
+        <img class="alt-thumb" data-wiki="Casa Batlló" data-alt="Barcelona" alt="Casa Batlló">
+        <div class="alt-body">
+          <div class="alt-when">Any Barcelona morning · book ahead</div>
+          <div class="alt-name">Casa Batlló &amp; La Pedrera</div>
+          <p>Two Gaudí houses ten minutes apart on Passeig de Gràcia. Batlló is the theatrical one — bone balconies, a scaled dragon roof, a light well that darkens as it rises. La Pedrera is the austere one, and its rooftop of armoured chimneys is the better view. Both sell out days ahead.</p>
+        </div>
+      </div>
+
+      <div class="alt">
+        <img class="alt-thumb" data-wiki="Montjuïc" data-alt="Palau Nacional" alt="Montjuïc">
+        <div class="alt-body">
+          <div class="alt-when">An evening · free</div>
+          <div class="alt-name">Montjuïc &amp; the Magic Fountain</div>
+          <p>The hill above the port: gardens, the 1929 exposition palace holding the world's best Romanesque fresco collection, a castle at the top reached by cable car, and the fountain light-and-music show below, which is free and runs on selected evenings. A good use of a night when nothing else is on.</p>
+        </div>
+      </div>
+
+      <div class="alt">
+        <img class="alt-thumb" data-wiki="Barceloneta" data-alt="Barcelona" alt="Barcelona beaches">
+        <div class="alt-body">
+          <div class="alt-when">A few hours · in the city</div>
+          <div class="alt-name">The city beaches</div>
+          <p>Barceloneta is closest and busiest. Keep walking northeast past the port and it gets steadily calmer through Bogatell to Mar Bella in Poblenou — young, mixed, and a fifteen-minute metro ride from anywhere central. Useful for an afternoon that doesn't need a plan.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <div class="footer">Built by Claude · Auto-deploys via GitHub · <a href="https://whiteraymondspain.netlify.app" style="color:var(--light)">whiteraymondspain.netlify.app</a></div>
+  <hr class="divider">
+
+  <!-- ================= BOOKINGS ================= -->
+  <div>
+    <div class="section-label">Reference</div>
+    <h2>Confirmed &amp; outstanding</h2>
+    <table class="bookings">
+      <tr><th>When</th><th>What</th><th>Status</th></tr>
+      <tr><td>Sep 20</td><td>ATL → BCN nonstop, outbound</td><td>Needs rebooking — conf HTIZJY</td></tr>
+      <tr><td>Sep 22 · 3:15pm</td><td>Park Güell guided tour, 4 adults · ref 1411519457</td><td>Booked by AJ · $38 each owed</td></tr>
+      <tr><td>Sep 23 · 10:15am</td><td>Sagrada Família, 2 general admission</td><td>Paid · €52</td></tr>
+      <tr><td>Sep 23 · 2:00pm</td><td>Sant Pau, self-guided</td><td>Buy at santpaubarcelona.org</td></tr>
+      <tr><td>Sep 26</td><td>Wedding · Mas Rosset, Girona</td><td>—</td></tr>
+      <tr><td>Sep 28 · 12:00pm</td><td>Clos de Basella picnic, 6 adults · ref 1411134619</td><td>Booked by Shannon · payment owed</td></tr>
+      <tr><td>Oct 1</td><td>AVE Barcelona → Figueres</td><td>Book nearer the date</td></tr>
+      <tr><td>Oct 3 · 11:00am</td><td>DL195 BCN → ATL nonstop</td><td>Booked · unchanged</td></tr>
+    </table>
+    <div class="note" style="margin-top:24px;">
+      <strong>Still open:</strong> lodging. Nothing is booked anywhere in Spain — Barcelona for Sep 21–24, the Girona area for Sep 24–28, Lloret for Sep 28–30, and Barcelona again for Sep 30–Oct 3. The group's Barcelona apartments are in L'Eixample and Gràcia at the start and the Gothic Quarter at the end, and their host has a second unit available.
+    </div>
+  </div>
+
+  <div class="footer">Updated for the revised Barcelona-based plan · <a href="https://whiteraymondspain.netlify.app">whiteraymondspain.netlify.app</a></div>
 
 </div>
+
 <script>
-async function loadWikiImage(title) {
+// Landmark imagery, pulled live from Wikipedia. Tries a larger pageimages thumbnail
+// first, falls back to the REST summary, then to the element's data-alt title.
+async function wikiThumb(title) {
+  const api = 'https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&pithumbsize=900'
+            + '&format=json&origin=*&redirects=1&titles=' + encodeURIComponent(title);
   try {
-    const res = await fetch('https://en.wikipedia.org/api/rest_v1/page/summary/' + encodeURIComponent(title));
-    if (!res.ok) return null;
-    const data = await res.json();
-    return data.thumbnail ? data.thumbnail.source : null;
-  } catch(e) { return null; }
+    const res = await fetch(api);
+    if (res.ok) {
+      const data = await res.json();
+      const pages = data && data.query && data.query.pages;
+      for (const id in pages) {
+        if (pages[id].thumbnail && pages[id].thumbnail.source) return pages[id].thumbnail.source;
+      }
+    }
+  } catch (e) { /* fall through */ }
+  try {
+    const res2 = await fetch('https://en.wikipedia.org/api/rest_v1/page/summary/' + encodeURIComponent(title));
+    if (res2.ok) {
+      const d2 = await res2.json();
+      if (d2.thumbnail && d2.thumbnail.source) return d2.thumbnail.source;
+    }
+  } catch (e) { /* fall through */ }
+  return null;
 }
-async function populateImages() {
+
+(async function populateImages() {
   const imgs = document.querySelectorAll('img[data-wiki]');
-  for (const img of imgs) {
-    const src = await loadWikiImage(img.getAttribute('data-wiki'));
+  await Promise.all(Array.from(imgs).map(async (img) => {
+    let src = await wikiThumb(img.getAttribute('data-wiki'));
+    if (!src && img.getAttribute('data-alt')) src = await wikiThumb(img.getAttribute('data-alt'));
     if (src) { img.src = src; } else { img.style.display = 'none'; }
-  }
-}
-populateImages();
+  }));
+})();
 </script>
 </body>
 </html>
