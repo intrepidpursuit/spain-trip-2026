@@ -55,6 +55,7 @@
   .badge.group{ background:var(--group-bg); color:var(--group); }
   .badge.us{ background:var(--surface-2); color:var(--light); }
   .badge.booked{ background:var(--booked-bg); color:var(--booked); }
+  .badge.car{ background:var(--surface-2); color:var(--terracotta); }
   .badge.warn{ background:var(--warn-bg); color:var(--warn); }
 
   a.gm{ font-size:10px; font-weight:500; letter-spacing:.07em; text-transform:uppercase; color:var(--mid);
@@ -90,8 +91,12 @@
 
   .story{ max-width:64ch; }
   .beat{ margin:0 0 38px; }
-  .beat-when{ font-size:10px; font-weight:500; letter-spacing:.16em; text-transform:uppercase;
-              color:var(--terracotta); margin-bottom:6px; }
+  .beat-when{ display:inline-block; font-size:10px; font-weight:500; letter-spacing:.16em;
+              text-transform:uppercase; color:var(--terracotta); margin-bottom:6px;
+              text-decoration:none; }
+  .beat-when:hover{ color:var(--text); }
+  .beat h2 a{ color:inherit; text-decoration:none; }
+  .beat h2 a:hover{ color:var(--terracotta); }
   .beat h2{ font-family:'Jost',sans-serif; font-weight:400; font-size:20px; letter-spacing:-.005em;
             color:var(--text); margin-bottom:7px; }
   .beat p{ font-size:14.5px; color:var(--mid); line-height:1.7; max-width:60ch; }
@@ -122,6 +127,7 @@
   .cell{ background:var(--surface); padding:15px 17px; }
   .cell .k{ font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--light); margin-bottom:5px; }
   .cell .v{ font-size:14px; color:var(--text); font-weight:400; line-height:1.4; }
+  td .sub{ font-size:11px; color:var(--light); }
   .cell .s{ font-size:11.5px; color:var(--mid); margin-top:3px; }
   @media (max-width:560px){ .ev time{ flex-basis:76px } }
 </style>
@@ -153,8 +159,8 @@
 
   <div class="story">
     <div class="beat">
-      <div class="beat-when">Sat 20 – Mon 21 September</div>
-      <h2>Fly out, arrive Barcelona</h2>
+      <a class="beat-when" href="day.html#sep-20">Sat 20 – Mon 21 September</a>
+      <h2><a href="day.html#sep-20">Fly out, arrive Barcelona</a></h2>
       <p>An overnight nonstop, and half a day at the other end. Nobody else has landed yet.</p>
       <ul class="ev"><li><time>22:10</time><span><span class="d">Sat 20 &middot; </span>DL194 departs Atlanta</span></li><li><time>12:50</time><span><span class="d">Mon 21 &middot; </span>Land BCN</span></li><li><time>from 15:00</time><span><span class="d">Mon 21 &middot; </span>Check in &middot; Grand Hotel Central</span></li></ul>
       <div class="btags"><span class="btag grp solo">Just us</span><span class="btag act">Arrival</span><span class="btag trn">Flight + taxi</span></div>
@@ -162,17 +168,17 @@
     </div>
 
     <div class="beat">
-      <div class="beat-when">Tue 22 – Wed 23 September</div>
-      <h2>The Raymonds arrive</h2>
+      <a class="beat-when" href="day.html#sep-22">Tue 22 – Wed 23 September</a>
+      <h2><a href="day.html#sep-22">The Raymonds arrive</a></h2>
       <p>The group assembles. Two Gaud&iacute; days back to back, both with fixed entry times.</p>
-      <ul class="ev"><li><time>12:50</time><span><span class="d">Tue 22 &middot; </span>Devon, Tasia and Scott land</span></li><li><time>15:15</time><span><span class="d">Tue 22 &middot; </span>Meet &middot; Mirador de Joan Sales</span></li><li><time>15:30</time><span><span class="d">Tue 22 &middot; </span>Park G&uuml;ell tour</span></li><li><time>19:00</time><span><span class="d">Tue 22 &middot; </span>Dinner &middot; Gallo Santo, Gr&agrave;cia</span></li><li><time>10:15</time><span><span class="d">Wed 23 &middot; </span>Sagrada Fam&iacute;lia &mdash; your entry</span></li><li><time>10:45</time><span><span class="d">Wed 23 &middot; </span>Sagrada Fam&iacute;lia &mdash; theirs</span></li><li><time>14:00</time><span><span class="d">Wed 23 &middot; </span>Sant Pau, self-guided</span></li></ul>
+      <ul class="ev"><li><time>12:50</time><span><span class="d">Tue 22 &middot; </span>Devon, Tasha and Scott land</span></li><li><time>15:15</time><span><span class="d">Tue 22 &middot; </span>Meet &middot; Mirador de Joan Sales</span></li><li><time>15:30</time><span><span class="d">Tue 22 &middot; </span>Park G&uuml;ell tour</span></li><li><time>19:00</time><span><span class="d">Tue 22 &middot; </span>Dinner &middot; Gallo Santo, Gr&agrave;cia</span></li><li><time>10:15</time><span><span class="d">Wed 23 &middot; </span>Sagrada Fam&iacute;lia &mdash; your entry</span></li><li><time>10:45</time><span><span class="d">Wed 23 &middot; </span>Sagrada Fam&iacute;lia &mdash; theirs</span></li><li><time>14:00</time><span><span class="d">Wed 23 &middot; </span>Sant Pau, self-guided</span></li></ul>
       <div class="btags"><span class="btag grp">Everyone</span><span class="btag act">Sightseeing</span><span class="btag trn">Metro + walking</span></div>
       <a class="go" href="day.html#sep-22">Full day &rarr;</a>
     </div>
 
     <div class="beat pivot">
-      <div class="beat-when">Thursday 24 September</div>
-      <h2>Drive north to Girona</h2>
+      <a class="beat-when" href="day.html#sep-24">Thursday 24 September</a>
+      <h2><a href="day.html#sep-24">Drive north to Girona</a></h2>
       <p>The tightest morning of the trip: checkout, rental counter, coast road, castle. 108 km.</p>
       <ul class="ev"><li><time>09:45</time><span>Check out &middot; Grand Hotel Central</span></li><li><time>10:30</time><span>Collect the car &middot; Sants, level -1</span></li><li><time>12:15</time><span>Lunch &middot; Canet de Mar</span></li><li><time>13:30</time><span>Castell de Santa Florentina</span></li><li><time>~15:45</time><span>Into the DoubleTree, Girona</span></li></ul>
       <div class="btags"><span class="btag grp">Everyone</span><span class="btag act">Transit day</span><span class="btag trn">Car</span></div>
@@ -180,8 +186,8 @@
     </div>
 
     <div class="beat">
-      <div class="beat-when">Friday 25 September</div>
-      <h2>Girona</h2>
+      <a class="beat-when" href="day.html#sep-25">Friday 25 September</a>
+      <h2><a href="day.html#sep-25">Girona</a></h2>
       <p>Free until evening. The old town does properly in an afternoon, and the meet and greet is downstairs.</p>
       <ul class="ev"><li><time>Evening</time><span>Meet &amp; greet &middot; at the DoubleTree</span></li></ul>
       <div class="btags"><span class="btag grp">Everyone</span><span class="btag act">Old town</span><span class="btag trn">On foot</span></div>
@@ -189,8 +195,8 @@
     </div>
 
     <div class="beat pivot">
-      <div class="beat-when">Sat 26 – Sun 27 September</div>
-      <h2>The wedding</h2>
+      <a class="beat-when" href="day.html#sep-26">Sat 26 – Sun 27 September</a>
+      <h2><a href="day.html#sep-26">The wedding</a></h2>
       <p>A restored farmhouse north of Girona, and the whole day in one place. Sunday is deliberately empty.</p>
       <ul class="ev"><li><time>06:00</time><span><span class="d">Sat 26 &middot; </span>Hair and makeup begins</span></li><li><time>12:30</time><span><span class="d">Sat 26 &middot; </span>Photographer</span></li><li><time>14:00</time><span><span class="d">Sat 26 &middot; </span>Family and friend portraits</span></li><li><time>16:00</time><span><span class="d">Sat 26 &middot; </span>Ceremony &middot; Mas Rosset</span></li><li><time>10:00</time><span><span class="d">Sun 27 &middot; </span>Brunch, then the rooftop pool</span></li></ul>
       <div class="btags"><span class="btag grp wed">Wedding party</span><span class="btag act">Wedding &amp; recovery</span><span class="btag trn">Car</span></div>
@@ -198,8 +204,8 @@
     </div>
 
     <div class="beat">
-      <div class="beat-when">Monday 28 September</div>
-      <h2>Vineyard picnic, then Lloret</h2>
+      <a class="beat-when" href="day.html#sep-28">Monday 28 September</a>
+      <h2><a href="day.html#sep-28">Vineyard picnic, then Lloret</a></h2>
       <p>The longest drive of the trip, on a checkout day, with a wine tasting in the middle. The group splits here.</p>
       <ul class="ev"><li><time>by 12:00</time><span>Check out &middot; DoubleTree Girona</span></li><li><time>12:00</time><span>Clos de Basella &middot; walk, cellar, picnic</span></li><li><time>15:00</time><span>It ends. The Raymonds turn back to Barcelona</span></li><li><time>~16:30</time><span>Into Hotel Santa Marta, Lloret</span></li></ul>
       <div class="btags"><span class="btag grp wed">Everyone, then Jessi &amp; Dan</span><span class="btag act">Wine + transit</span><span class="btag trn">Car &middot; 124 km</span></div>
@@ -207,8 +213,8 @@
     </div>
 
     <div class="beat">
-      <div class="beat-when">Tuesday 29 September</div>
-      <h2>Coast morning, then back</h2>
+      <a class="beat-when" href="day.html#sep-29">Tuesday 29 September</a>
+      <h2><a href="day.html#sep-29">Coast morning, then back</a></h2>
       <p>Gardens, hotel beach and the next cove all sit on one walk. Then the drive back and the car handed over.</p>
       <ul class="ev"><li><time>10:00</time><span>Jardins de Santa Clotilde open</span></li><li><time>~12:00</time><span>Check out, leave the bags</span></li><li><time>15:15</time><span>Leave Lloret</span></li><li><time>17:00</time><span>Car back at Sants</span></li><li><time>~17:30</time><span>Check in &middot; Grand Hotel Central</span></li></ul>
       <div class="btags"><span class="btag grp solo">Just us, then everyone</span><span class="btag act">Beach &amp; gardens</span><span class="btag trn">On foot + car</span></div>
@@ -216,17 +222,17 @@
     </div>
 
     <div class="beat">
-      <div class="beat-when">Wednesday 30 September</div>
-      <h2>Figueres</h2>
-      <p>The Dal&iacute; Theatre-Museum, with Devon and Tasia. An hour on the AVE and no car needed.</p>
+      <a class="beat-when" href="day.html#sep-30">Wednesday 30 September</a>
+      <h2><a href="day.html#sep-30">Figueres</a></h2>
+      <p>The Dal&iacute; Theatre-Museum, with Devon and Tasha. An hour on the AVE and no car needed.</p>
       <ul class="ev"><li><time>Morning</time><span>AVE &middot; Sants &rarr; Figueres-Vilafant, 55&ndash;65 min</span></li><li><time>9:30&ndash;18:00</time><span>Museum hours &middot; shut Mondays in September</span></li></ul>
       <div class="btags"><span class="btag grp">With the Raymonds</span><span class="btag act">Museum</span><span class="btag trn">Train</span></div>
       <a class="go" href="day.html#sep-30">Full day &rarr;</a>
     </div>
 
     <div class="beat">
-      <div class="beat-when">Thu 1 – Fri 2 October</div>
-      <h2>Last days with the Raymonds</h2>
+      <a class="beat-when" href="day.html#oct-01">Thu 1 – Fri 2 October</a>
+      <h2><a href="day.html#oct-01">Last days with the Raymonds</a></h2>
       <p>Thursday stays in the city for their last full day. Friday is goodbyes, then the one piece of real landscape near Barcelona.</p>
       <ul class="ev"><li><time>Evening</time><span><span class="d">Thu 1 &middot; </span>Farewell dinner &middot; El Born</span></li><li><time>11:00</time><span><span class="d">Fri 2 &middot; </span>They fly &middot; DL195</span></li><li><time>Midday</time><span><span class="d">Fri 2 &middot; </span>Montserrat &middot; R5 from Pla&ccedil;a Espanya</span></li><li><time>~13:00</time><span><span class="d">Fri 2 &middot; </span>Boys&rsquo; choir, most days</span></li></ul>
       <div class="btags"><span class="btag grp">Everyone, then just us</span><span class="btag act">City + mountain</span><span class="btag trn">Metro + train</span></div>
@@ -234,8 +240,8 @@
     </div>
 
     <div class="beat">
-      <div class="beat-when">Saturday 3 October</div>
-      <h2>Fly home</h2>
+      <a class="beat-when" href="day.html#oct-03">Saturday 3 October</a>
+      <h2><a href="day.html#oct-03">Fly home</a></h2>
       <p>Checkout is noon, but the flight sets the alarm.</p>
       <ul class="ev"><li><time>08:15</time><span>Leave the hotel</span></li><li><time>11:00</time><span>DL195 departs BCN</span></li><li><time>15:28</time><span>Atlanta</span></li></ul>
       <div class="btags"><span class="btag grp solo">Just us</span><span class="btag act">Departure</span><span class="btag trn">Taxi + flight</span></div>
@@ -265,19 +271,19 @@
 
   <div class="section-label">Reference</div>
   <h2>Beaches</h2>
-  <p class="lede">Toplessness is legal and unremarkable on every public beach in Spain, so that column is about what's
-  normal rather than what's permitted. Clothing-optional marks beaches with an established naturist area.</p>
+  <p class="lede">Within reach without rearranging the trip. <span class="tag co">CO</span> marks a beach with an
+  established clothing-optional section &mdash; usually one signposted end rather than the whole thing.</p>
 
   <table>
-    <tr><th>Beach</th><th>Where</th><th>Getting there</th><th>Dress</th></tr>
-    <tr><td>Mar Bella</td><td>Barcelona &middot; Poblenou</td><td class="nw">Metro L4 &middot; 15 min</td><td><span class="tag co">Clothing optional</span></td></tr>
-    <tr><td>Cala Sa Boadella</td><td>Lloret de Mar</td><td class="nw">10 min walk from the hotel</td><td><span class="tag co">Clothing optional</span></td></tr>
-    <tr><td>Balmins</td><td>Sitges</td><td class="nw">10 min walk from town</td><td><span class="tag co">Clothing optional</span></td></tr>
-    <tr><td>Platja de l'Home Mort</td><td>Sitges &middot; south</td><td class="nw">Taxi + 10 min walk</td><td><span class="tag co">Clothing optional</span></td></tr>
-    <tr><td>La Musclera</td><td>Arenys de Mar</td><td class="nw">R1 train &middot; 50 min</td><td><span class="tag co">Clothing optional</span></td></tr>
-    <tr><td>Platja de Santa Cristina</td><td>Lloret de Mar</td><td class="nw">At the hotel</td><td><span class="tag top">Topless common</span></td></tr>
-    <tr><td>Bassa Rodona</td><td>Sitges &middot; centre</td><td class="nw">Seafront</td><td><span class="tag top">Topless common</span></td></tr>
-    <tr><td>Barceloneta &middot; Bogatell</td><td>Barcelona</td><td class="nw">Metro L4 &middot; 15 min</td><td><span class="tag top">Topless common</span></td></tr>
+    <tr><th>Beach</th><th>Where</th><th>Getting there</th></tr>
+    <tr><td>Platja de Santa Cristina</td><td>Lloret de Mar</td><td class="nw">At the hotel &middot; 5 min down</td></tr>
+    <tr><td>Cala Sa Boadella <span class="tag co">CO</span></td><td>Lloret de Mar</td><td class="nw">10 min walk over the headland</td></tr>
+    <tr><td>Mar Bella <span class="tag co">CO</span></td><td>Barcelona &middot; Poblenou</td><td class="nw">Metro L4 &middot; 15 min</td></tr>
+    <tr><td>Barceloneta &middot; Bogatell</td><td>Barcelona</td><td class="nw">Metro L4 &middot; 15 min</td></tr>
+    <tr><td>Balmins <span class="tag co">CO</span></td><td>Sitges</td><td class="nw">10 min walk from town</td></tr>
+    <tr><td>Bassa Rodona</td><td>Sitges &middot; centre</td><td class="nw">Seafront</td></tr>
+    <tr><td>Platja de l'Home Mort <span class="tag co">CO</span></td><td>Sitges &middot; south</td><td class="nw">Taxi + 10 min walk</td></tr>
+    <tr><td>La Musclera <span class="tag co">CO</span></td><td>Arenys de Mar</td><td class="nw">R1 train &middot; 50 min</td></tr>
   </table>
 
   <hr class="divider">
@@ -285,10 +291,25 @@
   <div class="section-label">Reference</div>
   <h2>Who's on what</h2>
   <table>
-    <tr><th>Who</th><th>In Spain</th><th>Staying</th></tr>
-    <tr><td>Joseph &amp; Melissa</td><td class="nw">Sep 21 &ndash; Oct 3</td><td>Grand Hotel Central &middot; DoubleTree Girona &middot; Santa Marta &middot; Grand Hotel Central</td></tr>
-    <tr><td>Devon, Tasia &amp; Scott</td><td class="nw">Sep 22 &ndash; Oct 2</td><td>Sercotel Caspe &middot; DoubleTree Girona &middot; Grand Hotel Central. Sixt XC40 from Sants, Sep 24&ndash;30. They do not go to Lloret.</td></tr>
-    <tr><td>Jessica &amp; Daniel</td><td class="nw">The wedding</td><td>Mas Rosset on the 26th, then Lloret with their group</td></tr>
+    <tr><th>Who</th><th>Flights</th><th>Staying</th></tr>
+    <tr>
+      <td>Joseph &amp; Melissa</td>
+      <td class="nw">DL194 ATL &rarr; BCN, lands Sep 21 12:50pm<br>DL195 BCN &rarr; ATL, Oct 3 11:00am<br><span class="sub">conf HTIZJY &middot; Delta One</span></td>
+      <td>Grand Hotel Central &middot; DoubleTree Girona &middot; Santa Marta &middot; Grand Hotel Central.<br>
+          National &euml;-C4 from Sants, Sep 24 10:30am &ndash; Sep 29 5:00pm.</td>
+    </tr>
+    <tr>
+      <td>Devon, Tasha &amp; Scott</td>
+      <td class="nw">JAX &rarr; ATL &rarr; BCN, lands Sep 22 12:50pm<br>DL195 BCN &rarr; ATL, Oct 2 11:00am<br><span class="sub">conf F7YTHX</span></td>
+      <td>Sercotel Caspe Sep 22&ndash;24 &middot; DoubleTree Girona Sep 24&ndash;28 &middot; Grand Hotel Central Sep 28&ndash;Oct 2.<br>
+          Sixt Volvo XC40 from Sants, Sep 24&ndash;30, conf 9737509473 &mdash; full with three and luggage.<br>
+          <b>They do not go to Lloret</b> &mdash; back to Barcelona after the picnic. Sep 29, 30 and Oct 1 are all free.</td>
+    </tr>
+    <tr>
+      <td>Jessica &amp; Daniel</td>
+      <td class="nw">&mdash;</td>
+      <td>Mas Rosset on the 26th, then Hotel Santa Marta in Lloret &mdash; the same night as you.</td>
+    </tr>
   </table>
 
   <div class="note">

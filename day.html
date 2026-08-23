@@ -57,6 +57,7 @@
   .badge.group{ background:var(--group-bg); color:var(--group); }
   .badge.us{ background:var(--surface-2); color:var(--light); }
   .badge.booked{ background:var(--booked-bg); color:var(--booked); }
+  .badge.car{ background:var(--surface-2); color:var(--terracotta); }
   .badge.warn{ background:var(--warn-bg); color:var(--warn); }
 
   a.gm{ font-size:10px; font-weight:500; letter-spacing:.07em; text-transform:uppercase; color:var(--mid);
@@ -138,6 +139,27 @@
   .opt-card b{ display:block; color:var(--text); font-weight:500; font-size:14px; margin-bottom:3px;
                font-family:'Cormorant Garamond',serif; font-size:16px; }
   .opt-card p{ font-size:12.5px; color:var(--mid); line-height:1.6; }
+
+  .kind{ display:inline-block; margin-left:9px; font-family:'Jost',sans-serif; font-size:10.5px;
+         font-weight:500; letter-spacing:.11em; text-transform:uppercase; color:var(--light);
+         border:1px solid var(--rule); border-radius:100px; padding:2px 9px; vertical-align:middle;
+         transform:translateY(-2px); }
+  .opt-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(255px,1fr)); gap:16px; margin-top:14px; }
+  .optc{ border:1px solid var(--rule); border-radius:6px; overflow:hidden; background:var(--surface);
+         display:flex; flex-direction:column; }
+  .optc img{ width:100%; height:120px; object-fit:cover; display:block; background:var(--surface-2); }
+  .optc .ob{ padding:13px 15px 15px; flex:1; display:flex; flex-direction:column; }
+  .optc h4{ font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:600; color:var(--text);
+            margin:0 0 3px; line-height:1.2 }
+  .optc .ok{ font-size:10px; font-weight:500; letter-spacing:.11em; text-transform:uppercase;
+             color:var(--light); margin-bottom:7px }
+  .optc p{ font-size:12.5px; color:var(--mid); line-height:1.6; margin:0 0 11px; flex:1 }
+  .optc .ol{ display:flex; gap:7px; flex-wrap:wrap }
+  .optc .ol a{ font-size:10.5px; letter-spacing:.05em; text-transform:uppercase; text-decoration:none;
+               color:var(--light); border:1px solid var(--rule); border-radius:100px; padding:3px 10px }
+  .optc .ol a:hover{ color:var(--terracotta); border-color:var(--terracotta-dim) }
+  .optc .ol a.nav{ color:var(--terracotta); border-color:var(--terracotta-dim) }
+  .optc .ol a.nav:hover{ background:var(--terracotta); color:#181210 }
 
   .daymap-wrap{ margin-top:6px; }
   .daymap{ height:340px; border:1px solid var(--rule); border-radius:6px; background:var(--surface);
@@ -277,22 +299,30 @@
         <div class="place">
           <img class="place-thumb" data-wiki="Gothic Quarter, Barcelona" data-alt="Barcelona" alt="Gothic Quarter">
           <div class="place-body">
-            <h3>Gothic Quarter</h3>
+            <h3>Gothic Quarter<span class="kind">Neighbourhood</span></h3>
             <p>The Roman and medieval core — narrow stone lanes that open without warning onto small squares. Best walked with no destination at all. The cathedral cloister has a pond with resident geese.</p>
-            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Gothic+Quarter+Barcelona" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Free</span> <span class="tag">Medieval</span></div>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Gothic+Quarter+Barcelona" target="_blank" rel="noopener">Maps ↗</a><a class="gm nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Gothic+Quarter+Barcelona&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a><span class="tag">Free</span> <span class="tag">Medieval</span></div>
           </div>
         </div><div class="place">
           <img class="place-thumb" data-wiki="La Boqueria" data-alt="Barcelona" alt="Mercat de la Boqueria">
           <div class="place-body">
-            <h3>Mercat de la Boqueria</h3>
+            <h3>Mercat de la Boqueria<span class="kind">Market</span></h3>
             <p>The market off La Rambla — jamón, seafood on ice, and tiny counter bars at the back where the cooking beats most restaurants in the city. Free to enter. Go before 2pm; the best stalls thin out after.</p>
-            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Mercat+de+la+Boqueria+Barcelona" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Food</span> <span class="tag">Free</span></div>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Mercat+de+la+Boqueria+Barcelona" target="_blank" rel="noopener">Maps ↗</a><a class="gm nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Mercat+de+la+Boqueria+Barcelona&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a><span class="tag">Food</span> <span class="tag">Free</span></div>
           </div>
         </div>
       </div>
       <hr class="divider">
       <div class="section-label">If the day has room</div>
-      <div class="options"><div class="opt-grid"><div class="opt-card"><b>Santa Maria del Mar</b><p>Ten minutes from the hotel and free most of the day — a good low-effort first stop if the room isn't ready.</p></div><div class="opt-card"><b>Bunkers del Carmel</b><p>Civil-war gun emplacements above the city with the best free view in Barcelona. Sunset is the point. A taxi up, walk down.</p></div></div></div>
+      <div class="opt-grid"><div class="optc"><img data-wiki="Santa Maria del Mar, Barcelona" data-alt="Catalonia" alt="Santa Maria del Mar"><div class="ob">
+              <h4>Santa Maria del Mar</h4>
+              <div class="ok">Church</div>
+              <p>Ten minutes from the hotel and free most of the day — a good low-effort first stop if the room isn't ready.</p><div class="ol"><a href="https://www.google.com/maps/search/?api=1&amp;query=Santa+Maria+del+Mar+Barcelona" target="_blank" rel="noopener">Maps ↗</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Santa+Maria+del+Mar+Barcelona&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
+            </div></div><div class="optc"><img data-wiki="Turó de la Rovira" data-alt="Catalonia" alt="Bunkers del Carmel"><div class="ob">
+              <h4>Bunkers del Carmel</h4>
+              <div class="ok">Viewpoint</div>
+              <p>Civil-war gun emplacements above the city with the best free view in Barcelona. Sunset is the point. A taxi up, walk down.</p><div class="ol"><a href="https://www.google.com/maps/search/?api=1&amp;query=Bunkers+del+Carmel+Barcelona" target="_blank" rel="noopener">Maps ↗</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Bunkers+del+Carmel+Barcelona&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
+            </div></div></div>
       <div class="night">Tonight · <b>Grand Hotel Central — Via Laietana 30 · Superior King</b> <a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.3856,2.178&travelmode=driving&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
       <div class="daynav"><a href="#sep-20"><small>Previous</small>Sat 20 · Depart Atlanta</a><a class="nx" href="#sep-22"><small>Next</small>Tue 22 · Park Güell with everyone</a></div>
     </section>
@@ -317,7 +347,7 @@
           <h4>The day</h4>
           <ul class="sched">
         <li><time>Morning</time><span>Yours. The Raymonds are still in the air.</span></li>
-        <li><time>12:50</time><span>Devon, Tasia and Scott land on the same route you flew.</span></li>
+        <li><time>12:50</time><span>Devon, Tasha and Scott land on the same route you flew.</span></li>
         <li><time>15:15</time><span>Meet at the Mirador de Joan Sales.</span></li>
         <li><time>15:30</time><span>Tour starts. Allow three hours with the free park.</span></li>
         <li><time>19:00</time><span>Gallo Santo, Gràcia.</span></li>
@@ -342,22 +372,30 @@
         <div class="place">
           <img class="place-thumb" data-wiki="Park Güell" data-alt="Barcelona" alt="Park Güell">
           <div class="place-body">
-            <h3>Park Güell</h3>
+            <h3>Park Güell<span class="kind">Park</span></h3>
             <p>Gaudí's failed luxury housing estate, now the most joyful thing in the city — a serpentine mosaic bench, a hall of tilted columns, and a terrace looking clean over Barcelona to the sea. The ticketed zone is small; the free park around it is large and worth the extra hour.</p>
-            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Park+Güell+Barcelona" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Gaudí</span> <span class="tag">Views</span> <span class="tag">Unmissable</span></div>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Park+Güell+Barcelona" target="_blank" rel="noopener">Maps ↗</a><a class="gm nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Park+Güell+Barcelona&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a><span class="tag">Gaudí</span> <span class="tag">Views</span> <span class="tag">Unmissable</span></div>
           </div>
         </div><div class="place">
           <img class="place-thumb" data-wiki="Gràcia" data-alt="Barcelona" alt="Gràcia">
           <div class="place-body">
-            <h3>Gràcia</h3>
+            <h3>Gràcia<span class="kind">Neighbourhood</span></h3>
             <p>A former village of small plazas swallowed by the city, and the best evening neighbourhood in Barcelona. Arrive early and wander before dinner — the squares fill up around eight and the whole district is walkable.</p>
-            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Gràcia+Barcelona" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Dinner</span> <span class="tag">Neighbourhood</span></div>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Gràcia+Barcelona" target="_blank" rel="noopener">Maps ↗</a><a class="gm nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Gràcia+Barcelona&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a><span class="tag">Dinner</span> <span class="tag">Neighbourhood</span></div>
           </div>
         </div>
       </div>
       <hr class="divider">
       <div class="section-label">If the day has room</div>
-      <div class="options"><div class="opt-grid"><div class="opt-card"><b>Casa Vicens</b><p>Gaudí's first house, ten minutes from Gallo Santo and almost never crowded. A good hour before dinner.</p></div><div class="opt-card"><b>Bunkers del Carmel</b><p>Twenty minutes downhill from Park Güell if the tour ends with light left.</p></div></div></div>
+      <div class="opt-grid"><div class="optc"><img data-wiki="Casa Vicens" data-alt="Catalonia" alt="Casa Vicens"><div class="ob">
+              <h4>Casa Vicens</h4>
+              <div class="ok">Gaudí house</div>
+              <p>Gaudí's first house, ten minutes from Gallo Santo and almost never crowded. A good hour before dinner.</p><div class="ol"><a href="https://www.google.com/maps/search/?api=1&amp;query=Casa+Vicens+Barcelona" target="_blank" rel="noopener">Maps ↗</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Casa+Vicens+Barcelona&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
+            </div></div><div class="optc"><img data-wiki="Turó de la Rovira" data-alt="Catalonia" alt="Bunkers del Carmel"><div class="ob">
+              <h4>Bunkers del Carmel</h4>
+              <div class="ok">Viewpoint</div>
+              <p>Twenty minutes downhill from Park Güell if the tour ends with light left.</p><div class="ol"><a href="https://www.google.com/maps/search/?api=1&amp;query=Bunkers+del+Carmel+Barcelona" target="_blank" rel="noopener">Maps ↗</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Bunkers+del+Carmel+Barcelona&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
+            </div></div></div>
       <div class="night">Tonight · <b>Grand Hotel Central — Via Laietana 30 · Superior King</b> <a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.3856,2.178&travelmode=driving&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
       <div class="daynav"><a href="#sep-21"><small>Previous</small>Mon 21 · Land Barcelona, settle in</a><a class="nx" href="#sep-23"><small>Next</small>Wed 23 · Sagrada Família and Sant Pau</a></div>
     </section>
@@ -406,22 +444,30 @@
         <div class="place">
           <img class="place-thumb" data-wiki="Sagrada Família" data-alt="Barcelona" alt="Basílica de la Sagrada Família">
           <div class="place-body">
-            <h3>Basílica de la Sagrada Família</h3>
+            <h3>Basílica de la Sagrada Família<span class="kind">Basilica</span></h3>
             <p>Under construction since 1882. The exterior is the famous part; the interior is the reason to go — a stone forest where the columns branch overhead and the glass throws red light west and blue east. Ninety minutes minimum.</p>
-            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Sagrada+Familia+Barcelona" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Gaudí</span> <span class="tag">Unmissable</span></div>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Sagrada+Familia+Barcelona" target="_blank" rel="noopener">Maps ↗</a><a class="gm nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Sagrada+Familia+Barcelona&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a><span class="tag">Gaudí</span> <span class="tag">Unmissable</span></div>
           </div>
         </div><div class="place">
           <img class="place-thumb" data-wiki="Hospital de Sant Pau" data-alt="Barcelona" alt="Sant Pau Recinte Modernista">
           <div class="place-body">
-            <h3>Sant Pau Recinte Modernista</h3>
+            <h3>Sant Pau Recinte Modernista<span class="kind">Historic site</span></h3>
             <p>A working hospital until 2009, built as twenty-seven mosaic-and-brick pavilions in a garden — Domènech i Montaner's answer to Gaudí, and to many people the better building. Far quieter than the Sagrada, and you can take your time.</p>
-            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Hospital+de+Sant+Pau+Barcelona" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Modernisme</span> <span class="tag">UNESCO</span></div>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Hospital+de+Sant+Pau+Barcelona" target="_blank" rel="noopener">Maps ↗</a><a class="gm nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Hospital+de+Sant+Pau+Barcelona&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a><span class="tag">Modernisme</span> <span class="tag">UNESCO</span></div>
           </div>
         </div>
       </div>
       <hr class="divider">
       <div class="section-label">If the day has room</div>
-      <div class="options"><div class="opt-grid"><div class="opt-card"><b>Mar Bella</b><p>Metro L4 and fifteen minutes if the afternoon wants a beach instead. Naturist section signposted.</p></div><div class="opt-card"><b>Casa Batlló or La Pedrera</b><p>Both on Passeig de Gràcia, both bookable same-day out of season, both an hour.</p></div></div></div>
+      <div class="opt-grid"><div class="optc"><img data-wiki="Mar Bella" data-alt="Catalonia" alt="Mar Bella"><div class="ob">
+              <h4>Mar Bella</h4>
+              <div class="ok">Beach</div>
+              <p>Metro L4 and fifteen minutes if the afternoon wants a beach instead. Naturist section signposted.</p><div class="ol"><a href="https://www.google.com/maps/search/?api=1&amp;query=Platja+de+la+Mar+Bella+Barcelona" target="_blank" rel="noopener">Maps ↗</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Platja+de+la+Mar+Bella+Barcelona&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
+            </div></div><div class="optc"><img data-wiki="Casa Batlló" data-alt="Catalonia" alt="Casa Batlló or La Pedrera"><div class="ob">
+              <h4>Casa Batlló or La Pedrera</h4>
+              <div class="ok">Gaudí house</div>
+              <p>Both on Passeig de Gràcia, both bookable same-day out of season, both an hour.</p><div class="ol"><a href="https://www.google.com/maps/search/?api=1&amp;query=Casa+Batllo+Barcelona" target="_blank" rel="noopener">Maps ↗</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Casa+Batllo+Barcelona&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
+            </div></div></div>
       <div class="night">Tonight · <b>Grand Hotel Central — Via Laietana 30 · Superior King</b> <a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.3856,2.178&travelmode=driving&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
       <div class="daynav"><a href="#sep-22"><small>Previous</small>Tue 22 · Park Güell with everyone</a><a class="nx" href="#sep-24"><small>Next</small>Thu 24 · North to Girona, castle on the way</a></div>
     </section>
@@ -475,22 +521,30 @@
         <div class="place">
           <img class="place-thumb" data-wiki="Castell de Santa Florentina" data-alt="Canet de Mar" alt="Castell de Santa Florentina">
           <div class="place-body">
-            <h3>Castell de Santa Florentina</h3>
+            <h3>Castell de Santa Florentina<span class="kind">Castle</span></h3>
             <p>An 11th-century fortified manor at Canet de Mar, reworked by Domènech i Montaner into something between a castle and a Modernista fantasy. Still privately owned and lived in. Doubled as Horn Hill in Game of Thrones.</p>
-            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Castell+de+Santa+Florentina+Canet+de+Mar" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Castle</span> <span class="tag">Game of Thrones</span></div>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Castell+de+Santa+Florentina+Canet+de+Mar" target="_blank" rel="noopener">Maps ↗</a><a class="gm nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Castell+de+Santa+Florentina+Canet+de+Mar&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a><span class="tag">Castle</span> <span class="tag">Game of Thrones</span></div>
           </div>
         </div><div class="place">
           <img class="place-thumb" data-wiki="Canet de Mar" data-alt="Maresme" alt="Canet de Mar">
           <div class="place-body">
-            <h3>Canet de Mar</h3>
+            <h3>Canet de Mar<span class="kind">Seaside town</span></h3>
             <p>A small Maresme coast town and the lunch stop before the castle. Domènech i Montaner kept a house here, now a museum, and there's a beach if the schedule loosens.</p>
-            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Canet+de+Mar" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Lunch</span> <span class="tag">Coast</span></div>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Canet+de+Mar" target="_blank" rel="noopener">Maps ↗</a><a class="gm nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Canet+de+Mar&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a><span class="tag">Lunch</span> <span class="tag">Coast</span></div>
           </div>
         </div>
       </div>
       <hr class="divider">
       <div class="section-label">If the day has room</div>
-      <div class="options"><div class="opt-grid"><div class="opt-card"><b>Skip the castle</b><p>If the tickets never go on sale, the coast road through the Maresme is pleasant on its own and you reach Girona in time for a long evening in the old town.</p></div><div class="opt-card"><b>Museu Domènech i Montaner</b><p>In Canet de Mar itself, five minutes from lunch — the architect's own house, and a small one-room answer to the castle if that falls through.</p></div></div></div>
+      <div class="opt-grid"><div class="optc"><img data-wiki="Canet de Mar" data-alt="Catalonia" alt="Skip the castle"><div class="ob">
+              <h4>Skip the castle</h4>
+              <div class="ok">Change of plan</div>
+              <p>If the tickets never go on sale, the coast road through the Maresme is pleasant on its own and you reach Girona in time for a long evening in the old town.</p><div class="ol"><a href="https://www.google.com/maps/search/?api=1&amp;query=Canet+de+Mar" target="_blank" rel="noopener">Maps ↗</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Canet+de+Mar&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
+            </div></div><div class="optc"><img data-wiki="Lluís Domènech i Montaner" data-alt="Catalonia" alt="Museu Domènech i Montaner"><div class="ob">
+              <h4>Museu Domènech i Montaner</h4>
+              <div class="ok">Museum</div>
+              <p>In Canet de Mar itself, five minutes from lunch — the architect's own house, and a small one-room answer to the castle if that falls through.</p><div class="ol"><a href="https://www.google.com/maps/search/?api=1&amp;query=Casa+Museu+Lluis+Domenech+i+Montaner+Canet+de+Mar" target="_blank" rel="noopener">Maps ↗</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Casa+Museu+Lluis+Domenech+i+Montaner+Canet+de+Mar&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
+            </div></div></div>
       <div class="night">Tonight · <b>DoubleTree by Hilton Girona — Mossèn Joan Pons 1 · King with balcony</b> <a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.9856,2.8194&travelmode=driving&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
       <div class="daynav"><a href="#sep-23"><small>Previous</small>Wed 23 · Sagrada Família and Sant Pau</a><a class="nx" href="#sep-25"><small>Next</small>Fri 25 · Girona, and the meet &amp; greet</a></div>
     </section>
@@ -537,22 +591,34 @@
         <div class="place">
           <img class="place-thumb" data-wiki="Girona" data-alt="Catalonia" alt="Girona Old Town">
           <div class="place-body">
-            <h3>Girona Old Town</h3>
+            <h3>Girona Old Town<span class="kind">Old town</span></h3>
             <p>Coloured houses stacked over the Onyar, one of Europe's best-preserved Jewish quarters, 12th-century Arab baths, and an iron footbridge Gustave Eiffel built before the tower. The medieval walls are free and you can walk them end to end.</p>
-            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Girona+Old+Town" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Free walls</span> <span class="tag">Medieval</span></div>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Girona+Old+Town" target="_blank" rel="noopener">Maps ↗</a><a class="gm nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Girona+Old+Town&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a><span class="tag">Free walls</span> <span class="tag">Medieval</span></div>
           </div>
         </div><div class="place">
           <img class="place-thumb" data-wiki="Girona Cathedral" data-alt="Girona" alt="Girona Cathedral">
           <div class="place-body">
-            <h3>Girona Cathedral</h3>
+            <h3>Girona Cathedral<span class="kind">Cathedral</span></h3>
             <p>Ninety-one steps up from the square, and the widest Gothic nave in the world at 23 metres — built without side aisles because the architects argued and the ambitious side won. The staircase is the one from the Great Sept.</p>
-            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Girona+Cathedral" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Gothic</span> <span class="tag">Views</span></div>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Girona+Cathedral" target="_blank" rel="noopener">Maps ↗</a><a class="gm nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Girona+Cathedral&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a><span class="tag">Gothic</span> <span class="tag">Views</span></div>
           </div>
         </div>
       </div>
       <hr class="divider">
       <div class="section-label">If the day has room</div>
-      <div class="options"><div class="opt-grid"><div class="opt-card"><b>Besalú</b><p>Twenty minutes out — a medieval town entered across a fortified bridge, and the best short trip from Girona.</p></div><div class="opt-card"><b>Banyoles</b><p>The largest lake in Catalonia, with a flat hour's walk around it. Good if the day wants to be gentle.</p></div><div class="opt-card"><b>El Call</b><p>Girona's Jewish quarter deserves its own hour rather than being walked through on the way somewhere.</p></div></div></div>
+      <div class="opt-grid"><div class="optc"><img data-wiki="Besalú" data-alt="Catalonia" alt="Besalú"><div class="ob">
+              <h4>Besalú</h4>
+              <div class="ok">Medieval town</div>
+              <p>Twenty minutes out — a medieval town entered across a fortified bridge, and the best short trip from Girona.</p><div class="ol"><a href="https://www.google.com/maps/search/?api=1&amp;query=Besalu+Girona" target="_blank" rel="noopener">Maps ↗</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Besalu+Girona&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
+            </div></div><div class="optc"><img data-wiki="Banyoles" data-alt="Catalonia" alt="Banyoles"><div class="ob">
+              <h4>Banyoles</h4>
+              <div class="ok">Lake</div>
+              <p>The largest lake in Catalonia, with a flat hour's walk around it. Good if the day wants to be gentle.</p><div class="ol"><a href="https://www.google.com/maps/search/?api=1&amp;query=Estany+de+Banyoles" target="_blank" rel="noopener">Maps ↗</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Estany+de+Banyoles&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
+            </div></div><div class="optc"><img data-wiki="Call of Girona" data-alt="Catalonia" alt="El Call"><div class="ob">
+              <h4>El Call</h4>
+              <div class="ok">Jewish quarter</div>
+              <p>Girona's Jewish quarter deserves its own hour rather than being walked through on the way somewhere.</p><div class="ol"><a href="https://www.google.com/maps/search/?api=1&amp;query=El+Call+Girona" target="_blank" rel="noopener">Maps ↗</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=El+Call+Girona&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
+            </div></div></div>
       <div class="night">Tonight · <b>DoubleTree by Hilton Girona — Mossèn Joan Pons 1 · King with balcony</b> <a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.9856,2.8194&travelmode=driving&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
       <div class="daynav"><a href="#sep-24"><small>Previous</small>Thu 24 · North to Girona, castle on the way</a><a class="nx" href="#sep-26"><small>Next</small>Sat 26 · Jessica and Daniel · Mas Rosset</a></div>
     </section>
@@ -603,9 +669,9 @@
         <div class="place">
           <img class="place-thumb" data-wiki="Empordà" data-alt="Catalonia" alt="Mas Rosset">
           <div class="place-body">
-            <h3>Mas Rosset</h3>
+            <h3>Mas Rosset<span class="kind">Wedding venue</span></h3>
             <p>The venue — a restored masia in the countryside north of Girona, rural enough that there is no Uber and no passing taxi. You have the car all weekend, which solves it.</p>
-            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Mas+Rosset+Cornellà+del+Terri" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Ceremony 4pm</span></div>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Mas+Rosset+Cornellà+del+Terri" target="_blank" rel="noopener">Maps ↗</a><a class="gm nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Mas+Rosset+Cornellà+del+Terri&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a><span class="tag">Ceremony 4pm</span></div>
           </div>
         </div>
       </div>
@@ -642,7 +708,15 @@
 
       <hr class="divider">
       <div class="section-label">If the day has room</div>
-      <div class="options"><div class="opt-grid"><div class="opt-card"><b>Girona again</b><p>Anything the Friday afternoon didn't reach — the cathedral, the walls, the Call.</p></div><div class="opt-card"><b>Banyoles</b><p>Twenty-five minutes, and a flat lakeside hour is about the right ambition for this particular Sunday.</p></div></div></div>
+      <div class="opt-grid"><div class="optc"><img data-wiki="Girona" data-alt="Catalonia" alt="Girona again"><div class="ob">
+              <h4>Girona again</h4>
+              <div class="ok">Old town</div>
+              <p>Anything the Friday afternoon didn't reach — the cathedral, the walls, the Call.</p><div class="ol"><a href="https://www.google.com/maps/search/?api=1&amp;query=Girona+Barri+Vell" target="_blank" rel="noopener">Maps ↗</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Girona+Barri+Vell&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
+            </div></div><div class="optc"><img data-wiki="Banyoles" data-alt="Catalonia" alt="Banyoles"><div class="ob">
+              <h4>Banyoles</h4>
+              <div class="ok">Lake</div>
+              <p>Twenty-five minutes, and a flat lakeside hour is about the right ambition for this particular Sunday.</p><div class="ol"><a href="https://www.google.com/maps/search/?api=1&amp;query=Estany+de+Banyoles" target="_blank" rel="noopener">Maps ↗</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Estany+de+Banyoles&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
+            </div></div></div>
       <div class="night">Tonight · <b>DoubleTree by Hilton Girona — Mossèn Joan Pons 1 · King with balcony</b> <a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.9856,2.8194&travelmode=driving&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
       <div class="daynav"><a href="#sep-26"><small>Previous</small>Sat 26 · Jessica and Daniel · Mas Rosset</a><a class="nx" href="#sep-28"><small>Next</small>Mon 28 · Vineyard picnic, then the coast</a></div>
     </section>
@@ -650,7 +724,7 @@
       <div class="dayp-head">
         <div class="dayp-eyebrow">Monday · September 28, 2026 · Day 9 of 14</div>
         <h1>Vineyard picnic, then the coast</h1>
-        <div><span class="badge group">Everyone</span> <span class="badge wedding">Then Jessi &amp; Dan</span> <span class="badge booked">Longest drive</span></div>
+        <div><span class="badge group">Everyone</span> <span class="badge wedding">Then Jessi &amp; Dan</span> <span class="badge car">Longest drive</span></div>
         <div class="transit"><span>Girona → Clos de Basella · ~40 min</span><span>Basella → Lloret · ~55 min</span><span>124 km on the day</span></div>
       </div>
 
@@ -670,12 +744,12 @@
         <li><time>12:00</time><span>Clos de Basella. Walk, tour, then a long picnic.</span></li>
         <li><time>15:00</time><span>It ends. The Raymonds turn back to Barcelona from here.</span></li>
         <li><time>~16:30</time><span>Into Hotel Santa Marta. Free parking, and free EV charging — plug in tonight.</span></li>
-        <li><time>Evening</time><span>Dinner with Jessi and Dan's group.</span></li>
+        <li><time>Evening</time><span>Dinner with Jessi and Dan's group — they're at Santa Marta too.</span></li>
           </ul>
         </div>
       </div>
 
-      <p class="dayp-lede">The heaviest driving day, and it lands on a checkout morning with a wine tasting in the middle. Clos de Basella is north of Girona in the Alt Empordà; Lloret is well south. Settle who drives before the tasting, not after.</p>
+      <p class="dayp-lede">The heaviest driving day, and it lands on a checkout morning with a wine tasting in the middle. Clos de Basella is north of Girona in the Alt Empordà; Lloret is well south. Settle who drives before the tasting, not after. The group splits after the picnic — the Raymonds turn back to Barcelona, and you follow Jessi and Dan down to the coast.</p>
 
       <hr class="divider">
       <div class="section-label">Getting between them</div>
@@ -692,22 +766,30 @@
         <div class="place">
           <img class="place-thumb" data-wiki="Empordà" data-alt="Catalonia" alt="Clos de Basella">
           <div class="place-body">
-            <h3>Clos de Basella</h3>
+            <h3>Clos de Basella<span class="kind">Winery</span></h3>
             <p>A small organic and biodynamic estate in the Empordà, the wine country between Girona and the French border. The picnic is the whole point rather than an add-on — local cheeses, cured meats and the estate's own wines, among the vines, for three hours.</p>
-            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Clos+de+Basella" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Wine</span> <span class="tag">Long lunch</span></div>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Clos+de+Basella" target="_blank" rel="noopener">Maps ↗</a><a class="gm nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Clos+de+Basella&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a><span class="tag">Wine</span> <span class="tag">Long lunch</span></div>
           </div>
         </div><div class="place">
           <img class="place-thumb" data-wiki="Lloret de Mar" data-alt="Costa Brava" alt="Hotel Santa Marta">
           <div class="place-body">
-            <h3>Hotel Santa Marta</h3>
+            <h3>Hotel Santa Marta<span class="kind">Hotel</span></h3>
             <p>Pine woods above its own beach at the far southern end of Lloret, three kilometres clear of the town and everything the town is known for. Free parking with EV charging, a free spa hour per stay, and breakfast included.</p>
-            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+Santa+Marta+Lloret+de+Mar" target="_blank" rel="noopener">Maps ↗</a><span class="tag">One night</span> <span class="tag">EV charging</span></div>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+Santa+Marta+Lloret+de+Mar" target="_blank" rel="noopener">Maps ↗</a><a class="gm nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Hotel+Santa+Marta+Lloret+de+Mar&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a><span class="tag">One night</span> <span class="tag">EV charging</span></div>
           </div>
         </div>
       </div>
       <hr class="divider">
       <div class="section-label">If the day has room</div>
-      <div class="options"><div class="opt-grid"><div class="opt-card"><b>Besalú on the way</b><p>Roughly on the line between Girona and the winery if you leave early enough.</p></div><div class="opt-card"><b>Tossa de Mar</b><p>Twenty-five minutes north of Lloret on the cliff road — a walled medieval town on the sea, and the best evening drive on this coast.</p></div></div></div>
+      <div class="opt-grid"><div class="optc"><img data-wiki="Besalú" data-alt="Catalonia" alt="Besalú on the way"><div class="ob">
+              <h4>Besalú on the way</h4>
+              <div class="ok">Medieval town</div>
+              <p>Roughly on the line between Girona and the winery if you leave early enough.</p><div class="ol"><a href="https://www.google.com/maps/search/?api=1&amp;query=Besalu+Girona" target="_blank" rel="noopener">Maps ↗</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Besalu+Girona&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
+            </div></div><div class="optc"><img data-wiki="Tossa de Mar" data-alt="Catalonia" alt="Tossa de Mar"><div class="ob">
+              <h4>Tossa de Mar</h4>
+              <div class="ok">Walled town</div>
+              <p>Twenty-five minutes north of Lloret on the cliff road — a walled medieval town on the sea, and the best evening drive on this coast.</p><div class="ol"><a href="https://www.google.com/maps/search/?api=1&amp;query=Tossa+de+Mar" target="_blank" rel="noopener">Maps ↗</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Tossa+de+Mar&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
+            </div></div></div>
       <div class="night">Tonight · <b>Hotel Santa Marta — Platja de Santa Cristina, Lloret · Premium sea-view terrace</b> <a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.6934,2.8158&travelmode=driving&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
       <div class="daynav"><a href="#sep-27"><small>Previous</small>Sun 27 · Brunch and pool</a><a class="nx" href="#sep-29"><small>Next</small>Tue 29 · Lloret morning, then back to Barcelona</a></div>
     </section>
@@ -715,7 +797,7 @@
       <div class="dayp-head">
         <div class="dayp-eyebrow">Tuesday · September 29, 2026 · Day 10 of 14</div>
         <h1>Lloret morning, then back to Barcelona</h1>
-        <div><span class="badge beach">Coast morning</span> <span class="badge booked">Car back 5pm</span></div>
+        <div><span class="badge wedding">Jessi &amp; Dan</span> <span class="badge beach">Coast morning</span> <span class="badge booked">Car back 5pm</span></div>
         <div class="transit"><span>Everything near the hotel is on foot</span><span>Depart Lloret 15:15</span><span>Lloret → Sants · 74 km · 56 min</span><span>Car back at 17:00</span></div>
       </div>
 
@@ -736,16 +818,16 @@
         <li><time>09:30</time><span>The free spa hour, or straight out to the gardens.</span></li>
         <li><time>10:00</time><span>Santa Clotilde opens. €6.10, and it's essentially next door.</span></li>
         <li><time>~12:00</time><span>Check out and leave the bags at the hotel.</span></li>
-        <li><time>12:00–14:00</time><span>Sa Boadella and Santa Cristina.</span></li>
+        <li><time>12:00–14:00</time><span>Santa Cristina and Sa Boadella. Ask Jessi and Dan the night before.</span></li>
         <li><time>14:00</time><span>Lunch in Lloret.</span></li>
-        <li><time>15:15</time><span>Leave. Half three at the latest — the car is due back at five, and the road in clogs from six.</span></li>
+        <li><time>15:15</time><span>Leave. The car is due back at five, and the road in clogs from six.</span></li>
         <li><time>17:00</time><span>Car back at Sants.</span></li>
         <li><time>~17:30</time><span>Into the Grand Hotel Central. Room's ready; check-in was three.</span></li>
           </ul>
         </div>
       </div>
 
-      <p class="dayp-lede">The gardens, the hotel beach and the next cove along all sit on one walk, and the gardens open at ten. Then the drive back, the car handed over, and an evening with the Raymonds — who came back to Barcelona yesterday and have nothing scheduled.</p>
+      <p class="dayp-lede">The gardens, the hotel beach and the next cove along all sit on one walk, and the gardens open at ten. Jessi and Dan are at Santa Marta as well, so the morning is theirs to join — worth asking at dinner the night before whether they fancy the beach. Then the drive back, the car handed over, and an evening with the Raymonds, who returned to Barcelona yesterday and have nothing scheduled.</p>
 
       <hr class="divider">
       <div class="section-label">Getting between them</div>
@@ -762,22 +844,41 @@
         <div class="place">
           <img class="place-thumb" data-wiki="Lloret de Mar" data-alt="Costa Brava" alt="Jardins de Santa Clotilde">
           <div class="place-body">
-            <h3>Jardins de Santa Clotilde</h3>
+            <h3>Jardins de Santa Clotilde<span class="kind">Gardens</span></h3>
             <p>The best thing near the hotel by a wide margin, and essentially next door — laid out along the clifftop in 1919 by Nicolau Rubió i Tudurí in the manner of an Italian Renaissance garden. Cypress avenues, statuary, ponds, and long staircases dropping through the pines to frame the sea. €6.10, open 10:00 to 20:00.</p>
-            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Jardins+de+Santa+Clotilde+Lloret+de+Mar" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Gardens</span> <span class="tag">Opens 10:00</span></div>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Jardins+de+Santa+Clotilde+Lloret+de+Mar" target="_blank" rel="noopener">Maps ↗</a><a class="gm nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Jardins+de+Santa+Clotilde+Lloret+de+Mar&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a><span class="tag">Gardens</span> <span class="tag">Opens 10:00</span></div>
           </div>
         </div><div class="place">
-          <img class="place-thumb" data-wiki="Costa Brava" data-alt="Cala Sa Boadella" alt="Santa Cristina and Sa Boadella">
+          <img class="place-thumb" data-wiki="Santa Cristina, Lloret de Mar" data-alt="Lloret de Mar" alt="Platja de Santa Cristina">
           <div class="place-body">
-            <h3>Santa Cristina and Sa Boadella</h3>
-            <p>Santa Cristina is the hotel's own beach — broad, sheltered, backed by umbrella pines, with a hermitage on the headland. Sa Boadella is the next cove over, ten minutes down a wooded path: no road, no buildings, pines to the sand, one small chiringuito. Regularly named among the finest coves on the Costa Brava.</p>
-            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Cala+Sa+Boadella+Lloret+de+Mar" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Clothing optional</span> <span class="tag">10 min walk</span></div>
+            <h3>Platja de Santa Cristina<span class="kind">Beach</span></h3>
+            <p>The hotel's own beach and the reason to stay out here — broad, sheltered, backed by umbrella pines, with a hermitage on the headland above. Straight down through the grounds, no road in, so the only casual arrivals come on foot or by boat. Sunloungers and a beach bar in season.</p>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Platja+de+Santa+Cristina+Lloret+de+Mar" target="_blank" rel="noopener">Maps ↗</a><a class="gm nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Platja+de+Santa+Cristina+Lloret+de+Mar&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a><span class="tag">At the hotel</span> <span class="tag">5 min down</span></div>
+          </div>
+        </div><div class="place">
+          <img class="place-thumb" data-wiki="Cala Boadella" data-alt="Lloret de Mar" alt="Cala Sa Boadella">
+          <div class="place-body">
+            <h3>Cala Sa Boadella<span class="kind">Beach</span></h3>
+            <p>The next cove north over the headland, about ten minutes on a wooded path from Santa Cristina — no road, no buildings, pines running down to the sand and one small chiringuito. Effectively the only undeveloped beach left in Lloret and regularly named among the best on the Costa Brava. The far right-hand end is the established naturist section; the rest is an ordinary beach. Quiet on a weekday.</p>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Cala+Sa+Boadella+Lloret+de+Mar" target="_blank" rel="noopener">Maps ↗</a><a class="gm nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Cala+Sa+Boadella+Lloret+de+Mar&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a><span class="tag">10 min walk</span> <span class="tag">CO at the far end</span></div>
           </div>
         </div>
       </div>
       <hr class="divider">
       <div class="section-label">If the day has room</div>
-      <div class="options"><div class="opt-grid"><div class="opt-card"><b>Camí de Ronda</b><p>The old coastguard path runs past the hotel — 8.5 km south to Blanes, 11 km north to Tossa. Take as much as the morning allows.</p></div><div class="opt-card"><b>Castell de Sant Joan</b><p>Ten minutes' drive, an 11th-century watchtower with the coast laid out both ways.</p></div><div class="opt-card"><b>Marimurtra, Blanes</b><p>Twenty minutes south — a clifftop botanical garden, one of the best in Europe, if Santa Clotilde leaves you wanting more of the same.</p></div></div></div>
+      <div class="opt-grid"><div class="optc"><img data-wiki="Camí de ronda" data-alt="Catalonia" alt="Camí de Ronda"><div class="ob">
+              <h4>Camí de Ronda</h4>
+              <div class="ok">Coast path</div>
+              <p>The old coastguard path runs past the hotel — 8.5 km south to Blanes, 11 km north to Tossa. Take as much as the morning allows.</p><div class="ol"><a href="https://www.google.com/maps/search/?api=1&amp;query=Cami+de+Ronda+Lloret+de+Mar" target="_blank" rel="noopener">Maps ↗</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Cami+de+Ronda+Lloret+de+Mar&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
+            </div></div><div class="optc"><img data-wiki="Castell de Sant Joan (Lloret de Mar)" data-alt="Catalonia" alt="Castell de Sant Joan"><div class="ob">
+              <h4>Castell de Sant Joan</h4>
+              <div class="ok">Watchtower</div>
+              <p>Ten minutes' drive, an 11th-century watchtower with the coast laid out both ways.</p><div class="ol"><a href="https://www.google.com/maps/search/?api=1&amp;query=Castell+de+Sant+Joan+Lloret+de+Mar" target="_blank" rel="noopener">Maps ↗</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Castell+de+Sant+Joan+Lloret+de+Mar&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
+            </div></div><div class="optc"><img data-wiki="Marimurtra" data-alt="Catalonia" alt="Marimurtra, Blanes"><div class="ob">
+              <h4>Marimurtra, Blanes</h4>
+              <div class="ok">Botanical garden</div>
+              <p>Twenty minutes south — a clifftop botanical garden, one of the best in Europe, if Santa Clotilde leaves you wanting more of the same.</p><div class="ol"><a href="https://www.google.com/maps/search/?api=1&amp;query=Jardi+Botanic+Marimurtra+Blanes" target="_blank" rel="noopener">Maps ↗</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Jardi+Botanic+Marimurtra+Blanes&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
+            </div></div></div>
       <div class="night">Tonight · <b>Grand Hotel Central — Via Laietana 30 · Deluxe King</b> <a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.3856,2.178&travelmode=driving&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
       <div class="daynav"><a href="#sep-28"><small>Previous</small>Mon 28 · Vineyard picnic, then the coast</a><a class="nx" href="#sep-30"><small>Next</small>Wed 30 · Figueres and the Dalí Theatre-Museum</a></div>
     </section>
@@ -785,7 +886,7 @@
       <div class="dayp-head">
         <div class="dayp-eyebrow">Wednesday · September 30, 2026 · Day 11 of 14</div>
         <h1>Figueres and the Dalí Theatre-Museum</h1>
-        <div><span class="badge group">Devon, Tasia &amp; Scott</span> <span class="badge us">Propose it</span></div>
+        <div><span class="badge group">Devon, Tasha &amp; Scott</span> <span class="badge us">Propose it</span></div>
         <div class="transit"><span>Sants → Figueres-Vilafant · 55–65 min · AVE</span><span>Station → museum · 20 min walk or 5 min taxi</span></div>
       </div>
 
@@ -809,7 +910,7 @@
         </div>
       </div>
 
-      <p class="dayp-lede">The natural day to do this with Devon and Tasia — it's one of their three open Barcelona days and the museum is squarely their kind of thing. A Wednesday because it's shut Mondays through September, which is what killed the original plan of doing it after the picnic.</p>
+      <p class="dayp-lede">The natural day to do this with Devon and Tasha — it's one of their three open Barcelona days and the museum is squarely their kind of thing. A Wednesday because it's shut Mondays through September, which is what killed the original plan of doing it after the picnic.</p>
 
       <hr class="divider">
       <div class="section-label">Getting between them</div>
@@ -826,15 +927,27 @@
         <div class="place">
           <img class="place-thumb" data-wiki="Dalí Theatre-Museum" data-alt="Figueres" alt="Teatre-Museu Dalí">
           <div class="place-body">
-            <h3>Teatre-Museu Dalí</h3>
+            <h3>Teatre-Museu Dalí<span class="kind">Museum</span></h3>
             <p>Dalí built it inside the bombed-out shell of the town theatre and designed every room as a single work — the Mae West face you assemble by standing in the right spot, the Rainy Taxi in the courtyard, giant eggs along the roofline. He's buried in the basement. Not a museum of his paintings so much as the largest surrealist object he ever made.</p>
-            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Teatre-Museu+Dalí+Figueres" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Art</span> <span class="tag">Unmissable</span></div>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Teatre-Museu+Dalí+Figueres" target="_blank" rel="noopener">Maps ↗</a><a class="gm nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Teatre-Museu+Dalí+Figueres&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a><span class="tag">Art</span> <span class="tag">Unmissable</span></div>
           </div>
         </div>
       </div>
       <hr class="divider">
       <div class="section-label">If the day has room</div>
-      <div class="options"><div class="opt-grid"><div class="opt-card"><b>Cadaqués</b><p>An hour east over the hills — the whitewashed village Dalí actually lived in, with his house at Portlligat. Needs a car, so it's an alternate rather than a plan.</p></div><div class="opt-card"><b>Castell de Sant Ferran</b><p>On the hill above Figueres, the largest bastion fortress in Europe and almost empty.</p></div><div class="opt-card"><b>Girona on the way back</b><p>The AVE passes through. A second look costs an hour.</p></div></div></div>
+      <div class="opt-grid"><div class="optc"><img data-wiki="Cadaqués" data-alt="Catalonia" alt="Cadaqués"><div class="ob">
+              <h4>Cadaqués</h4>
+              <div class="ok">Coastal town</div>
+              <p>An hour east over the hills — the whitewashed village Dalí actually lived in, with his house at Portlligat. Needs a car, so it's an alternate rather than a plan.</p><div class="ol"><a href="https://www.google.com/maps/search/?api=1&amp;query=Cadaques+Girona" target="_blank" rel="noopener">Maps ↗</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Cadaques+Girona&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
+            </div></div><div class="optc"><img data-wiki="Sant Ferran Castle" data-alt="Catalonia" alt="Castell de Sant Ferran"><div class="ob">
+              <h4>Castell de Sant Ferran</h4>
+              <div class="ok">Fortress</div>
+              <p>On the hill above Figueres, the largest bastion fortress in Europe and almost empty.</p><div class="ol"><a href="https://www.google.com/maps/search/?api=1&amp;query=Castell+de+Sant+Ferran+Figueres" target="_blank" rel="noopener">Maps ↗</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Castell+de+Sant+Ferran+Figueres&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
+            </div></div><div class="optc"><img data-wiki="Girona" data-alt="Catalonia" alt="Girona on the way back"><div class="ob">
+              <h4>Girona on the way back</h4>
+              <div class="ok">Old town</div>
+              <p>The AVE passes through. A second look costs an hour.</p><div class="ol"><a href="https://www.google.com/maps/search/?api=1&amp;query=Girona+Barri+Vell" target="_blank" rel="noopener">Maps ↗</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Girona+Barri+Vell&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
+            </div></div></div>
       <div class="night">Tonight · <b>Grand Hotel Central — Via Laietana 30 · Deluxe King</b> <a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.3856,2.178&travelmode=driving&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
       <div class="daynav"><a href="#sep-29"><small>Previous</small>Tue 29 · Lloret morning, then back to Barcelona</a><a class="nx" href="#oct-01"><small>Next</small>Thu 1 · El Born, and a final dinner</a></div>
     </section>
@@ -842,7 +955,7 @@
       <div class="dayp-head">
         <div class="dayp-eyebrow">Thursday · October 1, 2026 · Day 12 of 14</div>
         <h1>El Born, and a final dinner</h1>
-        <div><span class="badge group">Devon, Tasia &amp; Scott</span> <span class="badge wedding">Their last full day</span></div>
+        <div><span class="badge group">Devon, Tasha &amp; Scott</span> <span class="badge wedding">Their last full day</span></div>
         <div class="transit"><span>All in the city · metro or on foot</span></div>
       </div>
 
@@ -882,22 +995,34 @@
         <div class="place">
           <img class="place-thumb" data-wiki="Santa Maria del Mar, Barcelona" data-alt="Barcelona" alt="Santa Maria del Mar">
           <div class="place-body">
-            <h3>Santa Maria del Mar</h3>
+            <h3>Santa Maria del Mar<span class="kind">Church</span></h3>
             <p>Built in fifty-five years by the parish itself, which is why it's all one style — bare, tall, astonishingly plain Catalan Gothic with almost nothing in it. The anarchists burned the baroque fittings in 1936 and the building was better for it. Free most of the day.</p>
-            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Santa+Maria+del+Mar+Barcelona" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Gothic</span> <span class="tag">Free</span></div>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Santa+Maria+del+Mar+Barcelona" target="_blank" rel="noopener">Maps ↗</a><a class="gm nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Santa+Maria+del+Mar+Barcelona&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a><span class="tag">Gothic</span> <span class="tag">Free</span></div>
           </div>
         </div><div class="place">
           <img class="place-thumb" data-wiki="Museu Picasso" data-alt="Barcelona" alt="Museu Picasso">
           <div class="place-body">
-            <h3>Museu Picasso</h3>
+            <h3>Museu Picasso<span class="kind">Museum</span></h3>
             <p>Five medieval palaces knocked together, holding the early work almost nobody associates with him — academic paintings made at fifteen, the Blue Period, and the full Las Meninas series. Book ahead; it sells out.</p>
-            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Museu+Picasso+Barcelona" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Art</span> <span class="tag">Book ahead</span></div>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Museu+Picasso+Barcelona" target="_blank" rel="noopener">Maps ↗</a><a class="gm nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Museu+Picasso+Barcelona&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a><span class="tag">Art</span> <span class="tag">Book ahead</span></div>
           </div>
         </div>
       </div>
       <hr class="divider">
       <div class="section-label">If the day has room</div>
-      <div class="options"><div class="opt-grid"><div class="opt-card"><b>Mar Bella</b><p>Metro L4, fifteen minutes, and the only clothing-optional beach you don't need a day for.</p></div><div class="opt-card"><b>El Born CCM</b><p>The excavated 1700s streets under the old market hall, free to walk into.</p></div><div class="opt-card"><b>Palau de la Música</b><p>Domènech i Montaner again, and the interior nobody expects. Tours sell out; same-day is sometimes possible.</p></div></div></div>
+      <div class="opt-grid"><div class="optc"><img data-wiki="Mar Bella" data-alt="Catalonia" alt="Mar Bella"><div class="ob">
+              <h4>Mar Bella</h4>
+              <div class="ok">Beach</div>
+              <p>Metro L4, fifteen minutes, and the only clothing-optional beach you don't need a day for.</p><div class="ol"><a href="https://www.google.com/maps/search/?api=1&amp;query=Platja+de+la+Mar+Bella+Barcelona" target="_blank" rel="noopener">Maps ↗</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Platja+de+la+Mar+Bella+Barcelona&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
+            </div></div><div class="optc"><img data-wiki="El Born Centre de Cultura i Memòria" data-alt="Catalonia" alt="El Born CCM"><div class="ob">
+              <h4>El Born CCM</h4>
+              <div class="ok">Museum</div>
+              <p>The excavated 1700s streets under the old market hall, free to walk into.</p><div class="ol"><a href="https://www.google.com/maps/search/?api=1&amp;query=El+Born+Centre+de+Cultura+i+Memoria+Barcelona" target="_blank" rel="noopener">Maps ↗</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=El+Born+Centre+de+Cultura+i+Memoria+Barcelona&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
+            </div></div><div class="optc"><img data-wiki="Palau de la Música Catalana" data-alt="Catalonia" alt="Palau de la Música"><div class="ob">
+              <h4>Palau de la Música</h4>
+              <div class="ok">Concert hall</div>
+              <p>Domènech i Montaner again, and the interior nobody expects. Tours sell out; same-day is sometimes possible.</p><div class="ol"><a href="https://www.google.com/maps/search/?api=1&amp;query=Palau+de+la+Musica+Catalana+Barcelona" target="_blank" rel="noopener">Maps ↗</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Palau+de+la+Musica+Catalana+Barcelona&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
+            </div></div></div>
       <div class="night">Tonight · <b>Grand Hotel Central — Via Laietana 30 · Deluxe King</b> <a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.3856,2.178&travelmode=driving&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
       <div class="daynav"><a href="#sep-30"><small>Previous</small>Wed 30 · Figueres and the Dalí Theatre-Museum</a><a class="nx" href="#oct-02"><small>Next</small>Fri 2 · Goodbyes, then Montserrat</a></div>
     </section>
@@ -947,15 +1072,27 @@
         <div class="place">
           <img class="place-thumb" data-wiki="Montserrat (mountain)" data-alt="Montserrat" alt="Montserrat">
           <div class="place-body">
-            <h3>Montserrat</h3>
+            <h3>Montserrat<span class="kind">Monastery</span></h3>
             <p>A Benedictine monastery wedged into a mountain of pink conglomerate that erodes into hundreds of rounded fingers, visible from half of Catalonia. The Black Madonna is inside; the boys' choir sings most days around 1pm. The real draw is above the abbey — funiculars and ridge paths with a thousand-metre drop to the plain.</p>
-            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Montserrat+Monastery" target="_blank" rel="noopener">Maps ↗</a><span class="tag">Landscape</span> <span class="tag">Full day</span></div>
+            <div class="links"><a class="gm" href="https://www.google.com/maps/search/?api=1&amp;query=Montserrat+Monastery" target="_blank" rel="noopener">Maps ↗</a><a class="gm nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Montserrat+Monastery&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a><span class="tag">Landscape</span> <span class="tag">Full day</span></div>
           </div>
         </div>
       </div>
       <hr class="divider">
       <div class="section-label">If the day has room</div>
-      <div class="options"><div class="opt-grid"><div class="opt-card"><b>Sitges</b><p>Thirty-five minutes on the R2 from Passeig de Gràcia. Seventeen beaches, two of them clothing-optional, and no planning at all. The lowest-effort version of this day.</p></div><div class="opt-card"><b>Penedès</b><p>Cava country, forty-five minutes out at Sant Sadurní. Tours run most afternoons.</p></div><div class="opt-card"><b>Stay in the city</b><p>Montjuïc has the Romanesque collection, a castle at the top by cable car, and the fountain show below.</p></div></div></div>
+      <div class="opt-grid"><div class="optc"><img data-wiki="Sitges" data-alt="Catalonia" alt="Sitges"><div class="ob">
+              <h4>Sitges</h4>
+              <div class="ok">Seaside town</div>
+              <p>Thirty-five minutes on the R2 from Passeig de Gràcia. Seventeen beaches, two of them clothing-optional, and no planning at all. The lowest-effort version of this day.</p><div class="ol"><a href="https://www.google.com/maps/search/?api=1&amp;query=Sitges+Barcelona" target="_blank" rel="noopener">Maps ↗</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Sitges+Barcelona&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
+            </div></div><div class="optc"><img data-wiki="Sant Sadurní d'Anoia" data-alt="Catalonia" alt="Penedès"><div class="ob">
+              <h4>Penedès</h4>
+              <div class="ok">Wine country</div>
+              <p>Cava country, forty-five minutes out at Sant Sadurní. Tours run most afternoons.</p><div class="ol"><a href="https://www.google.com/maps/search/?api=1&amp;query=Sant+Sadurni+d+Anoia" target="_blank" rel="noopener">Maps ↗</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Sant+Sadurni+d+Anoia&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
+            </div></div><div class="optc"><img data-wiki="Barcelona" data-alt="Catalonia" alt="Stay in the city"><div class="ob">
+              <h4>Stay in the city</h4>
+              <div class="ok">Change of plan</div>
+              <p>Montjuïc has the Romanesque collection, a castle at the top by cable car, and the fountain show below.</p><div class="ol"><a href="https://www.google.com/maps/search/?api=1&amp;query=Barcelona" target="_blank" rel="noopener">Maps ↗</a><a class="nav" href="https://www.google.com/maps/dir/?api=1&amp;destination=Barcelona&amp;dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
+            </div></div></div>
       <div class="night">Tonight · <b>Grand Hotel Central — Via Laietana 30 · Deluxe King</b> <a class="nav" href="https://www.google.com/maps/dir/?api=1&destination=41.3856,2.178&travelmode=driving&dir_action=navigate" target="_blank" rel="noopener">Navigate ▸</a></div>
       <div class="daynav"><a href="#oct-01"><small>Previous</small>Thu 1 · El Born, and a final dinner</a><a class="nx" href="#oct-03"><small>Next</small>Sat 3 · Home</a></div>
     </section>
